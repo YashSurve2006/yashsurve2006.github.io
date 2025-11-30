@@ -1,0 +1,1007 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Yash Surve — Full-Stack Developer & UI/UX</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <meta name="description"
+        content="Yash Surve — Full-stack developer focusing on React, Node.js, MySQL and UI/UX. Portfolio with InventoryX (full-stack inventory system) and data visualizations.">
+    <style>
+        /* ======================
+   Polished desktop-first portfolio (single file)
+   Focus: clean typography, strong visual hierarchy, accessible interactions
+   ====================== */
+
+        /* Variables */
+        :root {
+            --bg-0: #0b1220;
+            --bg-1: linear-gradient(180deg, #071128, #0b1220 60%);
+            --card: rgba(255, 255, 255, 0.03);
+            --glass: rgba(255, 255, 255, 0.04);
+            --muted: #9aa4c1;
+            --accent-a: #2563eb;
+            --accent-b: #7c3aed;
+            --accent-grad: linear-gradient(90deg, #2563eb, #7c3aed);
+            --fg: #e6eefc;
+            --radius: 14px;
+            --max-width: 1300px;
+            font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        :root[data-theme="light"] {
+            --bg-0: #f6f8ff;
+            --bg-1: linear-gradient(180deg, #f6f8ff, #ffffff 60%);
+            --card: #ffffff;
+            --glass: rgba(15, 23, 42, 0.03);
+            --muted: #475569;
+            --fg: #071127;
+            --accent-a: #2b6cb0;
+            --accent-b: #6d28d9;
+            --accent-grad: linear-gradient(90deg, #6d28d9, #2b6cb0);
+        }
+
+        /* Reset & base */
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg-1);
+            color: var(--fg);
+            display: flex;
+            justify-content: center;
+            padding: 28px;
+            align-items: flex-start;
+            line-height: 1.45;
+        }
+
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 28px;
+            align-items: start;
+        }
+
+        /* Skip link */
+        .skip {
+            position: absolute;
+            left: -999px
+        }
+
+        .skip:focus {
+            position: fixed;
+            left: 12px;
+            top: 12px;
+            padding: 8px 12px;
+            background: #fff;
+            color: #071127;
+            border-radius: 8px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+            z-index: 9999
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            position: sticky;
+            top: 28px;
+            height: calc(100vh - 56px);
+            padding: 22px;
+            border-radius: var(--radius);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+            backdrop-filter: blur(6px);
+            box-shadow: 0 14px 50px rgba(2, 6, 23, 0.5);
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .brand {
+            display: flex;
+            gap: 12px;
+            align-items: center
+        }
+
+        .logo {
+            width: 64px;
+            height: 64px;
+            border-radius: 12px;
+            display: grid;
+            place-items: center;
+            font-weight: 800;
+            background: var(--accent-grad);
+            color: white;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.12)
+        }
+
+        .sidebar h1 {
+            margin: 0;
+            font-size: 1.05rem
+        }
+
+        .sidebar p.small {
+            margin: 2px 0 0;
+            color: var(--muted);
+            font-size: .95rem
+        }
+
+        /* Links */
+        .socials {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 6px
+        }
+
+        .chip {
+            padding: 8px 10px;
+            border-radius: 999px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            color: var(--fg);
+            font-weight: 700;
+            font-size: .9rem;
+            text-decoration: none;
+            display: inline-flex;
+            gap: 8px;
+            align-items: center
+        }
+
+        .side-nav {
+            margin-top: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px
+        }
+
+        .side-nav a {
+            padding: 10px 12px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--muted);
+            font-weight: 700
+        }
+
+        .side-nav a.active,
+        .side-nav a:hover {
+            color: var(--fg);
+            background: linear-gradient(90deg, rgba(124, 58, 237, 0.12), rgba(37, 99, 235, 0.08));
+            transform: translateX(6px);
+            transition: transform .18s
+        }
+
+        /* CTA row */
+        .cta {
+            margin-top: auto;
+            display: flex;
+            gap: 10px
+        }
+
+        .btn {
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            background: var(--accent-grad);
+            color: white;
+            font-weight: 800;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.12)
+        }
+
+        .btn.ghost {
+            background: transparent;
+            color: var(--fg);
+            border: 1px solid rgba(255, 255, 255, 0.06)
+        }
+
+        /* MAIN */
+        .main {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            gap: 20px
+        }
+
+        /* HERO */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 22px;
+            padding: 28px;
+            border-radius: var(--radius);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+            box-shadow: 0 18px 80px rgba(2, 6, 23, 0.5);
+            position: relative;
+            overflow: hidden
+        }
+
+        .hi {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-weight: 700;
+            color: var(--muted);
+            font-size: .95rem
+        }
+
+        .title {
+            margin: 6px 0 0;
+            font-size: 2.6rem;
+            line-height: 1.02;
+            background: var(--accent-grad);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent
+        }
+
+        .lead {
+            color: var(--muted);
+            margin-top: 12px;
+            max-width: 60ch
+        }
+
+        .hero-ctas {
+            margin-top: 18px;
+            display: flex;
+            gap: 12px;
+            align-items: center
+        }
+
+        /* Hero KPI cards */
+        .kpis {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px
+        }
+
+        .kpi {
+            padding: 12px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.02);
+            min-width: 120px;
+            text-align: center
+        }
+
+        .kpi strong {
+            display: block;
+            font-size: 1.15rem
+        }
+
+        /* Projects section */
+        .section {
+            padding: 20px;
+            border-radius: 12px;
+            background: var(--card);
+            backdrop-filter: blur(6px);
+            box-shadow: 0 8px 28px rgba(2, 6, 23, 0.45)
+        }
+
+        .section h2 {
+            margin: 0 0 8px 0;
+            font-size: 1.15rem
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-top: 12px
+        }
+
+        .project {
+            border-radius: 12px;
+            padding: 14px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.02));
+            min-height: 170px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            transition: transform .22s, box-shadow .22s
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 90px rgba(2, 6, 23, 0.5)
+        }
+
+        .thumb {
+            height: 96px;
+            border-radius: 10px;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--accent-a), var(--accent-b));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 1.05rem
+        }
+
+        .meta {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: auto
+        }
+
+        /* Skills */
+        .skills {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            margin-top: 6px
+        }
+
+        .skill-col {
+            flex: 1
+        }
+
+        .skill-bar {
+            height: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 999px;
+            overflow: hidden
+        }
+
+        .skill-bar>i {
+            display: block;
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--accent-b), var(--accent-a));
+            transition: width .9s cubic-bezier(.2, .9, .3, 1)
+        }
+
+        /* About & timeline */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 12px
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start
+        }
+
+        .timeline-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, var(--accent-b), var(--accent-a));
+            margin-top: 6px
+        }
+
+        .timeline-card {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 12px;
+            border-radius: 10px
+        }
+
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 360px;
+            gap: 18px;
+            margin-top: 12px
+        }
+
+        .input,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            background: transparent;
+            color: var(--fg)
+        }
+
+        textarea {
+            min-height: 160px;
+            resize: vertical
+        }
+
+        /* Modal */
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(2, 6, 23, 0.6);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999
+        }
+
+        .modal {
+            background: var(--card);
+            max-width: 980px;
+            width: calc(100% - 48px);
+            border-radius: 12px;
+            padding: 18px
+        }
+
+        /* Resume button & TO TOP */
+        .to-top {
+            position: fixed;
+            right: 28px;
+            bottom: 28px;
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            display: grid;
+            place-items: center;
+            background: var(--accent-grad);
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 12px 40px rgba(37, 99, 235, 0.14);
+            z-index: 999
+        }
+
+        /* Responsive */
+        @media (max-width:1100px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .container {
+                grid-template-columns: 280px 1fr
+            }
+        }
+
+        @media (max-width:880px) {
+            .container {
+                grid-template-columns: 1fr;
+                padding: 18px
+            }
+
+            .sidebar {
+                position: relative;
+                height: auto;
+                order: 2
+            }
+
+            .main {
+                order: 1
+            }
+
+            .hero {
+                grid-template-columns: 1fr
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr
+            }
+        }
+
+        /* Focus */
+        :focus {
+            outline: 3px solid rgba(37, 99, 235, 0.12);
+            outline-offset: 3px
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Resume source used to populate content: :contentReference[oaicite:1]{index=1} -->
+    <a class="skip" href="#main">Skip to main content</a>
+
+    <div class="container" role="document" aria-label="Portfolio">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" aria-labelledby="profile">
+            <div class="brand">
+                <div class="logo" aria-hidden="true">YS</div>
+                <div>
+                    <h1 id="profile">Yash Surve</h1>
+                    <p class="small">Full-Stack Developer • UI/UX Enthusiast</p>
+                </div>
+            </div>
+
+            <p class="small">I design and build polished web applications with strong UI/UX, focusing on React, Node.js,
+                and MySQL — and accessible, production-ready interfaces.</p>
+
+            <div class="socials" aria-label="Quick links">
+                <a class="chip" href="#" id="copy-email">📧 yashsurve2019@gmail.com</a>
+                <a class="chip" href="#" id="download-resume">⬇ Download Resume</a>
+                <a class="chip" href="https://github.com/YashSurve2006" target="_blank" rel="noopener">🐙 GitHub</a>
+                <a class="chip" href="https://www.linkedin.com/in/yash-surve-535954288" target="_blank"
+                    rel="noopener">🔗 LinkedIn</a>
+            </div>
+
+            <nav class="side-nav" aria-label="Primary navigation">
+                <a href="#home" class="active">Home</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+            <div class="cta">
+                <button class="btn" id="hire">Hire / Contact</button>
+                <button class="btn ghost" id="theme-toggle" aria-pressed="false" title="Toggle theme">Theme</button>
+            </div>
+        </aside>
+
+        <!-- MAIN -->
+        <main class="main" id="main" tabindex="-1">
+
+            <!-- HERO -->
+            <section class="hero" id="home" aria-label="Introduction">
+                <div>
+                    <div class="hi">Hello — I'm</div>
+                    <h2 class="title" id="animated-title">Yash Surve — Full-Stack Developer</h2>
+                    <p class="lead">Aspiring software developer experienced in frontend-first interfaces, backend APIs
+                        and database design. Skilled in React, Node.js, MySQL, Java & Python. (Populated from resume.)
+                    </p>
+
+                    <div class="hero-ctas" role="group" aria-label="Primary actions">
+                        <button class="btn" id="btn-projects">See projects</button>
+                        <button class="btn ghost" id="btn-about">About & CV</button>
+                    </div>
+
+                    <div class="kpis" aria-hidden="true">
+                        <div class="kpi"><strong>6+</strong><span class="small">Projects</span></div>
+                        <div class="kpi"><strong>HTML/ CSS/ JS/ REACT</strong><span class="small">Frontend</span></div>
+                        <div class="kpi"><strong>MySQL/PHP</strong><span class="small">Databases</span></div>
+                    </div>
+                </div>
+
+                <aside class="kicker" aria-hidden="false">
+                    <div style="font-weight:800">Contact</div>
+                    <div style="color:var(--muted)">yashsurve2019@gmail.com</div>
+                    <div style="margin-top:12px;color:var(--muted)">Dombivli, Mumbai</div>
+                    <div style="margin-top:6px;color:var(--muted)">+91 88507 06982</div>
+                </aside>
+            </section>
+
+            <!-- PROJECTS -->
+            <section class="section" id="projects" aria-labelledby="projects-title">
+                <h2 id="projects-title">Featured Projects</h2>
+                <p class="small" style="margin:6px 0 0 0;color:var(--muted)">Main project is InventoryX (full-stack).
+                    Click any card for details, screenshots and links.</p>
+
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+                    <div>
+                        <button class="chip" data-filter="all">All</button>
+                        <button class="chip" data-filter="web">Web</button>
+                        <button class="chip" data-filter="data">Data</button>
+                        <button class="chip" data-filter="ui">UI</button>
+                    </div>
+                    <div style="color:var(--muted)">Keyboard: ← → to navigate</div>
+                </div>
+
+                <div class="projects-grid" id="grid">
+                    <!-- Project A: InventoryX (REAL) -->
+                    <article class="project" tabindex="0" role="button" data-tags="web"
+                        data-title="InventoryX — Full-Stack Inventory Management"
+                        data-desc="InventoryX is a production-ready inventory management system built with React, Node.js, MySQL. Features: secure auth (JWT + bcrypt), role-based access, dashboard, low-stock alerts, reports, CSV import/export, and responsive UI."
+                        data-github="https://github.com/YashSurve2006" data-live="">
+                        <div class="thumb" aria-hidden="true">
+                            <!-- Placeholder screenshot; replace with real images by editing data-images attr or swapping innerHTML -->
+                            <svg width="100%" height="96" viewBox="0 0 300 96" preserveAspectRatio="xMidYMid meet"
+                                xmlns="http://www.w3.org/2000/svg" role="img"
+                                aria-label="InventoryX screenshot placeholder">
+                                <rect width="300" height="96" rx="8" fill="url(#g)"></rect>
+                                <defs>
+                                    <linearGradient id="g" x1="0" x2="1">
+                                        <stop offset="0" stop-color="#2563eb" />
+                                        <stop offset="1" stop-color="#7c3aed" />
+                                    </linearGradient>
+                                </defs>
+                                <text x="20" y="58" fill="#fff" font-size="18" font-weight="700">InventoryX —
+                                    Dashboard</text>
+                            </svg>
+                        </div>
+                        <div style="font-weight:800">InventoryX — Inventory Management</div>
+                        <div class="meta">
+                            <span class="chip">React</span>
+                            <span class="chip">Node.js</span>
+                            <span class="chip">MySQL</span>
+                            <span class="chip">JWT</span>
+                        </div>
+                    </article>
+
+                    <!-- Project B: Portfolio (this site) -->
+                    <article class="project" tabindex="0" role="button" data-tags="ui"
+                        data-title="Portfolio — Animated Desktop-first Site"
+                        data-desc="This portfolio is a single-file, desktop-first site emphasizing accessibility, animations and recruiter-friendly layout. Built with vanilla JS and accessible patterns."
+                        data-github="https://github.com/YashSurve2006" data-live="">
+                        <div class="thumb" aria-hidden="true">
+                            <svg width="100%" height="96" viewBox="0 0 300 96">
+                                <rect width="300" height="96" rx="8" fill="#7c3aed"></rect><text x="20" y="58"
+                                    fill="#fff" font-size="18" font-weight="700">Portfolio — UI/UX</text>
+                            </svg>
+                        </div>
+                        <div style="font-weight:800">Portfolio Revamp</div>
+                        <div class="meta">
+                            <span class="chip">HTML</span>
+                            <span class="chip">JS</span>
+                            <span class="chip">Accessibility</span>
+                        </div>
+                    </article>
+
+                    <!-- Project C: Data Viz Dashboard -->
+                    <article class="project" tabindex="0" role="button" data-tags="data" data-title="DataViz Dashboard"
+                        data-desc="Interactive analytics dashboard built with Plotly & Pandas. Demonstrates data cleaning, multi-chart layouts and drill-down filtering."
+                        data-github="" data-live="">
+                        <div class="thumb" aria-hidden="true">
+                            <svg width="100%" height="96" viewBox="0 0 300 96">
+                                <rect width="300" height="96" rx="8" fill="#2563eb"></rect><text x="20" y="58"
+                                    fill="#fff" font-size="18" font-weight="700">DataViz — Charts</text>
+                            </svg>
+                        </div>
+                        <div style="font-weight:800">Data Visualization Dashboard</div>
+                        <div class="meta">
+                            <span class="chip">Python</span>
+                            <span class="chip">Plotly</span>
+                            <span class="chip">Pandas</span>
+                        </div>
+                    </article>
+
+                    <!-- Project D: HDFC AutoCAD Layout (from resume) -->
+                    <article class="project" tabindex="0" role="button" data-tags="ui"
+                        data-title="HDFC Bank — AutoCAD Layout"
+                        data-desc="AutoCAD layout project completed for HDFC Bank Hyderabad — accurate floor layout, annotation and handoff-ready drawings."
+                        data-github="" data-live="">
+                        <div class="thumb" aria-hidden="true">
+                            <svg width="100%" height="96" viewBox="0 0 300 96">
+                                <rect width="300" height="96" rx="8" fill="#6d28d9"></rect><text x="20" y="58"
+                                    fill="#fff" font-size="18" font-weight="700">HDFC — CAD</text>
+                            </svg>
+                        </div>
+                        <div style="font-weight:800">HDFC AutoCAD Layout</div>
+                        <div class="meta">
+                            <span class="chip">AutoCAD</span>
+                            <span class="chip">CAD</span>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- SKILLS -->
+            <section class="section" id="skills" aria-labelledby="skills-title">
+                <h2 id="skills-title">Skills</h2>
+                <div class="skills" id="skills-area">
+                    <div class="skill-col">
+                        <div style="font-weight:800">Frontend</div>
+                        <div style="margin-top:8px">React • HTML • CSS • Bootstrap • Accessibility</div>
+                        <div style="margin-top:10px" class="skill-bar" aria-hidden="true"><i data-level="90"></i></div>
+                    </div>
+                    <div class="skill-col">
+                        <div style="font-weight:800">Backend & Data</div>
+                        <div style="margin-top:8px">Node.js • Express • MySQL • Python • APIs</div>
+                        <div style="margin-top:10px" class="skill-bar" aria-hidden="true"><i data-level="84"></i></div>
+                    </div>
+                    <div class="skill-col">
+                        <div style="font-weight:800">Design & Tools</div>
+                        <div style="margin-top:8px">AutoCAD • Adobe Photoshop • MS-Excel</div>
+                        <div style="margin-top:10px" class="skill-bar" aria-hidden="true"><i data-level="76"></i></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ABOUT -->
+            <section class="section" id="about" aria-labelledby="about-title">
+                <h2 id="about-title">About & Experience</h2>
+                <div style="display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:start">
+                    <div>
+                        <p style="margin:0;color:var(--muted)">I am a B.Sc Computer Science student (CGPA 8.90/10)
+                            building full-stack apps that combine performant frontends with reliable backends. My focus
+                            is component-driven UI, accessibility and pragmatic engineering. Experience includes
+                            volunteer leadership and applied CAD work (HDFC layout project).
+                            :contentReference[oaicite:2]{index=2}</p>
+
+                        <div class="timeline" style="margin-top:12px">
+                            <div class="timeline-item">
+                                <div class="timeline-dot" aria-hidden="true"></div>
+                                <div class="timeline-card">
+                                    <div style="font-weight:800">Fundraiser (Jan 2024)</div>
+                                    <div style="color:var(--muted)">Led virtual fundraising — increased donations by
+                                        ~20%, organised volunteers, secured partnerships.
+                                        :contentReference[oaicite:3]{index=3}</div>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-dot" aria-hidden="true"></div>
+                                <div class="timeline-card">
+                                    <div style="font-weight:800">Education</div>
+                                    <div style="color:var(--muted)">B.Sc Computer Science & Technology (2024-2027) —
+                                        CGPA 8.90/10. HSC & SSC per resume. :contentReference[oaicite:4]{index=4}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <aside style="background:rgba(255,255,255,0.02);padding:14px;border-radius:10px">
+                        <div style="font-weight:800">Certifications</div>
+                        <ul style="margin-top:8px;color:var(--muted)">
+                            <li>Hardware & Networking (Linux fundamentals) — 2025</li>
+                            <li>AutoCAD — 2024</li>
+                            <li>Advanced Excel — 2023</li>
+                            <li>Adobe Photoshop — 2022</li>
+                        </ul>
+                    </aside>
+                </div>
+            </section>
+
+            <!-- CONTACT -->
+            <section class="section" id="contact" aria-labelledby="contact-title">
+                <h2 id="contact-title">Contact</h2>
+                <div class="contact-grid">
+                    <form id="contact-form" class="section" style="padding:16px" novalidate>
+                        <div style="display:flex;gap:8px">
+                            <input class="input" id="name" name="name" placeholder="Your name" required
+                                aria-required="true" />
+                            <input class="input" id="email" name="email" placeholder="Your email" required
+                                aria-required="true" />
+                        </div>
+                        <div style="margin-top:10px">
+                            <textarea id="message" name="message"
+                                placeholder="Message (brief project or role)"></textarea>
+                        </div>
+                        <div style="display:flex;gap:8px;margin-top:12px">
+                            <button type="submit" class="btn">Send message</button>
+                            <button type="button" class="btn ghost" id="clear">Clear</button>
+                        </div>
+                        <div id="feedback" style="margin-top:10px;color:var(--muted)"></div>
+                    </form>
+
+                    <div style="padding:16px;background:rgba(255,255,255,0.02);border-radius:10px">
+                        <div style="font-weight:800">Quick</div>
+                        <div style="margin-top:8px;color:var(--muted)">Email: <button class="chip"
+                                id="quick-email">yashsurve2019@gmail.com</button></div>
+                        <div style="margin-top:10px;color:var(--muted)">Phone: +91 88507 06982</div>
+                        <div style="margin-top:12px"><strong>Links</strong>
+                            <div style="margin-top:8px;display:flex;gap:8px"><a class="chip"
+                                    href="https://github.com/YashSurve2006" target="_blank">GitHub</a><a class="chip"
+                                    href="https://www.linkedin.com/in/yash-surve-535954288" target="_blank">LinkedIn</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div style="color:var(--muted);text-align:center;padding:12px">© <span id="year"></span> Yash Surve — Built
+                with HTML & JS</div>
+        </main>
+    </div>
+
+    <!-- Modal (project details) -->
+    <div class="modal-backdrop" id="modal" aria-hidden="true">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="proj-title" aria-describedby="proj-desc">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+                <div style="font-weight:800" id="proj-title">Project</div>
+                <div style="display:flex;gap:8px">
+                    <a id="proj-live" class="btn ghost" href="#" target="_blank" rel="noopener">Live</a>
+                    <a id="proj-github" class="btn" href="#" target="_blank" rel="noopener">GitHub</a>
+                    <button id="proj-close" class="btn ghost">Close</button>
+                </div>
+            </div>
+            <p id="proj-desc" style="color:var(--muted);margin-top:8px"></p>
+            <div id="proj-images" style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px">
+            </div>
+        </div>
+    </div>
+
+    <button id="toTop" class="to-top" aria-label="Scroll to top" title="Top" style="display:none">↑</button>
+
+    <script>
+        /* ===========================
+           Data + Utilities
+           =========================== */
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        /* Theme handling */
+        const root = document.documentElement;
+        const themeBtn = document.getElementById('theme-toggle');
+        function getTheme() { const s = localStorage.getItem('theme'); if (s) return s; return window.matchMedia && window.matchMedia('(prefers-color-scheme:light)').matches ? 'light' : 'dark'; }
+        function applyTheme(t) { root.setAttribute('data-theme', t); themeBtn.setAttribute('aria-pressed', t === 'light'); localStorage.setItem('theme', t); }
+        applyTheme(getTheme());
+        themeBtn.addEventListener('click', () => applyTheme(root.getAttribute('data-theme') === 'light' ? 'dark' : 'light'));
+
+        /* Smooth scroll & active nav */
+        document.querySelectorAll('.side-nav a').forEach(a => {
+            a.addEventListener('click', e => {
+                const href = a.getAttribute('href');
+                if (href && href.startsWith('#')) { e.preventDefault(); document.querySelectorAll('.side-nav a').forEach(x => x.classList.remove('active')); a.classList.add('active'); document.querySelector(href).scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+            });
+        });
+
+        /* Animated small title (typing-ish) */
+        const animated = document.getElementById('animated-title');
+        const phrases = ['Full-Stack Developer', 'Frontend • UI/UX', 'Java • Python'];
+        let pi = 0, pj = 0, typing = true;
+        const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!reduced) {
+            setInterval(() => {
+                const p = phrases[pi];
+                if (typing) { pj++; animated.textContent = `Yash Surve — ${p.slice(0, pj)}`; if (pj >= p.length) { typing = false; setTimeout(() => pj = p.length - 1, 700); } }
+                else { pj--; animated.textContent = `Yash Surve — ${p.slice(0, pj)}`; if (pj <= 0) { typing = true; pi = (pi + 1) % phrases.length; pj = 0; } }
+            }, 90);
+        }
+
+        /* Project interactions: filter, keyboard nav, modal */
+        const projects = Array.from(document.querySelectorAll('.project'));
+        const grid = document.getElementById('grid');
+        document.querySelectorAll('[data-filter]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const f = btn.getAttribute('data-filter');
+                projects.forEach(p => {
+                    const tags = p.dataset.tags.split(',');
+                    p.style.display = (f === 'all' || tags.includes(f)) ? '' : 'none';
+                });
+            });
+        });
+
+        // Accessible project open
+        const modal = document.getElementById('modal');
+        const projTitle = document.getElementById('proj-title');
+        const projDesc = document.getElementById('proj-desc');
+        const projImages = document.getElementById('proj-images');
+        const projGithub = document.getElementById('proj-github');
+        const projLive = document.getElementById('proj-live');
+        const projClose = document.getElementById('proj-close');
+
+        function openProject(el) {
+            projTitle.textContent = el.dataset.title;
+            projDesc.textContent = el.dataset.desc;
+            projImages.innerHTML = '';
+            projGithub.href = el.dataset.github || '#';
+            projLive.href = el.dataset.live || '#';
+            // images: if the element had data-images (comma separated URLs) we would load them.
+            // For now: create 3 labeled placeholders (swap later with real screenshots)
+            for (let i = 1; i <= 3; i++) {
+                const div = document.createElement('div');
+                div.style.background = 'linear-gradient(135deg, rgba(37,99,235,0.9), rgba(124,58,237,0.9))';
+                div.style.height = '120px';
+                div.style.borderRadius = '8px';
+                div.style.display = 'grid';
+                div.style.placeItems = 'center';
+                div.style.color = 'white';
+                div.style.fontWeight = '700';
+                div.textContent = `${el.dataset.title} — Screenshot ${i}`;
+                projImages.appendChild(div);
+            }
+            modal.style.display = 'flex';
+            modal.setAttribute('aria-hidden', 'false');
+            projClose.focus();
+        }
+        projects.forEach((p, i) => {
+            p.addEventListener('click', () => openProject(p));
+            p.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openProject(p); } });
+        });
+
+        // close modal handlers
+        projClose.addEventListener('click', () => { modal.style.display = 'none'; modal.setAttribute('aria-hidden', 'true'); });
+        modal.addEventListener('click', e => { if (e.target === modal) { modal.style.display = 'none'; modal.setAttribute('aria-hidden', 'true'); } });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') { modal.style.display = 'none'; modal.setAttribute('aria-hidden', 'true'); } });
+
+        // keyboard project navigation (arrow keys)
+        let idx = 0;
+        document.addEventListener('keydown', e => {
+            if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+                const visible = projects.filter(p => getComputedStyle(p).display !== 'none');
+                if (visible.length === 0) return;
+                if (e.key === 'ArrowRight') idx = (idx + 1) % visible.length;
+                else idx = (idx - 1 + visible.length) % visible.length;
+                visible[idx].focus({ preventScroll: true });
+            }
+        });
+
+        /* Skill bars animate on scroll */
+        const skillBars = document.querySelectorAll('.skill-bar i');
+        let skillDone = false;
+        window.addEventListener('scroll', () => {
+            const box = document.getElementById('skills');
+            if (!box || skillDone) return;
+            const rect = box.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 120) {
+                skillBars.forEach(i => i.style.width = (i.dataset.level || 70) + '%');
+                skillDone = true;
+            }
+        });
+
+        /* Contact form (client-side demo) */
+        const form = document.getElementById('contact-form');
+        const feedback = document.getElementById('feedback');
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            const name = form.name.value.trim(), email = form.email.value.trim(), msg = form.message.value.trim();
+            if (!name || !email) { feedback.style.color = 'tomato'; feedback.textContent = 'Please add name and email.'; return; }
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!re.test(email)) { feedback.style.color = 'tomato'; feedback.textContent = 'Enter a valid email.'; return; }
+            feedback.style.color = 'var(--muted)'; feedback.textContent = 'Saving message (demo)...';
+            setTimeout(() => { feedback.style.color = 'lightgreen'; feedback.textContent = `Thanks ${name}! Message recorded (demo).`; form.reset(); }, 800);
+        });
+        document.getElementById('clear').addEventListener('click', () => { form.reset(); feedback.textContent = ''; });
+
+        /* Copy email and quick email */
+        function copyText(txt, el) {
+            navigator.clipboard?.writeText(txt).then(() => {
+                const orig = el.textContent;
+                el.textContent = 'Copied ✓';
+                setTimeout(() => el.textContent = orig, 1400);
+            }).catch(() => { alert('Clipboard unavailable.'); });
+        }
+        document.getElementById('copy-email').addEventListener('click', (e) => { e.preventDefault(); copyText('yashsurve2019@gmail.com', e.currentTarget); });
+        document.getElementById('quick-email').addEventListener('click', () => copyText('yashsurve2019@gmail.com', document.getElementById('quick-email')));
+
+        /* Download resume (text file generated from uploaded resume) */
+        document.getElementById('download-resume').addEventListener('click', (e) => {
+            e.preventDefault();
+            const resume = `Yash Surve
+yashsurve2019@gmail.com | +91 8850706982 | Dombivli, Mumbai
+
+CAREER OBJECTIVE
+Aspiring software developer skilled in HTML, CSS, JavaScript, Java, and Python. Experienced in database management and backend development. Passionate about creating scalable applications and eager to gain hands-on experience to grow as a full-stack developer.
+
+WORK EXPERIENCE
+Fundraiser — Jan 2024 (Jaan Kalyan Multi Foundation)
+- Led fundraising campaigns (20% donation increase), managed events and volunteers.
+
+EDUCATION
+B.Sc Computer Science & Technology (2024 - 2027) — CGPA: 8.90/10
+HSC (2022) — 57%; SSC (2020) — 66.80%
+
+CERTIFICATIONS
+Hardware & Networking (2025); AutoCAD (2024); Advanced Excel (2023); Adobe Photoshop (2022)
+
+PROJECTS
+- InventoryX — Full-Stack Inventory Management (React, Node.js, MySQL)
+- HDFC AutoCAD Layout (CAD)
+- DataViz Dashboard (Plotly, Pandas)
+- Portfolio Revamp (Single-file site)
+
+SKILLS
+HTML, CSS, JavaScript, React, Node.js, MySQL, Java, Python, AutoCAD, Adobe Photoshop, MS-Excel
+
+(Generated from uploaded resume)
+`;
+            const blob = new Blob([resume], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a'); a.href = url; a.download = 'Yash-Surve-Resume.txt'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+        });
+
+        /* Project CTA buttons */
+        document.getElementById('btn-projects').addEventListener('click', () => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' }));
+        document.getElementById('btn-about').addEventListener('click', () => document.getElementById('about').scrollIntoView({ behavior: 'smooth' }));
+        document.getElementById('hire').addEventListener('click', () => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' }));
+
+        /* Scroll to top */
+        const toTop = document.getElementById('toTop');
+        window.addEventListener('scroll', () => { if (window.scrollY > 380) toTop.style.display = 'grid'; else toTop.style.display = 'none'; });
+        toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        /* Accessibility: focus outline for keyboard users already active */
+
+        /* Improvements notes:
+         - To replace placeholder screenshots: set data-images attribute on the .project elements with comma-separated image URLs,
+           and update openProject to parse and render <img> tags instead of placeholders.
+         - To add live demos: set data-live attr on the project article tags with a valid URL.
+         - To add repository links: set data-github attr (InventoryX already points to your GitHub).
+        */
+    </script>
+</body>
+
+</html>
