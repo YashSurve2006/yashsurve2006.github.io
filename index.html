@@ -1,13 +1,15 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Yash Surve — Full-Stack Developer</title>
-<meta name="description" content="Portfolio — Yash Surve (Full-Stack Developer & UI/UX). Projects: InventoryX, DataViz, Portfolio, AutoCAD.">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-<style>
-/* ======================================================
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Yash Surve — Full-Stack Developer</title>
+    <meta name="description"
+        content="Portfolio — Yash Surve (Full-Stack Developer & UI/UX). Projects: InventoryX, DataViz, Portfolio, AutoCAD.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ======================================================
    Yash Surve — Single-file Portfolio
    - Desktop-first polished layout
    - Mobile responsiveness and drawer
@@ -15,229 +17,722 @@
    - Replace placeholder screenshots via data-images attributes
    ====================================================== */
 
-/* ---------- Variables ---------- */
-:root{
-  --bg-0: #071128;
-  --bg-1: linear-gradient(180deg,#071128,#0b1220 60%);
-  --card: rgba(255,255,255,0.03);
-  --muted: #9aa4c1;
-  --accent-a: #2563eb;
-  --accent-b: #7c3aed;
-  --accent-grad: linear-gradient(90deg,var(--accent-a),var(--accent-b));
-  --fg: #e6eefc;
-  --radius: 14px;
-  --max-width: 1300px;
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-}
+        /* ---------- Variables ---------- */
+        :root {
+            --bg-0: #071128;
+            --bg-1: linear-gradient(180deg, #071128, #0b1220 60%);
+            --card: rgba(255, 255, 255, 0.03);
+            --muted: #9aa4c1;
+            --accent-a: #2563eb;
+            --accent-b: #7c3aed;
+            --accent-grad: linear-gradient(90deg, var(--accent-a), var(--accent-b));
+            --fg: #e6eefc;
+            --radius: 14px;
+            --max-width: 1300px;
+            font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
 
-/* Light theme overrides */
-:root[data-theme="light"]{
-  --bg-0: #f6f8ff;
-  --bg-1: linear-gradient(180deg,#f6f8ff,#ffffff 60%);
-  --card: #ffffff;
-  --muted: #475569;
-  --fg: #071127;
-  --accent-a: #2b6cb0;
-  --accent-b: #6d28d9;
-  --accent-grad: linear-gradient(90deg,var(--accent-b),var(--accent-a));
-}
+        /* Light theme overrides */
+        :root[data-theme="light"] {
+            --bg-0: #f6f8ff;
+            --bg-1: linear-gradient(180deg, #f6f8ff, #ffffff 60%);
+            --card: #ffffff;
+            --muted: #475569;
+            --fg: #071127;
+            --accent-a: #2b6cb0;
+            --accent-b: #6d28d9;
+            --accent-grad: linear-gradient(90deg, var(--accent-b), var(--accent-a));
+        }
 
-/* ---------- Reset & Base ---------- */
-*{box-sizing:border-box}
-html,body{height:100%;margin:0}
-body{
-  margin:0;
-  background:var(--bg-1);
-  color:var(--fg);
-  display:flex;
-  justify-content:center;
-  padding:28px;
-  align-items:flex-start;
-  line-height:1.45;
-}
+        /* ---------- Reset & Base ---------- */
+        * {
+            box-sizing: border-box
+        }
 
-/* Container */
-.container{
-  width:100%;
-  max-width:var(--max-width);
-  display:grid;
-  grid-template-columns:320px 1fr;
-  gap:28px;
-  align-items:start;
-  position:relative;
-}
+        html,
+        body {
+            height: 100%;
+            margin: 0
+        }
 
-/* Skip link */
-.skip{position:absolute;left:-999px}
-.skip:focus{position:fixed;left:12px;top:12px;padding:8px 12px;background:#fff;color:#071127;border-radius:8px;box-shadow:0 8px 30px rgba(0,0,0,0.12);z-index:9999}
+        body {
+            margin: 0;
+            background: var(--bg-1);
+            color: var(--fg);
+            display: flex;
+            justify-content: center;
+            padding: 28px;
+            align-items: flex-start;
+            line-height: 1.45;
+        }
 
-/* ---------- SIDEBAR (desktop) ---------- */
-.sidebar{
-  position:sticky;
-  top:28px;
-  height:calc(100vh - 56px);
-  padding:22px;
-  border-radius:var(--radius);
-  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  backdrop-filter:blur(6px);
-  box-shadow:0 14px 50px rgba(2,6,23,0.5);
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-  min-width:220px;
-}
-.brand{display:flex;gap:12px;align-items:center}
-.logo{width:64px;height:64px;border-radius:12px;display:grid;place-items:center;font-weight:800;background:var(--accent-grad);color:white;font-size:1.1rem;box-shadow:0 10px 30px rgba(37,99,235,0.12)}
-.sidebar h1{margin:0;font-size:1.05rem}
-.sidebar p.small{margin:2px 0 0;color:var(--muted);font-size:.95rem}
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 28px;
+            align-items: start;
+            position: relative;
+        }
 
-/* social chips */
-.socials{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
-.chip{padding:8px 10px;border-radius:999px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--fg);font-weight:700;font-size:.9rem;text-decoration:none;display:inline-flex;gap:8px;align-items:center}
-.side-nav{margin-top:12px;display:flex;flex-direction:column;gap:6px}
-.side-nav a{padding:10px 12px;border-radius:10px;text-decoration:none;color:var(--muted);font-weight:700}
-.side-nav a.active, .side-nav a:hover{color:var(--fg);background:linear-gradient(90deg, rgba(124,58,237,0.12), rgba(37,99,235,0.08));transform:translateX(6px);transition:transform .18s}
+        /* Skip link */
+        .skip {
+            position: absolute;
+            left: -999px
+        }
 
-/* CTA row */
-.cta{margin-top:auto;display:flex;gap:10px}
-.btn{padding:10px 14px;border-radius:10px;border:none;cursor:pointer;background:var(--accent-grad);color:white;font-weight:800;box-shadow:0 10px 30px rgba(37,99,235,0.12)}
-.btn.ghost{background:transparent;color:var(--fg);border:1px solid rgba(255,255,255,0.06);box-shadow:none}
+        .skip:focus {
+            position: fixed;
+            left: 12px;
+            top: 12px;
+            padding: 8px 12px;
+            background: #fff;
+            color: #071127;
+            border-radius: 8px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            z-index: 9999
+        }
 
-/* ---------- MAIN ---------- */
-.main{min-height:80vh;display:flex;flex-direction:column;gap:20px}
+        /* ---------- SIDEBAR (desktop) ---------- */
+        .sidebar {
+            position: sticky;
+            top: 28px;
+            height: calc(100vh - 56px);
+            padding: 22px;
+            border-radius: var(--radius);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+            backdrop-filter: blur(6px);
+            box-shadow: 0 14px 50px rgba(2, 6, 23, 0.5);
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            min-width: 220px;
+        }
 
-/* HERO */
-.hero{
-  display:grid;
-  grid-template-columns:1fr 320px;
-  gap:22px;
-  padding:28px;
-  border-radius:var(--radius);
-  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  box-shadow:0 18px 80px rgba(2,6,23,0.5);
-  position:relative;
-  overflow:hidden;
-}
-.hi{display:inline-block;background:rgba(255,255,255,0.03);padding:6px 10px;border-radius:999px;font-weight:700;color:var(--muted);font-size:.95rem}
-.title{margin:6px 0 0;font-size:2.6rem;line-height:1.02;background:var(--accent-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.lead{color:var(--muted);margin-top:12px;max-width:60ch}
-.hero-ctas{margin-top:18px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+        .brand {
+            display: flex;
+            gap: 12px;
+            align-items: center
+        }
 
-/* KPI cards */
-.kpis{display:flex;gap:12px;margin-top:16px}
-.kpi{padding:12px;border-radius:10px;background:rgba(255,255,255,0.02);min-width:120px;text-align:center}
-.kpi strong{display:block;font-size:1.15rem}
+        .logo {
+            width: 64px;
+            height: 64px;
+            border-radius: 12px;
+            display: grid;
+            place-items: center;
+            font-weight: 800;
+            background: var(--accent-grad);
+            color: white;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.12)
+        }
 
-/* Cards & sections */
-.section{padding:20px;border-radius:12px;background:var(--card);backdrop-filter:blur(6px);box-shadow:0 8px 28px rgba(2,6,23,0.45)}
-.section h2{margin:0 0 8px 0;font-size:1.15rem}
+        .sidebar h1 {
+            margin: 0;
+            font-size: 1.05rem
+        }
 
-/* Projects grid */
-.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:12px}
-.project{border-radius:12px;padding:14px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));min-height:170px;display:flex;flex-direction:column;gap:8px;cursor:pointer;border:1px solid rgba(255,255,255,0.02);transition:transform .22s,box-shadow .22s}
-.project:hover{transform:translateY(-10px);box-shadow:0 30px 90px rgba(2,6,23,0.5)}
-.thumb{height:96px;border-radius:10px;overflow:hidden;background:linear-gradient(135deg,var(--accent-a),var(--accent-b));display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:1.05rem}
-.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}
+        .sidebar p.small {
+            margin: 2px 0 0;
+            color: var(--muted);
+            font-size: .95rem
+        }
 
-/* Skills */
-.skills{display:flex;gap:20px;align-items:flex-start;margin-top:6px}
-.skill-col{flex:1}
-.skill-bar{height:12px;background:rgba(255,255,255,0.03);border-radius:999px;overflow:hidden}
-.skill-bar > i{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--accent-b),var(--accent-a));transition:width .9s cubic-bezier(.2,.9,.3,1)}
+        /* social chips */
+        .socials {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 6px
+        }
 
-/* Timeline & about */
-.timeline{display:flex;flex-direction:column;gap:12px;margin-top:12px}
-.timeline-item{display:flex;gap:12px;align-items:flex-start}
-.timeline-dot{width:12px;height:12px;border-radius:999px;background:linear-gradient(90deg,var(--accent-b),var(--accent-a));margin-top:6px}
-.timeline-card{background:rgba(255,255,255,0.02);padding:12px;border-radius:10px}
+        .chip {
+            padding: 8px 10px;
+            border-radius: 999px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            color: var(--fg);
+            font-weight: 700;
+            font-size: .9rem;
+            text-decoration: none;
+            display: inline-flex;
+            gap: 8px;
+            align-items: center
+        }
 
-/* Contact */
-.contact-grid{display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:12px}
-.input,textarea{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--fg)}
-textarea{min-height:160px;resize:vertical}
+        .side-nav {
+            margin-top: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px
+        }
 
-/* Modal */
-.modal-backdrop{position:fixed;inset:0;background:rgba(2,6,23,0.6);display:none;align-items:center;justify-content:center;z-index:9999}
-.modal{background:var(--card);max-width:980px;width:calc(100% - 48px);border-radius:12px;padding:18px}
+        .side-nav a {
+            padding: 10px 12px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--muted);
+            font-weight: 700
+        }
 
-/* Mobile drawer/hamburger */
-.hamburger{display:none;position:fixed;left:16px;top:16px;z-index:12000;width:46px;height:46px;border-radius:10px;background:var(--card);display:grid;place-items:center;border:1px solid rgba(255,255,255,0.03)}
-.mobile-drawer{position:fixed;left:0;top:0;bottom:0;width:84%;max-width:360px;background:var(--card);z-index:12001;padding:18px;transform:translateX(-120%);transition:transform .28s;border-right:1px solid rgba(255,255,255,0.02);box-shadow:8px 0 40px rgba(2,6,23,0.6)}
-.mobile-drawer.open{transform:translateX(0)}
-.drawer-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:12000;display:none}
-.drawer-overlay.show{display:block}
+        .side-nav a.active,
+        .side-nav a:hover {
+            color: var(--fg);
+            background: linear-gradient(90deg, rgba(124, 58, 237, 0.12), rgba(37, 99, 235, 0.08));
+            transform: translateX(6px);
+            transition: transform .18s
+        }
 
-/* Scroll to top */
-.to-top{position:fixed;right:28px;bottom:28px;width:56px;height:56px;border-radius:12px;display:grid;place-items:center;background:var(--accent-grad);color:white;cursor:pointer;box-shadow:0 12px 40px rgba(37,99,235,0.14);z-index:999}
+        /* CTA row */
+        .cta {
+            margin-top: auto;
+            display: flex;
+            gap: 10px
+        }
 
-/* Responsive breakpoints */
-@media (max-width:1100px){
-  .projects-grid{grid-template-columns:repeat(2,1fr)}
-  .container{grid-template-columns:280px 1fr}
-}
-@media (max-width:900px){
-  .container{grid-template-columns:1fr;gap:18px;padding:12px}
-  .sidebar{position:relative;height:auto;order:2;width:100%;min-width:unset}
-  .main{order:1}
-  .hero{grid-template-columns:1fr;padding:18px}
-  .title{font-size:2rem}
-  .kpis{overflow-x:auto;display:flex;padding-bottom:6px;gap:10px}
-  .projects-grid{grid-template-columns:1fr}
-  .contact-grid{grid-template-columns:1fr}
-  .mobile-drawer{display:block}
-  .hamburger{display:grid}
-  .btn{min-width:unset}
-  .section{padding:16px}
-  .thumb{height:120px}
-  .hero-ctas{flex-direction:column;align-items:flex-start}
-  .cta{flex-wrap:wrap}
-}
+        .btn {
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            background: var(--accent-grad);
+            color: white;
+            font-weight: 800;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.12)
+        }
 
-/* Perfect mobile clean-up (strong override) - REPLACE previous mobile rules with this if you paste separate patch */
-@media (max-width:900px) {
-  body{padding:0;margin:0}
-  .container{grid-template-columns:1fr !important;padding:0 16px !important;gap:20px !important}
-  .sidebar{position:relative !important;height:auto !important;width:100% !important;top:0 !important;padding:16px !important;margin-bottom:10px;box-shadow:none !important}
-  .hero{grid-template-columns:1fr !important;padding:18px !important;gap:12px !important}
-  .title{font-size:1.7rem !important;line-height:1.2 !important}
-  .kpis{display:flex !important;gap:10px;overflow-x:auto;padding-bottom:6px}
-  .projects-grid{grid-template-columns:1fr !important;gap:16px !important;width:100% !important}
-  .project{width:100% !important;min-height:180px !important}
-  .skills{flex-direction:column !important;gap:18px !important}
-  #about > div{grid-template-columns:1fr !important;gap:18px !important}
-  #about aside{margin-top:6px !important}
-  .timeline{width:100% !important}
-  .timeline-card{width:100% !important}
-  .contact-grid{grid-template-columns:1fr !important;gap:14px !important}
-  .input,textarea{width:100% !important}
-  .btn{width:auto !important}
-}
+        .btn.ghost {
+            background: transparent;
+            color: var(--fg);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: none
+        }
 
-/* For very small phones */
-@media (max-width:520px){
-  .title{font-size:1.6rem}
-  .thumb{height:100px}
-  .logo{width:56px;height:56px}
-  .hamburger{left:12px;top:12px}
-}
+        /* ---------- MAIN ---------- */
+        .main {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            gap: 20px
+        }
 
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce){
-  *{transition:none !important;animation:none !important;scroll-behavior:auto !important}
-}
+        /* HERO */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 22px;
+            padding: 28px;
+            border-radius: var(--radius);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+            box-shadow: 0 18px 80px rgba(2, 6, 23, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
 
-/* Focus ring for keyboard users */
-:focus{outline:3px solid rgba(37,99,235,0.12);outline-offset:3px}
+        .hi {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-weight: 700;
+            color: var(--muted);
+            font-size: .95rem
+        }
 
-/* ---------- Utility helpers ---------- */
-.hidden{display:none}
-.center{display:grid;place-items:center}
-</style>
+        .title {
+            margin: 6px 0 0;
+            font-size: 2.6rem;
+            line-height: 1.02;
+            background: var(--accent-grad);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent
+        }
+
+        .lead {
+            color: var(--muted);
+            margin-top: 12px;
+            max-width: 60ch
+        }
+
+        .hero-ctas {
+            margin-top: 18px;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap
+        }
+
+        /* KPI cards */
+        .kpis {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px
+        }
+
+        .kpi {
+            padding: 12px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.02);
+            min-width: 120px;
+            text-align: center
+        }
+
+        .kpi strong {
+            display: block;
+            font-size: 1.15rem
+        }
+
+        /* Cards & sections */
+        .section {
+            padding: 20px;
+            border-radius: 12px;
+            background: var(--card);
+            backdrop-filter: blur(6px);
+            box-shadow: 0 8px 28px rgba(2, 6, 23, 0.45)
+        }
+
+        .section h2 {
+            margin: 0 0 8px 0;
+            font-size: 1.15rem
+        }
+
+        /* Projects grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-top: 12px
+        }
+
+        .project {
+            border-radius: 12px;
+            padding: 14px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.02));
+            min-height: 170px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            transition: transform .22s, box-shadow .22s
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 90px rgba(2, 6, 23, 0.5)
+        }
+
+        .thumb {
+            height: 96px;
+            border-radius: 10px;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--accent-a), var(--accent-b));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 1.05rem
+        }
+
+        .meta {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: auto
+        }
+
+        /* Skills */
+        .skills {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            margin-top: 6px
+        }
+
+        .skill-col {
+            flex: 1
+        }
+
+        .skill-bar {
+            height: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 999px;
+            overflow: hidden
+        }
+
+        .skill-bar>i {
+            display: block;
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--accent-b), var(--accent-a));
+            transition: width .9s cubic-bezier(.2, .9, .3, 1)
+        }
+
+        /* Timeline & about */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 12px
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start
+        }
+
+        .timeline-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, var(--accent-b), var(--accent-a));
+            margin-top: 6px
+        }
+
+        .timeline-card {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 12px;
+            border-radius: 10px
+        }
+
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 360px;
+            gap: 18px;
+            margin-top: 12px
+        }
+
+        .input,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            background: transparent;
+            color: var(--fg)
+        }
+
+        textarea {
+            min-height: 160px;
+            resize: vertical
+        }
+
+        /* Modal */
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(2, 6, 23, 0.6);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999
+        }
+
+        .modal {
+            background: var(--card);
+            max-width: 980px;
+            width: calc(100% - 48px);
+            border-radius: 12px;
+            padding: 18px
+        }
+
+        /* Mobile drawer/hamburger */
+        .hamburger {
+            display: none;
+            position: fixed;
+            left: 16px;
+            top: 16px;
+            z-index: 12000;
+            width: 46px;
+            height: 46px;
+            border-radius: 10px;
+            background: var(--card);
+            display: grid;
+            place-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.03)
+        }
+
+        .mobile-drawer {
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 84%;
+            max-width: 360px;
+            background: var(--card);
+            z-index: 12001;
+            padding: 18px;
+            transform: translateX(-120%);
+            transition: transform .28s;
+            border-right: 1px solid rgba(255, 255, 255, 0.02);
+            box-shadow: 8px 0 40px rgba(2, 6, 23, 0.6)
+        }
+
+        .mobile-drawer.open {
+            transform: translateX(0)
+        }
+
+        .drawer-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 12000;
+            display: none
+        }
+
+        .drawer-overlay.show {
+            display: block
+        }
+
+        /* Scroll to top */
+        .to-top {
+            position: fixed;
+            right: 28px;
+            bottom: 28px;
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            display: grid;
+            place-items: center;
+            background: var(--accent-grad);
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 12px 40px rgba(37, 99, 235, 0.14);
+            z-index: 999
+        }
+
+        /* Responsive breakpoints */
+        @media (max-width:1100px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .container {
+                grid-template-columns: 280px 1fr
+            }
+        }
+
+        @media (max-width:900px) {
+            .container {
+                grid-template-columns: 1fr;
+                gap: 18px;
+                padding: 12px
+            }
+
+            .sidebar {
+                position: relative;
+                height: auto;
+                order: 2;
+                width: 100%;
+                min-width: unset
+            }
+
+            .main {
+                order: 1
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 18px
+            }
+
+            .title {
+                font-size: 2rem
+            }
+
+            .kpis {
+                overflow-x: auto;
+                display: flex;
+                padding-bottom: 6px;
+                gap: 10px
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr
+            }
+
+            .mobile-drawer {
+                display: block
+            }
+
+            .hamburger {
+                display: grid
+            }
+
+            .btn {
+                min-width: unset
+            }
+
+            .section {
+                padding: 16px
+            }
+
+            .thumb {
+                height: 120px
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+                align-items: flex-start
+            }
+
+            .cta {
+                flex-wrap: wrap
+            }
+        }
+
+        /* Perfect mobile clean-up (strong override) - REPLACE previous mobile rules with this if you paste separate patch */
+        @media (max-width:900px) {
+            body {
+                padding: 0;
+                margin: 0
+            }
+
+            .container {
+                grid-template-columns: 1fr !important;
+                padding: 0 16px !important;
+                gap: 20px !important
+            }
+
+            .sidebar {
+                position: relative !important;
+                height: auto !important;
+                width: 100% !important;
+                top: 0 !important;
+                padding: 16px !important;
+                margin-bottom: 10px;
+                box-shadow: none !important
+            }
+
+            .hero {
+                grid-template-columns: 1fr !important;
+                padding: 18px !important;
+                gap: 12px !important
+            }
+
+            .title {
+                font-size: 1.7rem !important;
+                line-height: 1.2 !important
+            }
+
+            .kpis {
+                display: flex !important;
+                gap: 10px;
+                overflow-x: auto;
+                padding-bottom: 6px
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr !important;
+                gap: 16px !important;
+                width: 100% !important
+            }
+
+            .project {
+                width: 100% !important;
+                min-height: 180px !important
+            }
+
+            .skills {
+                flex-direction: column !important;
+                gap: 18px !important
+            }
+
+            #about>div {
+                grid-template-columns: 1fr !important;
+                gap: 18px !important
+            }
+
+            #about aside {
+                margin-top: 6px !important
+            }
+
+            .timeline {
+                width: 100% !important
+            }
+
+            .timeline-card {
+                width: 100% !important
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr !important;
+                gap: 14px !important
+            }
+
+            .input,
+            textarea {
+                width: 100% !important
+            }
+
+            .btn {
+                width: auto !important
+            }
+        }
+
+        /* For very small phones */
+        @media (max-width:520px) {
+            .title {
+                font-size: 1.6rem
+            }
+
+            .thumb {
+                height: 100px
+            }
+
+            .logo {
+                width: 56px;
+                height: 56px
+            }
+
+            .hamburger {
+                left: 12px;
+                top: 12px
+            }
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                transition: none !important;
+                animation: none !important;
+                scroll-behavior: auto !important
+            }
+        }
+
+        /* Focus ring for keyboard users */
+        :focus {
+            outline: 3px solid rgba(37, 99, 235, 0.12);
+            outline-offset: 3px
+        }
+
+        /* ---------- Utility helpers ---------- */
+        .hidden {
+            display: none
+        }
+
+        .center {
+            display: grid;
+            place-items: center
+        }
+    </style>
 </head>
+
 <body>
-<!-- ======================================================
+    <!-- ======================================================
      Single-file portfolio for: Yash Surve
      Instructions:
      - To replace a project's screenshots, add data-images="url1,url2"
@@ -246,370 +741,422 @@ textarea{min-height:160px;resize:vertical}
      - To add repo link: add data-github="https://..." to article.
      ====================================================== -->
 
-<a class="skip" href="#main">Skip to main content</a>
+    <a class="skip" href="#main">Skip to main content</a>
 
-<!-- Mobile hamburger -->
-<button id="hamburger" class="hamburger" aria-label="Open menu" aria-expanded="false" title="Menu">☰</button>
+    <!-- Mobile hamburger -->
+    <button id="hamburger" class="hamburger" aria-label="Open menu" aria-expanded="false" title="Menu">☰</button>
 
-<!-- Mobile drawer overlay + panel -->
-<div id="drawerOverlay" class="drawer-overlay" tabindex="-1" aria-hidden="true"></div>
-<aside id="mobileDrawer" class="mobile-drawer" aria-hidden="true" aria-label="Mobile menu">
-  <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
-    <div class="logo">YS</div>
-    <div>
-      <div style="font-weight:800">Yash Surve</div>
-      <div style="color:var(--muted);font-size:.95rem">Full-Stack Developer • UI/UX</div>
-    </div>
-  </div>
-
-  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px">
-    <a class="chip" href="#" id="mCopyEmail">📧 yashsurve2019@gmail.com</a>
-    <a class="chip" href="#" id="mDownloadResume">⬇ Download</a>
-    <a class="chip" href="https://github.com/YashSurve2006" target="_blank" rel="noopener">🐙 GitHub</a>
-    <a class="chip" href="https://www.linkedin.com/in/yash-surve-535954288" target="_blank" rel="noopener">🔗 LinkedIn</a>
-  </div>
-
-  <nav style="display:flex;flex-direction:column;gap:8px" aria-label="Mobile navigation">
-    <a href="#home" class="side-link">Home</a>
-    <a href="#projects" class="side-link">Projects</a>
-    <a href="#skills" class="side-link">Skills</a>
-    <a href="#about" class="side-link">About</a>
-    <a href="#contact" class="side-link">Contact</a>
-  </nav>
-
-  <div style="margin-top:14px">
-    <button class="btn" id="mHire">Hire / Contact</button>
-    <button class="btn ghost" id="mTheme" style="margin-left:8px">Theme</button>
-  </div>
-</aside>
-
-<div class="container" role="document" aria-label="Portfolio">
-
-  <!-- Sidebar (desktop) -->
-  <aside class="sidebar" aria-labelledby="profile">
-    <div class="brand">
-      <div class="logo" aria-hidden="true">YS</div>
-      <div>
-        <h1 id="profile">Yash Surve</h1>
-        <p class="small">Full-Stack Developer • UI/UX Enthusiast</p>
-      </div>
-    </div>
-
-    <p class="small">I design and build polished web applications with strong UI/UX, focusing on React, Node.js, and MySQL — and accessible, production-ready interfaces.</p>
-
-    <div class="socials" aria-label="Quick links">
-      <a class="chip" href="#" id="copyEmail">📧 yashsurve2019@gmail.com</a>
-      <a class="chip" href="#" id="downloadResume">⬇ Download Resume</a>
-      <a class="chip" href="https://github.com/YashSurve2006" target="_blank" rel="noopener">🐙 GitHub</a>
-      <a class="chip" href="https://www.linkedin.com/in/yash-surve-535954288" target="_blank" rel="noopener">🔗 LinkedIn</a>
-    </div>
-
-    <nav class="side-nav" aria-label="Primary navigation">
-      <a href="#home" class="active">Home</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-
-    <div class="cta">
-      <button class="btn" id="hire">Hire / Contact</button>
-      <button class="btn ghost" id="themeToggle" aria-pressed="false" title="Toggle theme">Theme</button>
-    </div>
-  </aside>
-
-  <!-- Main area -->
-  <main class="main" id="main" tabindex="-1">
-
-    <!-- HERO -->
-    <section class="hero" id="home" aria-labelledby="home-title">
-      <div>
-        <div class="hi">Hello — I'm</div>
-        <h2 id="home-title" class="title">Yash Surve — Full-Stack Developer</h2>
-        <p class="lead">Aspiring software developer experienced in frontend-first interfaces, backend APIs and database design. Skilled in React, Node.js, MySQL, Java & Python.</p>
-
-        <div class="hero-ctas" role="group" aria-label="Primary actions">
-          <button class="btn" id="btn-projects">See projects</button>
-          <button class="btn ghost" id="btn-about">About & CV</button>
+    <!-- Mobile drawer overlay + panel -->
+    <div id="drawerOverlay" class="drawer-overlay" tabindex="-1" aria-hidden="true"></div>
+    <aside id="mobileDrawer" class="mobile-drawer" aria-hidden="true" aria-label="Mobile menu">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+            <div class="logo">YS</div>
+            <div>
+                <div style="font-weight:800">Yash Surve</div>
+                <div style="color:var(--muted);font-size:.95rem">Full-Stack Developer • UI/UX</div>
+            </div>
         </div>
 
-        <div class="kpis" aria-hidden="true">
-          <div class="kpi"><strong>InventoryX</strong><span class="small">Main project</span></div>
-          <div class="kpi"><strong>React • Node</strong><span class="small">Frontend / Backend</span></div>
-          <div class="kpi"><strong>MySQL</strong><span class="small">Database</span></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px">
+            <a class="chip" href="#" id="mCopyEmail">📧 yashsurve2019@gmail.com</a>
+            <a class="chip" href="#" id="mDownloadResume">⬇ Download</a>
+            <a class="chip" href="https://github.com/YashSurve2006" target="_blank" rel="noopener">🐙 GitHub</a>
+            <a class="chip" href="https://www.linkedin.com/in/yash-surve-535954288" target="_blank" rel="noopener">🔗
+                LinkedIn</a>
         </div>
-      </div>
 
-      <aside class="kicker" aria-hidden="false">
-        <div style="font-weight:800">Contact</div>
-        <div style="color:var(--muted)">yashsurve2019@gmail.com</div>
-        <div style="margin-top:12px;color:var(--muted)">Dombivli, Mumbai</div>
-        <div style="margin-top:6px;color:var(--muted)">+91 88507 06982</div>
-      </aside>
-    </section>
+        <nav style="display:flex;flex-direction:column;gap:8px" aria-label="Mobile navigation">
+            <a href="#home" class="side-link">Home</a>
+            <a href="#projects" class="side-link">Projects</a>
+            <a href="#skills" class="side-link">Skills</a>
+            <a href="#about" class="side-link">About</a>
+            <a href="#contact" class="side-link">Contact</a>
+        </nav>
 
-    <!-- PROJECTS -->
-    <section class="section" id="projects" aria-labelledby="projects-title">
-      <h2 id="projects-title">Featured Projects</h2>
-      <p class="small" style="margin:6px 0 0 0;color:var(--muted)">InventoryX is the highlighted project. Tap a card for details and screenshots.</p>
-
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
-        <div>
-          <button class="chip" data-filter="all">All</button>
-          <button class="chip" data-filter="web">Web</button>
-          <button class="chip" data-filter="data">Data</button>
-          <button class="chip" data-filter="ui">UI</button>
+        <div style="margin-top:14px">
+            <button class="btn" id="mHire">Hire / Contact</button>
+            <button class="btn ghost" id="mTheme" style="margin-left:8px">Theme</button>
         </div>
-        <div style="color:var(--muted)">Keyboard: ← → to navigate</div>
-      </div>
+    </aside>
 
-      <div class="projects-grid" id="grid">
-        <!-- InventoryX (REAL) -->
-        <article class="project" tabindex="0" role="button" data-tags="web" data-title="InventoryX — Full-Stack Inventory Management" data-desc="InventoryX: React frontend, Node.js API, MySQL DB, JWT auth, bcrypt password hashing, role-based access, dashboard, CSV import/export, low-stock alerts." data-github="https://github.com/YashSurve2006" data-live="">
-          <div class="thumb" aria-hidden="true">
-            <svg width="100%" height="96" viewBox="0 0 300 96" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="InventoryX screenshot placeholder">
-              <rect width="300" height="96" rx="8" fill="url(#g)"></rect>
-              <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#2563eb"/><stop offset="1" stop-color="#7c3aed"/></linearGradient></defs>
-              <text x="20" y="58" fill="#fff" font-size="18" font-weight="700">InventoryX — Dashboard</text>
-            </svg>
-          </div>
-          <div style="font-weight:800">InventoryX — Inventory Management</div>
-          <div class="meta">
-            <span class="chip">React</span>
-            <span class="chip">Node.js</span>
-            <span class="chip">MySQL</span>
-            <span class="chip">JWT</span>
-          </div>
-        </article>
+    <div class="container" role="document" aria-label="Portfolio">
 
-        <!-- Portfolio (this site) -->
-        <article class="project" tabindex="0" role="button" data-tags="ui" data-title="Portfolio — Desktop-first site" data-desc="This portfolio is a single-file, desktop-first site emphasizing accessibility, animations and recruiter-friendly layout." data-github="https://github.com/YashSurve2006" data-live="">
-          <div class="thumb" aria-hidden="true">
-            <svg width="100%" height="96" viewBox="0 0 300 96"><rect width="300" height="96" rx="8" fill="#7c3aed"></rect><text x="20" y="58" fill="#fff" font-size="18" font-weight="700">Portfolio — UI/UX</text></svg>
-          </div>
-          <div style="font-weight:800">Portfolio Revamp</div>
-          <div class="meta"><span class="chip">HTML</span><span class="chip">JS</span><span class="chip">Accessibility</span></div>
-        </article>
-
-        <!-- DataViz -->
-        <article class="project" tabindex="0" role="button" data-tags="data" data-title="DataViz Dashboard" data-desc="Interactive analytics dashboard built with Plotly & Pandas. Demonstrates data cleaning, multi-chart layouts and drill-down filtering." data-github="" data-live="">
-          <div class="thumb" aria-hidden="true">
-            <svg width="100%" height="96" viewBox="0 0 300 96"><rect width="300" height="96" rx="8" fill="#2563eb"></rect><text x="20" y="58" fill="#fff" font-size="18" font-weight="700">DataViz — Charts</text></svg>
-          </div>
-          <div style="font-weight:800">Data Visualization Dashboard</div>
-          <div class="meta"><span class="chip">Python</span><span class="chip">Plotly</span><span class="chip">Pandas</span></div>
-        </article>
-
-        <!-- AutoCAD -->
-        <article class="project" tabindex="0" role="button" data-tags="ui" data-title="HDFC Bank — AutoCAD Layout" data-desc="AutoCAD layout project completed for HDFC Bank Hyderabad — accurate floor layout, annotation and handoff-ready drawings." data-github="" data-live="">
-          <div class="thumb" aria-hidden="true">
-            <svg width="100%" height="96" viewBox="0 0 300 96"><rect width="300" height="96" rx="8" fill="#6d28d9"></rect><text x="20" y="58" fill="#fff" font-size="18" font-weight="700">HDFC — CAD</text></svg>
-          </div>
-          <div style="font-weight:800">HDFC AutoCAD Layout</div>
-          <div class="meta"><span class="chip">AutoCAD</span><span class="chip">CAD</span></div>
-        </article>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section class="section" id="skills" aria-labelledby="skills-title">
-      <h2 id="skills-title">Skills</h2>
-      <div class="skills" id="skills-area">
-        <div class="skill-col">
-          <div style="font-weight:800">Frontend</div>
-          <div style="margin-top:8px;color:var(--muted)">React • HTML • CSS • Bootstrap • Accessibility</div>
-          <div style="margin-top:10px" class="skill-bar" aria-hidden="true"><i data-level="90"></i></div>
-        </div>
-        <div class="skill-col">
-          <div style="font-weight:800">Backend & Data</div>
-          <div style="margin-top:8px;color:var(--muted)">Node.js • Express • MySQL • Python • APIs</div>
-          <div style="margin-top:10px" class="skill-bar" aria-hidden="true"><i data-level="84"></i></div>
-        </div>
-        <div class="skill-col">
-          <div style="font-weight:800">Design & Tools</div>
-          <div style="margin-top:8px;color:var(--muted)">AutoCAD • Adobe Photoshop • MS-Excel</div>
-          <div style="margin-top:10px" class="skill-bar" aria-hidden="true"><i data-level="76"></i></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section class="section" id="about" aria-labelledby="about-title">
-      <h2 id="about-title">About & Experience</h2>
-      <div style="display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:start">
-        <div>
-          <p style="margin:0;color:var(--muted)">I am a B.Sc Computer Science student (CGPA 8.90/10) building full-stack apps that combine performant frontends with reliable backends. My focus is component-driven UI, accessibility and pragmatic engineering. Experience includes volunteer leadership and applied CAD work (HDFC layout project).</p>
-
-          <div class="timeline" style="margin-top:12px">
-            <div class="timeline-item">
-              <div class="timeline-dot" aria-hidden="true"></div>
-              <div class="timeline-card">
-                <div style="font-weight:800">Fundraiser — Jan 2024</div>
-                <div style="color:var(--muted)">Led virtual fundraising — increased donations by ~20%, organised volunteers, secured partnerships.</div>
-              </div>
+        <!-- Sidebar (desktop) -->
+        <aside class="sidebar" aria-labelledby="profile">
+            <div class="brand">
+                <div class="logo" aria-hidden="true">YS</div>
+                <div>
+                    <h1 id="profile">Yash Surve</h1>
+                    <p class="small">Full-Stack Developer • UI/UX Enthusiast</p>
+                </div>
             </div>
 
-            <div class="timeline-item">
-              <div class="timeline-dot" aria-hidden="true"></div>
-              <div class="timeline-card">
-                <div style="font-weight:800">Education</div>
-                <div style="color:var(--muted)">B.Sc Computer Science & Technology (2024-2027) — CGPA 8.90/10</div>
-              </div>
-            </div>
-          </div>
-        </div>
+            <p class="small">I design and build polished web applications with strong UI/UX, focusing on React, Node.js,
+                and MySQL — and accessible, production-ready interfaces.</p>
 
-        <aside style="background:rgba(255,255,255,0.02);padding:14px;border-radius:10px">
-          <div style="font-weight:800">Certifications</div>
-          <ul style="margin-top:8px;color:var(--muted)">
-            <li>Hardware & Networking (Linux fundamentals) — 2025</li>
-            <li>AutoCAD — 2024</li>
-            <li>Advanced Excel — 2023</li>
-            <li>Adobe Photoshop — 2022</li>
-          </ul>
+            <div class="socials" aria-label="Quick links">
+                <a class="chip" href="#" id="copyEmail">📧 yashsurve2019@gmail.com</a>
+                <a class="chip" href="#" id="downloadResume">⬇ Download Resume</a>
+                <a class="chip" href="https://github.com/YashSurve2006" target="_blank" rel="noopener">🐙 GitHub</a>
+                <a class="chip" href="https://www.linkedin.com/in/yash-surve-535954288" target="_blank"
+                    rel="noopener">🔗 LinkedIn</a>
+            </div>
+
+            <nav class="side-nav" aria-label="Primary navigation">
+                <a href="#home" class="active">Home</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+            <div class="cta">
+                <button class="btn" id="hire">Hire / Contact</button>
+                <button class="btn ghost" id="themeToggle" aria-pressed="false" title="Toggle theme">Theme</button>
+            </div>
         </aside>
-      </div>
-    </section>
 
-    <!-- CONTACT -->
-    <section class="section" id="contact" aria-labelledby="contact-title">
-      <h2 id="contact-title">Contact</h2>
-      <div class="contact-grid">
-        <form id="contact-form" class="section" style="padding:16px" novalidate>
-          <div style="display:flex;gap:8px">
-            <input class="input" id="name" name="name" placeholder="Your name" required aria-required="true" />
-            <input class="input" id="email" name="email" placeholder="Your email" required aria-required="true" />
-          </div>
-          <div style="margin-top:10px">
-            <textarea id="message" name="message" placeholder="Message (brief project or role)"></textarea>
-          </div>
-          <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
-            <button type="submit" class="btn">Send message</button>
-            <button type="button" class="btn ghost" id="clear">Clear</button>
-          </div>
-          <div id="feedback" style="margin-top:10px;color:var(--muted)"></div>
-        </form>
+        <!-- Main area -->
+        <main class="main" id="main" tabindex="-1">
 
-        <div style="padding:16px;background:rgba(255,255,255,0.02);border-radius:10px">
-          <div style="font-weight:800">Quick</div>
-          <div style="margin-top:8px;color:var(--muted)">Email: <button class="chip" id="quick-email">yashsurve2019@gmail.com</button></div>
-          <div style="margin-top:10px;color:var(--muted)">Phone: +91 88507 06982</div>
-          <div style="margin-top:12px"><strong>Links</strong><div style="margin-top:8px;display:flex;gap:8px"><a class="chip" href="https://github.com/YashSurve2006" target="_blank">GitHub</a><a class="chip" href="https://www.linkedin.com/in/yash-surve-535954288" target="_blank">LinkedIn</a></div></div>
-        </div>
-      </div>
-    </section>
+            <!-- HERO -->
+            <section class="hero" id="home" aria-labelledby="home-title">
+                <div>
+                    <div class="hi">Hello — I'm</div>
+                    <h2 id="home-title" class="title">Yash Surve — Full-Stack Developer</h2>
+                    <p class="lead">Aspiring software developer experienced in frontend-first interfaces, backend APIs
+                        and database design. Skilled in React, Node.js, MySQL, Java & Python.</p>
 
-    <div style="color:var(--muted);text-align:center;padding:12px">© <span id="year"></span> Yash Surve — Built with HTML & JS</div>
-  </main>
-</div>
+                    <div class="hero-ctas" role="group" aria-label="Primary actions">
+                        <button class="btn" id="btn-projects">See projects</button>
+                        <button class="btn ghost" id="btn-about">About & CV</button>
+                    </div>
 
-<!-- Modal (project details) -->
-<div class="modal-backdrop" id="modal" aria-hidden="true">
-  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="proj-title" aria-describedby="proj-desc">
-    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
-      <div style="font-weight:800" id="proj-title">Project</div>
-      <div style="display:flex;gap:8px">
-        <a id="proj-live" class="btn ghost" href="#" target="_blank" rel="noopener">Live</a>
-        <a id="proj-github" class="btn" href="#" target="_blank" rel="noopener">GitHub</a>
-        <button id="proj-close" class="btn ghost">Close</button>
-      </div>
+                    <div class="kpis" aria-hidden="true">
+                        <div class="kpi"><strong>InventoryX</strong><span class="small">Main project</span></div>
+                        <div class="kpi"><strong>React • Node</strong><span class="small">Frontend / Backend</span>
+                        </div>
+                        <div class="kpi"><strong>MySQL</strong><span class="small">Database</span></div>
+                    </div>
+                </div>
+
+                <aside class="kicker" aria-hidden="false">
+                    <div style="font-weight:800">Contact</div>
+                    <div style="color:var(--muted)">yashsurve2019@gmail.com</div>
+                    <div style="margin-top:12px;color:var(--muted)">Dombivli, Mumbai</div>
+                    <div style="margin-top:6px;color:var(--muted)">+91 88507 06982</div>
+                </aside>
+            </section>
+
+            <!-- PROJECTS -->
+            <section class="section" id="projects" aria-labelledby="projects-title">
+                <h2 id="projects-title">Featured Projects</h2>
+                <p class="small" style="margin:6px 0 0 0;color:var(--muted)">InventoryX is the highlighted project. Tap
+                    a card for details and screenshots.</p>
+
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+                    <div>
+                        <button class="chip" data-filter="all">All</button>
+                        <button class="chip" data-filter="web">Web</button>
+                        <button class="chip" data-filter="data">Data</button>
+                        <button class="chip" data-filter="ui">UI</button>
+                    </div>
+                </div>
+
+                <div class="projects-grid" id="grid">
+                    <!-- InventoryX (REAL) -->
+                    <article class="project" tabindex="0" role="button" data-tags="web"
+                        data-title="InventoryX — Full-Stack Inventory Management"
+                        data-desc="InventoryX: React frontend, Node.js API, MySQL DB, JWT auth, bcrypt password hashing, role-based access, dashboard, CSV import/export, low-stock alerts."
+                        data-github="https://github.com/YashSurve2006" data-live="">
+                        <div class="thumb" aria-hidden="true">
+                            <svg width="100%" height="96" viewBox="0 0 300 96" preserveAspectRatio="xMidYMid meet"
+                                xmlns="http://www.w3.org/2000/svg" role="img"
+                                aria-label="InventoryX screenshot placeholder">
+                                <rect width="300" height="96" rx="8" fill="url(#g)"></rect>
+                                <defs>
+                                    <linearGradient id="g" x1="0" x2="1">
+                                        <stop offset="0" stop-color="#2563eb" />
+                                        <stop offset="1" stop-color="#7c3aed" />
+                                    </linearGradient>
+                                </defs>
+                                <text x="20" y="58" fill="#fff" font-size="18" font-weight="700">InventoryX —
+                                    Dashboard</text>
+                            </svg>
+                        </div>
+                        <div style="font-weight:800">InventoryX — Inventory Management</div>
+                        <div class="meta">
+                            <span class="chip">React</span>
+                            <span class="chip">Node.js</span>
+                            <span class="chip">MySQL</span>
+                            <span class="chip">JWT</span>
+                        </div>
+                    </article>
+
+                    <!-- Portfolio (this site) -->
+                    <article class="project" tabindex="0" role="button" data-tags="ui"
+                        data-title="Portfolio — Desktop-first site"
+                        data-desc="This portfolio is a single-file, desktop-first site emphasizing accessibility, animations and recruiter-friendly layout."
+                        data-github="https://github.com/YashSurve2006" data-live="">
+                        <div class="thumb" aria-hidden="true">
+                            <svg width="100%" height="96" viewBox="0 0 300 96">
+                                <rect width="300" height="96" rx="8" fill="#7c3aed"></rect><text x="20" y="58"
+                                    fill="#fff" font-size="18" font-weight="700">Portfolio — UI/UX</text>
+                            </svg>
+                        </div>
+                        <div style="font-weight:800">Portfolio Revamp</div>
+                        <div class="meta"><span class="chip">HTML</span><span class="chip">JS</span><span
+                                class="chip">Accessibility</span></div>
+                    </article>
+
+                    <!-- DataViz -->
+                    <article class="project" tabindex="0" role="button" data-tags="data" data-title="DataViz Dashboard"
+                        data-desc="Interactive analytics dashboard built with Plotly & Pandas. Demonstrates data cleaning, multi-chart layouts and drill-down filtering."
+                        data-github="" data-live="">
+                        <div class="thumb" aria-hidden="true">
+                            <svg width="100%" height="96" viewBox="0 0 300 96">
+                                <rect width="300" height="96" rx="8" fill="#2563eb"></rect><text x="20" y="58"
+                                    fill="#fff" font-size="18" font-weight="700">DataViz — Charts</text>
+                            </svg>
+                        </div>
+                        <div style="font-weight:800">Data Visualization Dashboard</div>
+                        <div class="meta"><span class="chip">Python</span><span class="chip">Plotly</span><span
+                                class="chip">Pandas</span></div>
+                    </article>
+
+                    <!-- AutoCAD -->
+                    <article class="project" tabindex="0" role="button" data-tags="ui"
+                        data-title="HDFC Bank — AutoCAD Layout"
+                        data-desc="AutoCAD layout project completed for HDFC Bank Hyderabad — accurate floor layout, annotation and handoff-ready drawings."
+                        data-github="" data-live="">
+                        <div class="thumb" aria-hidden="true">
+                            <svg width="100%" height="96" viewBox="0 0 300 96">
+                                <rect width="300" height="96" rx="8" fill="#6d28d9"></rect><text x="20" y="58"
+                                    fill="#fff" font-size="18" font-weight="700">HDFC — CAD</text>
+                            </svg>
+                        </div>
+                        <div style="font-weight:800">HDFC AutoCAD Layout</div>
+                        <div class="meta"><span class="chip">AutoCAD</span><span class="chip">CAD</span></div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- SKILLS -->
+            <section class="section" id="skills" aria-labelledby="skills-title">
+                <h2 id="skills-title">Skills</h2>
+                <div class="skills" id="skills-area">
+                    <div class="skill-col">
+                        <div style="font-weight:800">Frontend</div>
+                        <div style="margin-top:8px;color:var(--muted)">React • HTML • CSS • Bootstrap • Accessibility
+                        </div>
+                        <div style="margin-top:10px" class="skill-bar" aria-hidden="true"><i data-level="90"></i></div>
+                    </div>
+                    <div class="skill-col">
+                        <div style="font-weight:800">Backend & Data</div>
+                        <div style="margin-top:8px;color:var(--muted)">Node.js • Express • MySQL • Python • APIs</div>
+                        <div style="margin-top:10px" class="skill-bar" aria-hidden="true"><i data-level="84"></i></div>
+                    </div>
+                    <div class="skill-col">
+                        <div style="font-weight:800">Design & Tools</div>
+                        <div style="margin-top:8px;color:var(--muted)">AutoCAD • Adobe Photoshop • MS-Excel</div>
+                        <div style="margin-top:10px" class="skill-bar" aria-hidden="true"><i data-level="76"></i></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ABOUT -->
+            <section class="section" id="about" aria-labelledby="about-title">
+                <h2 id="about-title">About & Experience</h2>
+                <div style="display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:start">
+                    <div>
+                        <p style="margin:0;color:var(--muted)">I am a B.Sc Computer Science student (CGPA 8.90/10)
+                            building full-stack apps that combine performant frontends with reliable backends. My focus
+                            is component-driven UI, accessibility and pragmatic engineering. Experience includes
+                            volunteer leadership and applied CAD work (HDFC layout project).</p>
+
+                        <div class="timeline" style="margin-top:12px">
+                            <div class="timeline-item">
+                                <div class="timeline-dot" aria-hidden="true"></div>
+                                <div class="timeline-card">
+                                    <div style="font-weight:800">Fundraiser — Jan 2024</div>
+                                    <div style="color:var(--muted)">Led virtual fundraising — increased donations by
+                                        ~20%, organised volunteers, secured partnerships.</div>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-dot" aria-hidden="true"></div>
+                                <div class="timeline-card">
+                                    <div style="font-weight:800">Education</div>
+                                    <div style="color:var(--muted)">B.Sc Computer Science & Technology (2024-2027) —
+                                        CGPA 8.90/10</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <aside style="background:rgba(255,255,255,0.02);padding:14px;border-radius:10px">
+                        <div style="font-weight:800">Certifications</div>
+                        <ul style="margin-top:8px;color:var(--muted)">
+                            <li>Hardware & Networking (Linux fundamentals) — 2025</li>
+                            <li>AutoCAD — 2024</li>
+                            <li>Advanced Excel — 2023</li>
+                            <li>Adobe Photoshop — 2022</li>
+                        </ul>
+                    </aside>
+                </div>
+            </section>
+
+            <!-- CONTACT -->
+            <section class="section" id="contact" aria-labelledby="contact-title">
+                <h2 id="contact-title">Contact</h2>
+                <div class="contact-grid">
+                    <form id="contact-form" class="section" style="padding:16px" novalidate>
+                        <div style="display:flex;gap:8px">
+                            <input class="input" id="name" name="name" placeholder="Your name" required
+                                aria-required="true" />
+                            <input class="input" id="email" name="email" placeholder="Your email" required
+                                aria-required="true" />
+                        </div>
+                        <div style="margin-top:10px">
+                            <textarea id="message" name="message"
+                                placeholder="Message (brief project or role)"></textarea>
+                        </div>
+                        <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
+                            <button type="submit" class="btn">Send message</button>
+                            <button type="button" class="btn ghost" id="clear">Clear</button>
+                        </div>
+                        <div id="feedback" style="margin-top:10px;color:var(--muted)"></div>
+                    </form>
+
+                    <div style="padding:16px;background:rgba(255,255,255,0.02);border-radius:10px">
+                        <div style="font-weight:800">Quick</div>
+                        <div style="margin-top:8px;color:var(--muted)">Email: <button class="chip"
+                                id="quick-email">yashsurve2019@gmail.com</button></div>
+                        <div style="margin-top:10px;color:var(--muted)">Phone: +91 88507 06982</div>
+                        <div style="margin-top:12px"><strong>Links</strong>
+                            <div style="margin-top:8px;display:flex;gap:8px"><a class="chip"
+                                    href="https://github.com/YashSurve2006" target="_blank">GitHub</a><a class="chip"
+                                    href="https://www.linkedin.com/in/yash-surve-535954288" target="_blank">LinkedIn</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div style="color:var(--muted);text-align:center;padding:12px">© <span id="year"></span> Yash Surve — Built
+                with HTML & JS</div>
+        </main>
     </div>
-    <p id="proj-desc" style="color:var(--muted);margin-top:8px"></p>
-    <div id="proj-images" style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px"></div>
-  </div>
-</div>
 
-<!-- To top -->
-<button id="toTop" class="to-top" aria-label="Scroll to top" title="Top" style="display:none">↑</button>
+    <!-- Modal (project details) -->
+    <div class="modal-backdrop" id="modal" aria-hidden="true">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="proj-title" aria-describedby="proj-desc">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+                <div style="font-weight:800" id="proj-title">Project</div>
+                <div style="display:flex;gap:8px">
+                    <a id="proj-live" class="btn ghost" href="#" target="_blank" rel="noopener">Live</a>
+                    <a id="proj-github" class="btn" href="#" target="_blank" rel="noopener">GitHub</a>
+                    <button id="proj-close" class="btn ghost">Close</button>
+                </div>
+            </div>
+            <p id="proj-desc" style="color:var(--muted);margin-top:8px"></p>
+            <div id="proj-images" style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px">
+            </div>
+        </div>
+    </div>
 
-<script>
-/* ======================================================
-   Interactivity JS
-   - theme toggle
-   - mobile drawer
-   - project modal & keyboard nav
-   - resume download
-   - contact form demo
-   ====================================================== */
+    <!-- To top -->
+    <button id="toTop" class="to-top" aria-label="Scroll to top" title="Top" style="display:none">↑</button>
 
-document.getElementById('year').textContent = new Date().getFullYear();
+    <script>
+        /* ======================================================
+           Interactivity JS
+           - theme toggle
+           - mobile drawer
+           - project modal & keyboard nav
+           - resume download
+           - contact form demo
+           ====================================================== */
 
-/* ---------- Theme handling ---------- */
-const root = document.documentElement;
-const themeBtn = document.getElementById('themeToggle');
-const mTheme = document.getElementById('mTheme');
+        document.getElementById('year').textContent = new Date().getFullYear();
 
-function getSavedTheme(){
-  return localStorage.getItem('theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme:light)').matches ? 'light' : 'dark');
-}
-function applyTheme(t){
-  root.setAttribute('data-theme', t);
-  if(themeBtn) themeBtn.setAttribute('aria-pressed', t === 'light');
-  if(mTheme) mTheme.textContent = t === 'light' ? 'Dark' : 'Light';
-  localStorage.setItem('theme', t);
-}
-applyTheme(getSavedTheme());
-if(themeBtn) themeBtn.addEventListener('click', ()=> applyTheme(root.getAttribute('data-theme') === 'light' ? 'dark' : 'light'));
-if(mTheme) mTheme.addEventListener('click', ()=> applyTheme(root.getAttribute('data-theme') === 'light' ? 'dark' : 'light'));
+        /* ---------- Theme handling ---------- */
+        const root = document.documentElement;
+        const themeBtn = document.getElementById('themeToggle');
+        const mTheme = document.getElementById('mTheme');
 
-/* ---------- Mobile drawer ---------- */
-const hamburger = document.getElementById('hamburger');
-const drawer = document.getElementById('mobileDrawer');
-const overlay = document.getElementById('drawerOverlay');
+        function getSavedTheme() {
+            return localStorage.getItem('theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme:light)').matches ? 'light' : 'dark');
+        }
+        function applyTheme(t) {
+            root.setAttribute('data-theme', t);
+            if (themeBtn) themeBtn.setAttribute('aria-pressed', t === 'light');
+            if (mTheme) mTheme.textContent = t === 'light' ? 'Dark' : 'Light';
+            localStorage.setItem('theme', t);
+        }
+        applyTheme(getSavedTheme());
+        if (themeBtn) themeBtn.addEventListener('click', () => applyTheme(root.getAttribute('data-theme') === 'light' ? 'dark' : 'light'));
+        if (mTheme) mTheme.addEventListener('click', () => applyTheme(root.getAttribute('data-theme') === 'light' ? 'dark' : 'light'));
 
-if(hamburger){
-  hamburger.addEventListener('click', ()=> {
-    openDrawer();
-  });
-}
-if(overlay){
-  overlay.addEventListener('click', ()=> closeDrawer());
-}
+        /* ---------- Mobile drawer ---------- */
+        const hamburger = document.getElementById('hamburger');
+        const drawer = document.getElementById('mobileDrawer');
+        const overlay = document.getElementById('drawerOverlay');
 
-function openDrawer(){
-  drawer.classList.add('open');
-  overlay.classList.add('show');
-  drawer.setAttribute('aria-hidden','false');
-  overlay.setAttribute('aria-hidden','false');
-  hamburger.setAttribute('aria-expanded','true');
-  // focus first link inside drawer
-  const first = drawer.querySelector('a');
-  if(first) first.focus();
-}
-function closeDrawer(){
-  drawer.classList.remove('open');
-  overlay.classList.remove('show');
-  drawer.setAttribute('aria-hidden','true');
-  overlay.setAttribute('aria-hidden','true');
-  hamburger.setAttribute('aria-expanded','false');
-  // return focus to hamburger
-  hamburger.focus();
-}
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                openDrawer();
+            });
+        }
+        if (overlay) {
+            overlay.addEventListener('click', () => closeDrawer());
+        }
 
-/* Escape closes drawer/modal */
-document.addEventListener('keydown', (e)=>{
-  if(e.key === 'Escape'){
-    closeDrawer();
-    closeModal();
-  }
-});
+        function openDrawer() {
+            drawer.classList.add('open');
+            overlay.classList.add('show');
+            drawer.setAttribute('aria-hidden', 'false');
+            overlay.setAttribute('aria-hidden', 'false');
+            hamburger.setAttribute('aria-expanded', 'true');
+            // focus first link inside drawer
+            const first = drawer.querySelector('a');
+            if (first) first.focus();
+        }
+        function closeDrawer() {
+            drawer.classList.remove('open');
+            overlay.classList.remove('show');
+            drawer.setAttribute('aria-hidden', 'true');
+            overlay.setAttribute('aria-hidden', 'true');
+            hamburger.setAttribute('aria-expanded', 'false');
+            // return focus to hamburger
+            hamburger.focus();
+        }
 
-/* ---------- Copy email ---------- */
-function copyText(text, el){
-  navigator.clipboard?.writeText(text).then(()=>{
-    const orig = el.textContent;
-    el.textContent = 'Copied ✓';
-    setTimeout(()=> el.textContent = orig, 1400);
-  }).catch(()=> alert('Clipboard unavailable'));
-}
+        /* Escape closes drawer/modal */
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeDrawer();
+                closeModal();
+            }
+        });
 
-document.getElementById('copyEmail').addEventListener('click', (e)=> { e.preventDefault(); copyText('yashsurve2019@gmail.com', e.currentTarget); });
-document.getElementById('mCopyEmail').addEventListener('click', (e)=> { e.preventDefault(); copyText('yashsurve2019@gmail.com', e.currentTarget); });
-document.getElementById('quick-email').addEventListener('click', ()=> copyText('yashsurve2019@gmail.com', document.getElementById('quick-email')));
+        /* ---------- Copy email ---------- */
+        function copyText(text, el) {
+            navigator.clipboard?.writeText(text).then(() => {
+                const orig = el.textContent;
+                el.textContent = 'Copied ✓';
+                setTimeout(() => el.textContent = orig, 1400);
+            }).catch(() => alert('Clipboard unavailable'));
+        }
 
-/* ---------- Resume download (client-side) ---------- */
-function downloadResume(){
-  const resume = `Yash Surve
+        document.getElementById('copyEmail').addEventListener('click', (e) => { e.preventDefault(); copyText('yashsurve2019@gmail.com', e.currentTarget); });
+        document.getElementById('mCopyEmail').addEventListener('click', (e) => { e.preventDefault(); copyText('yashsurve2019@gmail.com', e.currentTarget); });
+        document.getElementById('quick-email').addEventListener('click', () => copyText('yashsurve2019@gmail.com', document.getElementById('quick-email')));
+
+        /* ---------- Resume download (client-side) ---------- */
+        function downloadResume() {
+            const resume = `Yash Surve
 yashsurve2019@gmail.com | +91 8850706982 | Dombivli, Mumbai
 
 CAREER OBJECTIVE
@@ -634,180 +1181,181 @@ PROJECTS
 SKILLS
 HTML, CSS, JavaScript, React, Node.js, MySQL, Java, Python, AutoCAD, Adobe Photoshop, MS-Excel
 `;
-  const blob = new Blob([resume], {type:'text/plain'});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a'); a.href = url; a.download = 'Yash-Surve-Resume.txt'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
-}
-document.getElementById('downloadResume').addEventListener('click', (e)=> { e.preventDefault(); downloadResume(); });
-document.getElementById('mDownloadResume').addEventListener('click', (e)=> { e.preventDefault(); downloadResume(); });
+            const blob = new Blob([resume], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a'); a.href = url; a.download = 'Yash-Surve-Resume.txt'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+        }
+        document.getElementById('downloadResume').addEventListener('click', (e) => { e.preventDefault(); downloadResume(); });
+        document.getElementById('mDownloadResume').addEventListener('click', (e) => { e.preventDefault(); downloadResume(); });
 
-/* ---------- Smooth nav & active state ---------- */
-document.querySelectorAll('.side-nav a').forEach(a=>{
-  a.addEventListener('click', e=>{
-    const href = a.getAttribute('href');
-    if(href && href.startsWith('#')){
-      e.preventDefault();
-      document.querySelectorAll('.side-nav a').forEach(x=>x.classList.remove('active'));
-      a.classList.add('active');
-      document.querySelector(href).scrollIntoView({behavior:'smooth',block:'center'});
-    }
-  });
-});
+        /* ---------- Smooth nav & active state ---------- */
+        document.querySelectorAll('.side-nav a').forEach(a => {
+            a.addEventListener('click', e => {
+                const href = a.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    document.querySelectorAll('.side-nav a').forEach(x => x.classList.remove('active'));
+                    a.classList.add('active');
+                    document.querySelector(href).scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            });
+        });
 
-/* Mobile nav links close drawer */
-document.querySelectorAll('#mobileDrawer a').forEach(a=>{
-  a.addEventListener('click', e=>{
-    const href = a.getAttribute('href');
-    if(href && href.startsWith('#')){
-      e.preventDefault();
-      closeDrawer();
-      document.querySelector(href).scrollIntoView({behavior:'smooth',block:'center'});
-    }
-  });
-});
+        /* Mobile nav links close drawer */
+        document.querySelectorAll('#mobileDrawer a').forEach(a => {
+            a.addEventListener('click', e => {
+                const href = a.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    closeDrawer();
+                    document.querySelector(href).scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            });
+        });
 
-/* ---------- Animated hero small behavior disabled by request: static title ---------- */
-/* Title is static: "Yash Surve — Full-Stack Developer" */
+        /* ---------- Animated hero small behavior disabled by request: static title ---------- */
+        /* Title is static: "Yash Surve — Full-Stack Developer" */
 
-/* ---------- Projects filtering, modal, keyboard nav ---------- */
-const projects = Array.from(document.querySelectorAll('.project'));
-const grid = document.getElementById('grid');
+        /* ---------- Projects filtering, modal, keyboard nav ---------- */
+        const projects = Array.from(document.querySelectorAll('.project'));
+        const grid = document.getElementById('grid');
 
-document.querySelectorAll('[data-filter]').forEach(btn=>{
-  btn.addEventListener('click', ()=> {
-    const f = btn.getAttribute('data-filter');
-    projects.forEach(p=>{
-      const tags = (p.dataset.tags || '').split(',').map(s=>s.trim());
-      if(f==='all') p.style.display = '';
-      else p.style.display = (tags.includes(f) || p.dataset.title.toLowerCase().includes(f)) ? '' : 'none';
-    });
-  });
-});
+        document.querySelectorAll('[data-filter]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const f = btn.getAttribute('data-filter');
+                projects.forEach(p => {
+                    const tags = (p.dataset.tags || '').split(',').map(s => s.trim());
+                    if (f === 'all') p.style.display = '';
+                    else p.style.display = (tags.includes(f) || p.dataset.title.toLowerCase().includes(f)) ? '' : 'none';
+                });
+            });
+        });
 
-/* Modal elements */
-const modal = document.getElementById('modal');
-const projTitle = document.getElementById('proj-title');
-const projDesc = document.getElementById('proj-desc');
-const projImages = document.getElementById('proj-images');
-const projGithub = document.getElementById('proj-github');
-const projLive = document.getElementById('proj-live');
-const projClose = document.getElementById('proj-close');
+        /* Modal elements */
+        const modal = document.getElementById('modal');
+        const projTitle = document.getElementById('proj-title');
+        const projDesc = document.getElementById('proj-desc');
+        const projImages = document.getElementById('proj-images');
+        const projGithub = document.getElementById('proj-github');
+        const projLive = document.getElementById('proj-live');
+        const projClose = document.getElementById('proj-close');
 
-function openProject(el){
-  projTitle.textContent = el.dataset.title || 'Project';
-  projDesc.textContent = el.dataset.desc || '';
-  projGithub.href = el.dataset.github || '#';
-  projLive.href = el.dataset.live || '#';
-  projImages.innerHTML = '';
+        function openProject(el) {
+            projTitle.textContent = el.dataset.title || 'Project';
+            projDesc.textContent = el.dataset.desc || '';
+            projGithub.href = el.dataset.github || '#';
+            projLive.href = el.dataset.live || '#';
+            projImages.innerHTML = '';
 
-  // If developer set data-images attribute with comma-separated URLs, render them
-  if(el.dataset.images){
-    const arr = el.dataset.images.split(',').map(s=>s.trim()).filter(Boolean);
-    arr.forEach(url=>{
-      const img = document.createElement('img');
-      img.src = url;
-      img.alt = `${el.dataset.title} screenshot`;
-      img.style.width = '100%';
-      img.style.height = '120px';
-      img.style.objectFit = 'cover';
-      img.style.borderRadius = '8px';
-      projImages.appendChild(img);
-    });
-  } else {
-    // Fallback: 3 placeholder tiles
-    for(let i=1;i<=3;i++){
-      const d = document.createElement('div');
-      d.style.background = 'linear-gradient(135deg, rgba(37,99,235,0.9), rgba(124,58,237,0.9))';
-      d.style.height = '120px';
-      d.style.borderRadius = '8px';
-      d.style.display = 'grid';
-      d.style.placeItems = 'center';
-      d.style.color = 'white';
-      d.style.fontWeight = '700';
-      d.textContent = `${el.dataset.title} — Screenshot ${i}`;
-      projImages.appendChild(d);
-    }
-  }
+            // If developer set data-images attribute with comma-separated URLs, render them
+            if (el.dataset.images) {
+                const arr = el.dataset.images.split(',').map(s => s.trim()).filter(Boolean);
+                arr.forEach(url => {
+                    const img = document.createElement('img');
+                    img.src = url;
+                    img.alt = `${el.dataset.title} screenshot`;
+                    img.style.width = '100%';
+                    img.style.height = '120px';
+                    img.style.objectFit = 'cover';
+                    img.style.borderRadius = '8px';
+                    projImages.appendChild(img);
+                });
+            } else {
+                // Fallback: 3 placeholder tiles
+                for (let i = 1; i <= 3; i++) {
+                    const d = document.createElement('div');
+                    d.style.background = 'linear-gradient(135deg, rgba(37,99,235,0.9), rgba(124,58,237,0.9))';
+                    d.style.height = '120px';
+                    d.style.borderRadius = '8px';
+                    d.style.display = 'grid';
+                    d.style.placeItems = 'center';
+                    d.style.color = 'white';
+                    d.style.fontWeight = '700';
+                    d.textContent = `${el.dataset.title} — Screenshot ${i}`;
+                    projImages.appendChild(d);
+                }
+            }
 
-  modal.style.display = 'flex';
-  modal.setAttribute('aria-hidden','false');
-  projClose.focus();
-}
-function closeModal(){ modal.style.display = 'none'; modal.setAttribute('aria-hidden','true'); }
+            modal.style.display = 'flex';
+            modal.setAttribute('aria-hidden', 'false');
+            projClose.focus();
+        }
+        function closeModal() { modal.style.display = 'none'; modal.setAttribute('aria-hidden', 'true'); }
 
-projects.forEach(p=>{
-  p.addEventListener('click', ()=> openProject(p));
-  p.addEventListener('keydown', e=> { if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openProject(p); } });
-});
-projClose.addEventListener('click', closeModal);
-modal.addEventListener('click', e=> { if(e.target === modal) closeModal(); });
+        projects.forEach(p => {
+            p.addEventListener('click', () => openProject(p));
+            p.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openProject(p); } });
+        });
+        projClose.addEventListener('click', closeModal);
+        modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
 
-/* Keyboard arrow navigation among visible project cards */
-let idx = 0;
-document.addEventListener('keydown', e=>{
-  if(e.key === 'ArrowRight' || e.key === 'ArrowLeft'){
-    const visible = projects.filter(p => getComputedStyle(p).display !== 'none');
-    if(visible.length === 0) return;
-    if(e.key === 'ArrowRight') idx = (idx + 1) % visible.length;
-    else idx = (idx - 1 + visible.length) % visible.length;
-    visible[idx].focus({preventScroll:true});
-  }
-});
+        /* Keyboard arrow navigation among visible project cards */
+        let idx = 0;
+        document.addEventListener('keydown', e => {
+            if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+                const visible = projects.filter(p => getComputedStyle(p).display !== 'none');
+                if (visible.length === 0) return;
+                if (e.key === 'ArrowRight') idx = (idx + 1) % visible.length;
+                else idx = (idx - 1 + visible.length) % visible.length;
+                visible[idx].focus({ preventScroll: true });
+            }
+        });
 
-/* ---------- Skills animate on scroll ---------- */
-const skillBars = document.querySelectorAll('.skill-bar i');
-let skillDone = false;
-window.addEventListener('scroll', ()=>{
-  const box = document.getElementById('skills');
-  if(!box || skillDone) return;
-  const rect = box.getBoundingClientRect();
-  if(rect.top < window.innerHeight - 120){
-    skillBars.forEach(i => i.style.width = (i.dataset.level||70) + '%');
-    skillDone = true;
-  }
-});
+        /* ---------- Skills animate on scroll ---------- */
+        const skillBars = document.querySelectorAll('.skill-bar i');
+        let skillDone = false;
+        window.addEventListener('scroll', () => {
+            const box = document.getElementById('skills');
+            if (!box || skillDone) return;
+            const rect = box.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 120) {
+                skillBars.forEach(i => i.style.width = (i.dataset.level || 70) + '%');
+                skillDone = true;
+            }
+        });
 
-/* ---------- Contact form (client-side demo) ---------- */
-const form = document.getElementById('contact-form');
-const feedback = document.getElementById('feedback');
-form.addEventListener('submit', e=>{
-  e.preventDefault();
-  const name = form.name.value.trim(), email = form.email.value.trim();
-  if(!name || !email){ feedback.style.color = 'tomato'; feedback.textContent = 'Please add name and email.'; return; }
-  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if(!re.test(email)){ feedback.style.color = 'tomato'; feedback.textContent = 'Enter a valid email.'; return; }
-  feedback.style.color = 'var(--muted)'; feedback.textContent = 'Saving message (demo)...';
-  setTimeout(()=>{ feedback.style.color='lightgreen'; feedback.textContent = `Thanks ${name}! Message recorded (demo).`; form.reset(); }, 800);
-});
-document.getElementById('clear').addEventListener('click', ()=> { form.reset(); feedback.textContent=''; });
+        /* ---------- Contact form (client-side demo) ---------- */
+        const form = document.getElementById('contact-form');
+        const feedback = document.getElementById('feedback');
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            const name = form.name.value.trim(), email = form.email.value.trim();
+            if (!name || !email) { feedback.style.color = 'tomato'; feedback.textContent = 'Please add name and email.'; return; }
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!re.test(email)) { feedback.style.color = 'tomato'; feedback.textContent = 'Enter a valid email.'; return; }
+            feedback.style.color = 'var(--muted)'; feedback.textContent = 'Saving message (demo)...';
+            setTimeout(() => { feedback.style.color = 'lightgreen'; feedback.textContent = `Thanks ${name}! Message recorded (demo).`; form.reset(); }, 800);
+        });
+        document.getElementById('clear').addEventListener('click', () => { form.reset(); feedback.textContent = ''; });
 
-/* ---------- Copy quick email ---------- */
-document.getElementById('quick-email').addEventListener('click', ()=> copyText('yashsurve2019@gmail.com', document.getElementById('quick-email')));
+        /* ---------- Copy quick email ---------- */
+        document.getElementById('quick-email').addEventListener('click', () => copyText('yashsurve2019@gmail.com', document.getElementById('quick-email')));
 
-/* ---------- Resume buttons ---------- */
-/* downloadResume() defined above; rebind here for desktops */
-document.getElementById('downloadResume').addEventListener('click', (e)=> { e.preventDefault(); downloadResume(); });
+        /* ---------- Resume buttons ---------- */
+        /* downloadResume() defined above; rebind here for desktops */
+        document.getElementById('downloadResume').addEventListener('click', (e) => { e.preventDefault(); downloadResume(); });
 
-/* ---------- CTA buttons ---------- */
-document.getElementById('btn-projects').addEventListener('click', ()=> document.getElementById('projects').scrollIntoView({behavior:'smooth'}));
-document.getElementById('btn-about').addEventListener('click', ()=> document.getElementById('about').scrollIntoView({behavior:'smooth'}));
-document.getElementById('hire').addEventListener('click', ()=> document.getElementById('contact').scrollIntoView({behavior:'smooth'}));
-document.getElementById('mHire').addEventListener('click', ()=> { closeDrawer(); document.getElementById('contact').scrollIntoView({behavior:'smooth'}); });
+        /* ---------- CTA buttons ---------- */
+        document.getElementById('btn-projects').addEventListener('click', () => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' }));
+        document.getElementById('btn-about').addEventListener('click', () => document.getElementById('about').scrollIntoView({ behavior: 'smooth' }));
+        document.getElementById('hire').addEventListener('click', () => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' }));
+        document.getElementById('mHire').addEventListener('click', () => { closeDrawer(); document.getElementById('contact').scrollIntoView({ behavior: 'smooth' }); });
 
-/* ---------- Scroll to top ---------- */
-const toTop = document.getElementById('toTop');
-window.addEventListener('scroll', ()=> { if(window.scrollY > 380) toTop.style.display = 'grid'; else toTop.style.display = 'none'; });
-toTop.addEventListener('click', ()=> window.scrollTo({top:0,behavior:'smooth'}));
+        /* ---------- Scroll to top ---------- */
+        const toTop = document.getElementById('toTop');
+        window.addEventListener('scroll', () => { if (window.scrollY > 380) toTop.style.display = 'grid'; else toTop.style.display = 'none'; });
+        toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-/* ---------- Small utility notes ---------- */
-/* To replace placeholder thumbnails with real screenshots:
-   - add attribute data-images="https://.../img1.jpg,https://.../img2.jpg" to the project article
-   Example:
-   <article class="project" data-images="https://i.imgur.com/example1.png,https://i.imgur.com/example2.png" ...>
-   The modal will then render those images.
-*/
+        /* ---------- Small utility notes ---------- */
+        /* To replace placeholder thumbnails with real screenshots:
+           - add attribute data-images="https://.../img1.jpg,https://.../img2.jpg" to the project article
+           Example:
+           <article class="project" data-images="https://i.imgur.com/example1.png,https://i.imgur.com/example2.png" ...>
+           The modal will then render those images.
+        */
 
-/* End of JS */
-</script>
+        /* End of JS */
+    </script>
 </body>
+
 </html>
