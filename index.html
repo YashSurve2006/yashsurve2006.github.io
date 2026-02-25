@@ -543,123 +543,391 @@ border-radius:20px;
 
 
 /* ===========================
-RESPONSIVE
+ADVANCED RESPONSIVE DESIGN
+Mobile + Tablet + Large Phones
 =========================== */
 
-@media(max-width:1000px){
 
-.projects{grid-template-columns:1fr}
-.skills{grid-template-columns:1fr}
-.hardware{grid-template-columns:1fr}
-.certGrid{grid-template-columns:1fr}
+/* ===== TABLET VIEW ===== */
+
+@media (max-width:1000px){
+
+.container{
+width:92%;
+margin:auto;
+}
+
+.projects{
+grid-template-columns:repeat(2,1fr);
+gap:20px;
+}
+
+.skills{
+grid-template-columns:repeat(2,1fr);
+}
+
+.hardware{
+grid-template-columns:repeat(2,1fr);
+}
+
+.certGrid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.hero{
+flex-direction:column;
+text-align:center;
+gap:20px;
+}
+
+}
+
+
+
+/* ===== MOBILE VIEW ===== */
+
+@media (max-width:768px){
+
+body{
+padding:0;
+overflow-x:hidden;
+}
+
+
+/* Container */
+
+.container{
+width:94%;
+margin:auto;
+}
+
+
+/* Navbar Mobile */
+
+.navbar{
+
+flex-direction:column;
+align-items:center;
+gap:10px;
+padding:15px 0;
+
+}
+
+.navbar a{
+
+display:block;
+padding:10px 0;
+font-size:15px;
+
+}
+
+
+
+/* Hero Section */
+
+.hero{
+
+flex-direction:column;
+text-align:center;
+padding-top:30px;
+gap:20px;
+
+}
+
+.hero h1{
+
+font-size:32px;
+line-height:1.2;
+
+}
+
+.hero h2{
+
+font-size:20px;
+
+}
+
+.hero p{
+
+font-size:15px;
+line-height:1.6;
+
+}
+
+
+
+/* Project Cards Mobile */
+
+.projects{
+
+grid-template-columns:1fr;
+gap:25px;
+
+}
+
+.project{
+
+padding:20px;
+border-radius:14px;
 
 }
 
 .project p{
-line-height:1.7;
-margin-top:12px;
-margin-bottom:18px;
-color:#a8b3d9;
+
+font-size:14px;
+line-height:1.6;
+
 }
+
+
+
+/* Skills */
+
+.skills{
+
+grid-template-columns:1fr;
+gap:15px;
+
+}
+
+.skillCard{
+
+padding:18px;
+
+}
+
+
+
+/* Hardware */
+
+.hardware{
+
+grid-template-columns:1fr;
+gap:15px;
+
+}
+
+
+
+/* Certificates */
+
+.certGrid{
+
+grid-template-columns:1fr;
+gap:20px;
+
+}
+
+.certCard{
+
+padding:18px;
+border-radius:14px;
+
+}
+
+
+
+/* Certificate Images */
 
 .certImg{
 
 width:100%;
 border-radius:10px;
-margin-top:12px;
-margin-bottom:12px;
-border:1px solid #22c7ff55;
+margin-top:10px;
+margin-bottom:10px;
 
 }
 
+
+
+/* Buttons */
 
 .certBtn{
 
-display:inline-block;
-
+display:block;
+text-align:center;
+width:100%;
+padding:12px;
 margin-top:10px;
-
-padding:8px 16px;
-
-border-radius:20px;
-
-background:linear-gradient(90deg,#22c7ff,#6366f1);
-
-color:white;
-
-text-decoration:none;
-
-transition:0.3s;
+border-radius:25px;
+font-size:14px;
 
 }
 
-.certBtn:hover{
 
-box-shadow:0 10px 25px rgba(0,200,255,.4);
 
-transform:translateY(-3px);
+/* Text Sizes */
 
-}
-
-/* MOBILE RESPONSIVE */
-@media screen and (max-width: 768px){
-
-body{
-padding:10px;
-}
-
-/* Navbar */
-.navbar{
-flex-direction:column;
-text-align:center;
-}
-
-/* Hero Section */
-.hero{
-flex-direction:column;
-text-align:center;
-}
-
-/* Project Cards */
-.projects{
-grid-template-columns:1fr;
-}
-
-/* Certificates */
-.certificates{
-grid-template-columns:1fr;
-}
-
-/* Text */
 h1{
+
 font-size:28px;
+
 }
 
 h2{
+
 font-size:22px;
+
+}
+
+h3{
+
+font-size:18px;
+
 }
 
 p{
+
 font-size:14px;
-}
-
-/* Buttons */
-button{
-width:100%;
-margin-top:10px;
-}
 
 }
+
+
+
+/* Section Spacing */
+
+section{
+
+padding-top:40px;
+padding-bottom:40px;
+
+}
+
+}
+
+
+
+/* ===== SMALL MOBILE (iPhone SE etc) ===== */
+
+@media (max-width:480px){
+
+.hero h1{
+
+font-size:26px;
+
+}
+
+.hero h2{
+
+font-size:18px;
+
+}
+
+p{
+
+font-size:13px;
+
+}
+
+.navbar a{
+
+font-size:14px;
+
+}
+
+.project{
+
+padding:16px;
+
+}
+
+.certCard{
+
+padding:16px;
+
+}
+
+}
+
+
+
+/* ===== GLOBAL MOBILE FIXES ===== */
+
+
+/* Images */
+
 img{
+
 max-width:100%;
 height:auto;
+
 }
-.container{
-width:90%;
-margin:auto;
+
+
+/* Prevent Horizontal Scroll */
+
+body{
+
+overflow-x:hidden;
+
+}
+
+
+/* Flexible Grid */
+
+.projects{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+
+}
+
+.skills{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+
+}
+
+.hardware{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+
+}
+
+.certGrid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+
+}
+
+
+
+/* Smooth Touch Effects */
+
+.project:hover,
+.certCard:hover{
+
+transform:translateY(-6px);
+transition:.3s;
+
+}
+
+
+
+/* Better Mobile Buttons */
+
+button,
+.certBtn{
+
+cursor:pointer;
+transition:.3s;
+
+}
+
+button:active,
+.certBtn:active{
+
+transform:scale(.97);
+
 }
 </style>
-
 </head>
 
 
