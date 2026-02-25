@@ -995,7 +995,121 @@ font-size:13px;
 }
 
 }
+
+
+/* ==========================
+DESKTOP NAVBAR
+========================== */
+
+.navbar{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 0;
+
+}
+
+.logo{
+
+font-size:26px;
+font-weight:bold;
+
+}
+
+/* Normal Menu */
+
+.navLinks{
+
+display:flex;
+gap:30px;
+
+}
+
+.navLinks a{
+
+text-decoration:none;
+font-size:16px;
+
+}
+
+/* Hide hamburger on desktop */
+
+.menuToggle{
+
+display:none;
+
+}
+
+
+
+/* ==========================
+MOBILE NAVBAR
+========================== */
+
+@media (max-width:768px){
+
+
+/* Show hamburger */
+
+.menuToggle{
+
+display:block;
+font-size:28px;
+cursor:pointer;
+
+}
+
+
+/* Navbar layout */
+
+.navbar{
+
+position:relative;
+padding:15px;
+
+}
+
+
+/* Hide menu by default */
+
+.navLinks{
+
+display:none;
+flex-direction:column;
+position:absolute;
+top:60px;
+left:0;
+width:100%;
+background:#0b1120;
+padding:20px;
+gap:15px;
+
+}
+
+
+/* Show menu when clicked */
+
+.navLinks.active{
+
+display:flex;
+
+}
+
+
+/* Links style */
+
+.navLinks a{
+
+padding:12px 0;
+border-bottom:1px solid #1f2a44;
+font-size:15px;
+
+}
+
+}
 </style>
+
 </head>
 
 
@@ -1027,18 +1141,26 @@ Network Engineer • Software Developer
 </div>
 
 
-<div class="nav">
+<div class="navbar">
+
+<div class="logo">
+Yash Surve
+</div>
+
+<div class="menuToggle" onclick="toggleMenu()">
+☰
+</div>
+
+<div class="navLinks" id="navLinks">
 
 <a href="#about">About</a>
 <a href="#skills">Skills</a>
 <a href="#projects">Projects</a>
-<a href="#cert">Certifications</a>
-<a href="#contact">Contact</a>
+<a href="#certifications">Certifications</a>
 
 </div>
 
 </div>
-
 
 <div class="hero">
 
@@ -1715,8 +1837,16 @@ navigator.clipboard.writeText("yashsurve2019@gmail.com");
 alert("Email copied");
 
 }
+function toggleMenu(){
+
+document.getElementById("navLinks").classList.toggle("active");
+
+}
 
 </script>
+
+
+
 
 </body>
 
