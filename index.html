@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Yash Surve | Network Engineer Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===========================
+ROOT
+=========================== */
+
+:root{
+
+--bg:#020617;
+--card:#0b1224;
+--accent:#22c7ff;
+--accent2:#6366f1;
+--text:#e2e8f0;
+--muted:#94a3b8;
+
+}
+
+
+/* ===========================
+BODY
+=========================== */
+
+body{
+
+margin:0;
+font-family:Inter;
+background:var(--bg);
+color:var(--text);
+overflow-x:hidden;
+scroll-behavior:smooth;
+
+}
+
+
+/* ===========================
+NETWORK BACKGROUND
+=========================== */
+
+canvas{
+
+position:fixed;
+top:0;
+left:0;
+z-index:-1;
+
+}
+
+
+/* ===========================
+CONTAINER
+=========================== */
+
+.container{
+
+max-width:1400px;
+margin:auto;
+padding:50px;
+
+}
+
+
+/* ===========================
+HEADER
+=========================== */
+
+.header{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:80px;
+
+}
+
+.name{
+
+font-size:36px;
+font-weight:700;
+
+}
+
+.role{
+
+color:var(--muted);
+
+}
+
+.nav{
+
+display:flex;
+gap:30px;
+
+}
+
+.nav a{
+
+text-decoration:none;
+color:white;
+font-weight:600;
+transition:.3s;
+
+}
+
+.nav a:hover{
+
+color:var(--accent);
+
+}
+
+
+/* ===========================
+HERO
+=========================== */
+
+.hero{
+
+margin-bottom:120px;
+
+}
+
+.hero h1{
+
+font-size:64px;
+font-family:Orbitron;
+
+background:linear-gradient(
+90deg,
+var(--accent),
+var(--accent2)
+);
+
+background-clip:text;
+-webkit-background-clip:text;
+color:transparent;
+
+}
+
+
+.hero h2{
+
+color:var(--muted);
+
+font-weight:400;
+
+}
+
+
+.hero p{
+
+max-width:800px;
+line-height:1.8;
+color:#a5b4fc;
+
+}
+
+
+/* ===========================
+BUTTONS
+=========================== */
+
+.buttons{
+
+margin-top:30px;
+display:flex;
+gap:20px;
+
+}
+
+.btn{
+
+padding:12px 26px;
+border-radius:30px;
+text-decoration:none;
+color:white;
+background:linear-gradient(
+90deg,
+var(--accent),
+var(--accent2)
+);
+
+transition:.4s;
+font-weight:600;
+
+}
+
+.btn:hover{
+
+transform:translateY(-4px);
+box-shadow:0 10px 30px rgba(0,200,255,.5);
+
+}
+
+
+.btnOutline{
+
+padding:12px 26px;
+
+border-radius:30px;
+
+border:1px solid #22c7ff;
+
+color:#22c7ff;
+
+background:transparent;
+
+cursor:pointer;
+
+font-weight:600;
+
+transition:0.3s;
+
+}
+
+.btnOutline:hover{
+
+background:linear-gradient(90deg,#22c7ff,#6366f1);
+
+color:white;
+
+box-shadow:0 10px 25px rgba(0,200,255,.4);
+
+}
+
+
+/* ===========================
+STATS
+=========================== */
+
+.stats{
+
+display:flex;
+gap:50px;
+margin-top:40px;
+
+}
+
+.stat{
+
+font-size:30px;
+font-family:Orbitron;
+
+}
+
+
+/* ===========================
+SECTION
+=========================== */
+
+.section{
+
+margin-bottom:120px;
+
+}
+
+.sectionTitle{
+
+font-size:34px;
+margin-bottom:40px;
+font-family:Orbitron;
+color:var(--accent);
+
+}
+
+
+/* ===========================
+ABOUT
+=========================== */
+
+.aboutBox{
+
+background:var(--card);
+padding:40px;
+border-radius:20px;
+border:1px solid #1e293b;
+line-height:1.9;
+
+}
+
+
+/* ===========================
+HARDWARE
+=========================== */
+
+.hardware{
+
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:30px;
+
+}
+
+.hardwareCard{
+
+background:var(--card);
+padding:30px;
+border-radius:18px;
+border:1px solid #1e293b;
+transition:.4s;
+
+}
+
+.hardwareCard:hover{
+
+transform:translateY(-8px);
+box-shadow:0 20px 60px rgba(0,200,255,.3);
+
+}
+
+
+/* ===========================
+SKILLS
+=========================== */
+
+.skills{
+
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:40px;
+
+}
+
+.skillCard{
+
+background:var(--card);
+padding:35px;
+border-radius:20px;
+border:1px solid #1e293b;
+
+}
+
+.skill{
+
+margin-bottom:20px;
+
+}
+
+.skill span{
+
+display:flex;
+justify-content:space-between;
+margin-bottom:6px;
+
+}
+
+.bar{
+
+height:10px;
+background:#0f172a;
+border-radius:20px;
+overflow:hidden;
+
+}
+
+.fill{
+
+height:100%;
+width:0%;
+background:linear-gradient(
+90deg,
+var(--accent),
+var(--accent2)
+);
+
+transition:2s;
+
+}
+
+
+/* ===========================
+PROJECTS
+=========================== */
+
+.filters{
+
+margin-bottom:40px;
+
+}
+
+.filters button{
+
+margin-right:10px;
+padding:8px 18px;
+border-radius:30px;
+border:none;
+cursor:pointer;
+background:linear-gradient(
+90deg,
+var(--accent),
+var(--accent2)
+);
+color:white;
+
+}
+
+
+.projects{
+
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
+
+}
+
+
+.project{
+
+background:var(--card);
+padding:30px;
+border-radius:20px;
+border:1px solid #1e293b;
+transition:.4s;
+
+}
+
+.project:hover{
+
+transform:translateY(-10px);
+box-shadow:0 30px 90px rgba(0,200,255,.3);
+
+}
+
+
+.git{
+
+margin-top:15px;
+display:inline-block;
+padding:10px 18px;
+border-radius:30px;
+background:linear-gradient(
+90deg,
+var(--accent),
+var(--accent2)
+);
+text-decoration:none;
+color:white;
+
+}
+
+
+/* ===========================
+CERTIFICATIONS
+=========================== */
+
+.certGrid{
+
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:30px;
+
+}
+
+.cert{
+
+background:var(--card);
+
+padding:30px;
+
+border-radius:18px;
+
+border:1px solid #1e293b;
+
+transition:0.4s;
+
+text-align:left;
+
+}
+
+.cert:hover{
+
+transform:translateY(-6px);
+
+box-shadow:0 20px 60px rgba(0,200,255,.3);
+
+}
+
+.cert h3{
+
+margin-top:0;
+
+color:#22c7ff;
+
+}
+
+.cert p{
+
+color:#a5b4fc;
+
+line-height:1.7;
+
+margin-top:10px;
+
+}
+
+/* ===========================
+CONTACT
+=========================== */
+
+.contact{
+
+background:var(--card);
+padding:40px;
+border-radius:20px;
+border:1px solid #1e293b;
+line-height:2;
+
+}
+
+
+/* ===========================
+MODAL
+=========================== */
+
+.modalBack{
+
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.8);
+display:none;
+justify-content:center;
+align-items:center;
+
+}
+
+.modalBox{
+
+background:var(--card);
+padding:40px;
+border-radius:20px;
+
+}
+
+
+/* ===========================
+RESPONSIVE
+=========================== */
+
+@media(max-width:1000px){
+
+.projects{grid-template-columns:1fr}
+.skills{grid-template-columns:1fr}
+.hardware{grid-template-columns:1fr}
+.certGrid{grid-template-columns:1fr}
+
+}
+
+.project p{
+line-height:1.7;
+margin-top:12px;
+margin-bottom:18px;
+color:#a8b3d9;
+}
+
+.certImg{
+
+width:100%;
+border-radius:10px;
+margin-top:12px;
+margin-bottom:12px;
+border:1px solid #22c7ff55;
+
+}
+
+
+.certBtn{
+
+display:inline-block;
+
+margin-top:10px;
+
+padding:8px 16px;
+
+border-radius:20px;
+
+background:linear-gradient(90deg,#22c7ff,#6366f1);
+
+color:white;
+
+text-decoration:none;
+
+transition:0.3s;
+
+}
+
+.certBtn:hover{
+
+box-shadow:0 10px 25px rgba(0,200,255,.4);
+
+transform:translateY(-3px);
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<canvas id="network"></canvas>
+
+
+<div class="container">
+
+
+<div class="header">
+
+<div>
+
+<div class="name">
+
+Yash Surve
+
+</div>
+
+<div class="role">
+
+Network Engineer • Software Developer
+
+</div>
+
+</div>
+
+
+<div class="nav">
+
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#cert">Certifications</a>
+<a href="#contact">Contact</a>
+
+</div>
+
+</div>
+
+
+<div class="hero">
+
+<h1>
+
+Network Engineer Portfolio
+
+</h1>
+
+<h2>
+
+Cisco Networking • Software Development
+
+</h2>
+
+<p>
+
+Computer Science student with hands-on experience configuring Cisco routers and Cisco Catalyst 2960 switches.
+
+Experienced in VLAN networks, router-on-a-stick configuration, RIP routing and DHCP services.
+
+Developed multiple full-stack applications using React, NodeJS, Java and Oracle.
+
+</p>
+
+
+<div class="buttons">
+
+<a class="btn" href="resume.pdf" download>
+
+Download Resume
+
+</a>
+
+<a class="btnOutline" href="https://github.com/YashSurve2006">
+
+GitHub Profile
+
+</a>
+
+</div>
+
+
+
+<div class="stats">
+
+<div>
+
+<div class="stat" id="p1">0</div>
+
+Projects
+
+</div>
+
+
+<div>
+
+<div class="stat" id="p2">0</div>
+
+Technologies
+
+</div>
+
+
+<div>
+
+<div class="stat" id="p3">0</div>
+
+Networks Built
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- ABOUT -->
+
+<div id="about" class="section">
+
+<div class="sectionTitle">
+
+Professional Profile
+
+</div>
+
+
+<div class="aboutBox">
+
+Aspiring Network Engineer with hands-on experience configuring Cisco routers and Cisco Catalyst 2960 switches.
+
+Experienced in enterprise network configuration and full-stack software development.
+
+</div>
+
+</div>
+
+
+
+<!-- SKILLS -->
+
+<div id="skills" class="section">
+
+<div class="sectionTitle">
+
+Technical Skills
+
+</div>
+
+
+<div class="skills">
+
+<div class="skillCard">
+
+<h3>Networking</h3>
+
+<div class="skill">
+<span>Routing & Switching</span>
+<div class="bar"><div class="fill" data="92"></div></div>
+</div>
+
+<div class="skill">
+<span>VLAN</span>
+<div class="bar"><div class="fill" data="95"></div></div>
+</div>
+
+</div>
+
+
+
+<div class="skillCard">
+
+<h3>Programming</h3>
+
+<div class="skill">
+<span>Java</span>
+<div class="bar"><div class="fill" data="90"></div></div>
+</div>
+
+<div class="skill">
+<span>React</span>
+<div class="bar"><div class="fill" data="85"></div></div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- PROJECTS -->
+
+<div id="projects" class="section">
+
+<div class="sectionTitle">
+Engineering Projects
+</div>
+
+
+<!-- FILTER BUTTONS -->
+
+<div class="filters">
+
+<button onclick="filterProjects('all')">All</button>
+
+<button onclick="filterProjects('network')">Network</button>
+
+<button onclick="filterProjects('fullstack')">Full Stack</button>
+
+<button onclick="filterProjects('java')">Java</button>
+
+<button onclick="filterProjects('database')">Database</button>
+
+<button onclick="filterProjects('frontend')">Frontend</button>
+
+<button onclick="filterProjects('data')">Data</button>
+
+</div>
+
+
+
+<div class="projects">
+
+
+
+<!-- NETWORK -->
+
+<div class="project" data="network">
+
+<h3>Enterprise Cisco Network Infrastructure</h3>
+
+<p>
+
+Designed and configured an enterprise-level Cisco network using multiple routers and Catalyst 2960 switches.
+
+Implemented VLAN segmentation, inter-VLAN routing using Router-on-a-Stick, and RIP v2 dynamic routing.
+
+Configured DHCP services and structured IP addressing with proper subnet planning.
+
+Validated connectivity and routing behavior through systematic testing and troubleshooting.
+
+</p>
+
+<a class="git" href="#" target="_blank">
+View Repository →
+</a>
+
+</div>
+
+
+
+<!-- INVENTORYX -->
+
+<div class="project" data="fullstack">
+
+<h3>InventoryX Full Stack System</h3>
+
+<p>
+
+Developed a complete inventory management platform using React for the frontend and NodeJS with MySQL for the backend.
+
+Implemented JWT authentication and role-based access control for secure operations.
+
+Built modules for product tracking, order management, reporting, and dashboard analytics.
+
+Designed a scalable backend architecture with structured database relationships.
+
+</p>
+
+<a class="git" href="https://github.com/YashSurve2006/Inventory-Management-Website" target="_blank">
+View Repository →
+</a>
+
+</div>
+
+
+
+<!-- RESULT PORTAL -->
+
+<div class="project" data="database">
+
+<h3>Student Result Portal (Oracle + NodeJS)</h3>
+
+<p>
+
+Built a database-driven student result management system using Oracle and PL/SQL.
+
+Developed stored procedures, packages, and backend APIs for automated result processing.
+
+Integrated NodeJS for dynamic result retrieval and record management.
+
+Ensured secure data handling and structured result computation logic.
+
+</p>
+
+<a class="git" href="#" target="_blank">
+View Repository →
+</a>
+
+</div>
+
+
+
+<!-- INTERNSHIP -->
+
+<div class="project" data="database">
+
+<h3>Internship Placement Portal</h3>
+
+<p>
+
+Designed a multi-module internship management system using Oracle and NodeJS.
+
+Implemented separate authentication flows for students, companies, and administrators.
+
+Developed application submission workflows and approval tracking mechanisms.
+
+Utilized PL/SQL procedures and triggers to manage internship records efficiently.
+
+</p>
+
+<a class="git" href="#" target="_blank">
+View Repository →
+</a>
+
+</div>
+
+
+
+<!-- JAVA IMS -->
+
+<div class="project" data="java">
+
+<h3>Java Inventory Management System</h3>
+
+<p>
+
+Created a web-based inventory management application using JSP, Servlets, and MySQL.
+
+Developed modules for product management, purchase tracking, and sales records.
+
+Implemented structured MVC architecture with secure database connectivity.
+
+Designed an administrative dashboard for monitoring stock and transactions.
+
+</p>
+
+<a class="git" href="#" target="_blank">
+View Repository →
+</a>
+
+</div>
+
+
+
+<!-- DINEMATE -->
+
+<div class="project" data="frontend">
+
+<h3>DineMate Ecommerce Website</h3>
+
+<p>
+
+Developed a responsive ecommerce platform using HTML, CSS, and JavaScript.
+
+Implemented dynamic product rendering, shopping cart functionality, and wishlist features.
+
+Designed a local storage based state management system for user interactions.
+
+Built a lightweight admin interface for product control and UI updates.
+
+</p>
+
+<a class="git" href="#" target="_blank">
+View Repository →
+</a>
+
+</div>
+
+
+
+<!-- SRV -->
+
+<div class="project" data="frontend">
+
+<h3>SRV Technologies Corporate Website</h3>
+
+<p>
+
+Designed a professional corporate website with structured business sections and modern UI.
+
+Created dedicated pages for services, projects, and company information.
+
+Implemented smooth animations and responsive layouts for improved user experience.
+
+Focused on clean branding, content hierarchy, and visual consistency.
+
+</p>
+
+<a class="git" href="#" target="_blank">
+View Repository →
+</a>
+
+</div>
+
+
+
+<!-- DATA VISUALIZATION -->
+
+<div class="project" data="data">
+
+<h3>Movie Data Visualization Dashboard</h3>
+
+<p>
+
+Developed an interactive data dashboard using Python, Pandas, and Plotly.
+
+Performed data preprocessing and built multiple visualization charts.
+
+Implemented filtering and comparative analysis across movie attributes.
+
+Designed the dashboard for clarity, usability, and analytical insights.
+
+</p>
+
+<a class="git" href="#" target="_blank">
+View Repository →
+</a>
+
+</div>
+
+
+
+<!-- EDA -->
+
+<div class="project" data="data">
+
+<h3>Movie Dataset Exploratory Data Analysis</h3>
+
+<p>
+
+Conducted detailed exploratory data analysis on a structured movie dataset.
+
+Performed data cleaning, missing value handling, and statistical evaluation.
+
+Generated visual insights using Matplotlib and Seaborn libraries.
+
+Extracted meaningful trends related to ratings, revenue, and genres.
+
+</p>
+
+<a class="git" href="#" target="_blank">
+View Repository →
+</a>
+
+</div>
+
+
+
+<!-- PORTFOLIO -->
+
+<div class="project" data="frontend">
+
+<h3>Advanced Engineering Portfolio Website</h3>
+
+<p>
+
+Designed and developed a fully responsive personal portfolio website.
+
+Implemented animated UI components, interactive project filtering, and smooth transitions.
+
+Structured sections for networking experience, software projects, and certifications.
+
+Built to showcase professional capabilities in both networking and software domains.
+
+</p>
+
+<a class="git" href="#" target="_blank">
+View Repository →
+</a>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- CERTIFICATIONS -->
+
+<div id="cert" class="section">
+
+<div class="sectionTitle">
+
+Certifications
+
+</div>
+
+
+<div class="certGrid">
+
+
+<!-- NETWORKING -->
+
+<div class="cert">
+
+<h3>Hardware & Networking Certification</h3>
+
+<p>
+
+Completed structured training in computer hardware and networking concepts.
+
+Gained practical experience configuring Cisco routers and Catalyst 2960 switches.
+
+Worked with VLAN configuration, routing protocols, IP addressing and DHCP services.
+
+Hands-on laboratory sessions focused on real network configuration and troubleshooting.
+
+</p>
+
+</div>
+
+
+
+<!-- AUTOCAD -->
+
+<div class="cert">
+
+<h3>AutoCAD Certification</h3>
+
+<p>
+
+Completed professional AutoCAD training focused on technical drawing and layout design.
+
+Created structured engineering drawings and commercial floor plans.
+
+Worked with accurate measurements, layers and annotation tools.
+
+Developed practical experience in professional drafting workflows.
+
+</p>
+
+</div>
+
+
+
+<!-- EXCEL -->
+
+<div class="cert">
+
+<h3>Advanced Microsoft Excel</h3>
+
+<p>
+
+Completed advanced Excel training focused on data organization and analysis.
+
+Worked with formulas, functions, charts and data processing tools.
+
+Used Excel for structured reporting and data management tasks.
+
+Developed strong spreadsheet and analytical skills.
+
+</p>
+
+</div>
+
+
+
+<!-- PHOTOSHOP -->
+
+<div class="cert">
+
+<h3>Adobe Photoshop Certification</h3>
+
+<p>
+
+Completed training in Adobe Photoshop and digital design techniques.
+
+Worked with image editing, layer management and color correction tools.
+
+Created visual designs and professional graphics.
+
+Developed practical skills in digital image processing.
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- CONTACT -->
+
+<div id="contact" class="section">
+
+<div class="sectionTitle">
+
+Contact
+
+</div>
+
+
+<div class="contact">
+
+Email: yashsurve2019@gmail.com
+
+<br><br>
+
+Phone: 8850706982
+
+<br><br>
+
+<button class="btnOutline" onclick="copyEmail()">
+
+Copy Email
+
+</button>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+<script>
+
+/* FILTER */
+
+function filterProjects(type){
+
+let projects = document.querySelectorAll(".project");
+
+projects.forEach(p=>{
+
+if(type==="all"){
+p.style.display="block";
+}
+else if(p.getAttribute("data")===type){
+p.style.display="block";
+}
+else{
+p.style.display="none";
+}
+
+});
+
+}
+
+
+/* SKILLS */
+
+let skills=document.querySelectorAll(".fill");
+
+window.addEventListener("scroll",()=>{
+
+skills.forEach(s=>{
+
+let rect=s.getBoundingClientRect();
+
+if(rect.top<window.innerHeight){
+
+s.style.width=s.getAttribute("data")+"%";
+
+}
+
+});
+
+});
+
+
+/* COUNTERS */
+
+function counter(id,max){
+
+let c=0;
+
+let el=document.getElementById(id);
+
+let i=setInterval(()=>{
+
+c++;
+
+el.innerHTML=c;
+
+if(c==max)
+clearInterval(i);
+
+},30);
+
+}
+
+counter("p1",12);
+counter("p2",18);
+counter("p3",6);
+
+
+/* EMAIL */
+
+function copyEmail(){
+
+navigator.clipboard.writeText("yashsurve2019@gmail.com");
+
+alert("Email copied");
+
+}
+
+</script>
+
+</body>
+
+</html>
