@@ -4,7 +4,7 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Yash Surve | Network Engineer Portfolio</title>
 
@@ -406,13 +406,10 @@ color:white;
 
 
 .projects{
-
 display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:30px;
-
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
 }
-
 
 .project{
 
@@ -604,6 +601,63 @@ transform:translateY(-3px);
 
 }
 
+/* MOBILE RESPONSIVE */
+@media screen and (max-width: 768px){
+
+body{
+padding:10px;
+}
+
+/* Navbar */
+.navbar{
+flex-direction:column;
+text-align:center;
+}
+
+/* Hero Section */
+.hero{
+flex-direction:column;
+text-align:center;
+}
+
+/* Project Cards */
+.projects{
+grid-template-columns:1fr;
+}
+
+/* Certificates */
+.certificates{
+grid-template-columns:1fr;
+}
+
+/* Text */
+h1{
+font-size:28px;
+}
+
+h2{
+font-size:22px;
+}
+
+p{
+font-size:14px;
+}
+
+/* Buttons */
+button{
+width:100%;
+margin-top:10px;
+}
+
+}
+img{
+max-width:100%;
+height:auto;
+}
+.container{
+width:90%;
+margin:auto;
+}
 </style>
 
 </head>
