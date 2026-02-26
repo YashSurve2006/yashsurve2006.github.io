@@ -11,7 +11,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         /* ===========================
 ROOT VARIABLES
@@ -232,20 +232,7 @@ STATS
         }
 
 
-        /* ===========================
-SECTIONS
-=========================== */
 
-        .section {
-            margin: 120px 0;
-        }
-
-        .sectionTitle {
-            font-size: 32px;
-            margin-bottom: 40px;
-            font-family: Orbitron;
-            color: var(--accent);
-        }
 
 
         /* ===========================
@@ -260,50 +247,242 @@ ABOUT
             line-height: 1.9;
         }
 
+        .aboutText {
+
+            max-width: 900px;
+
+            line-height: 1.9;
+
+            color: #b8c1ec;
+
+            font-size: 16px;
+
+            margin-top: 25px;
+
+        }
 
         /* ===========================
-SKILLS
+SKILLS (FINAL PROFESSIONAL)
 =========================== */
 
         .skills {
+
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+            grid-template-columns: repeat(2, 1fr);
+
             gap: 30px;
+
+            margin-top: 30px;
+
         }
+
+        /* Fix Alignment Inside Container */
+
+        /* ===========================
+SECTIONS (FINAL FIXED)
+Restores Proper Vertical Spacing
+=========================== */
+
+        .section {
+
+            margin-top: 120px;
+            margin-bottom: 120px;
+
+        }
+
+        /* Section Titles */
+
+        .sectionTitle {
+
+            font-size: 32px;
+
+            margin-bottom: 50px;
+
+            font-family: Orbitron;
+
+            color: var(--accent);
+
+        }
+
+
+        /* First section spacing fix */
+
+        .section:first-of-type {
+
+            margin-top: 80px;
+
+        }
+
+
+        /* Mobile spacing */
+
+        @media (max-width:768px) {
+
+            .section {
+
+                margin-top: 90px;
+                margin-bottom: 90px;
+
+            }
+
+            .sectionTitle {
+
+                margin-bottom: 35px;
+
+            }
+
+        }
+
+        /* Skill Card */
 
         .skillCard {
+
             background: var(--card);
-            padding: 30px;
-            border-radius: 18px;
+
+            padding: 25px;
+
+            border-radius: 15px;
+
             border: 1px solid #1e293b;
+
+            transition: .3s;
+
         }
 
+        /* Hover Effect */
+
+        .skillCard:hover {
+
+            transform: translateY(-6px);
+
+            box-shadow: 0 20px 50px rgba(0, 200, 255, .2);
+
+        }
+
+        /* Title */
+
+        .skillCard h3 {
+
+            margin-bottom: 15px;
+
+            color: var(--accent);
+
+        }
+
+        /* Skill Bars */
+
         .skill {
+
             margin-bottom: 20px;
+
         }
 
         .skill span {
+
             display: flex;
+
             justify-content: space-between;
+
             margin-bottom: 6px;
+
+            font-size: 14px;
+
         }
 
         .bar {
+
             height: 10px;
+
             background: #0f172a;
+
             border-radius: 20px;
+
             overflow: hidden;
+
         }
 
         .fill {
+
             height: 100%;
+
             width: 0%;
+
             background: linear-gradient(90deg,
                     var(--accent),
                     var(--accent2));
+
             transition: 2s;
+
         }
 
+        /* Skill Icons */
+
+        .skillIcons {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+            margin-bottom: 15px;
+
+        }
+
+        .skillIcons span {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 6px;
+
+            padding: 5px 10px;
+
+            border-radius: 20px;
+
+            background: rgba(76, 201, 240, .12);
+
+            border: 1px solid rgba(76, 201, 240, .3);
+
+            font-size: 13px;
+
+            color: #b8c1ec;
+
+        }
+
+
+        /* Tablet */
+
+        @media (max-width:900px) {
+
+            .skills {
+
+                grid-template-columns: 1fr;
+
+            }
+
+        }
+
+
+        /* Small Mobile */
+
+        @media (max-width:480px) {
+
+            .skillCard {
+
+                padding: 20px;
+
+            }
+
+            .skill span {
+
+                font-size: 13px;
+
+            }
+
+        }
 
         /* ===========================
 PROJECTS (PROFESSIONAL)
@@ -563,16 +742,6 @@ Professional Grid + Proper Images
         }
 
 
-        /* HOVER */
-
-        .cert:hover {
-
-            transform: translateY(-6px);
-
-            box-shadow: 0 25px 70px rgba(0, 200, 255, .25);
-
-        }
-
 
         /* HOVER EFFECT */
 
@@ -734,6 +903,41 @@ CONTACT
             line-height: 2;
         }
 
+        .contactBox {
+
+            display: flex;
+
+            gap: 40px;
+
+            flex-wrap: wrap;
+
+            margin-top: 30px;
+
+        }
+
+
+        .contactItem {
+
+            background: var(--card);
+
+            padding: 20px 30px;
+
+            border-radius: 15px;
+
+            border: 1px solid #1e293b;
+
+            min-width: 220px;
+
+        }
+
+
+        .contactItem a {
+
+            color: var(--accent);
+
+            text-decoration: none;
+
+        }
 
         /* ===========================
 RESPONSIVE TABLET
@@ -821,12 +1025,6 @@ RESPONSIVE MOBILE
                 font-size: 24px;
             }
 
-
-            /* Sections */
-
-            .section {
-                margin: 80px 0;
-            }
 
         }
 
@@ -979,32 +1177,36 @@ SMALL MOBILE
         <div id="about" class="section">
 
             <div class="sectionTitle">
-                Professional Profile
+                About Me
             </div>
 
-            <div class="aboutBox">
+            <p class="aboutText">
 
-                Aspiring Network Engineer and Software Developer with strong hands-on experience in designing and
-                configuring enterprise network infrastructures using Cisco routers and Catalyst 2960 switches. Skilled
-                in VLAN implementation, inter-VLAN routing using Router-on-a-Stick, dynamic routing protocols such as
-                RIP v2, and DHCP network services with structured IP addressing and subnet planning.
+                I am a Computer Science student specializing in <b>Network Engineering and Software Development</b>.
+                I have hands-on experience designing enterprise Cisco networks and building full-stack web
+                applications using modern technologies.
 
-                Experienced in configuring and troubleshooting real-world network topologies using Cisco Packet Tracer
-                and practical laboratory setups. Strong understanding of network architecture, switching concepts,
-                routing fundamentals, and secure network configuration.
+                <br><br>
 
-                Alongside networking expertise, experienced in full-stack software development using technologies such
-                as React, Node.js, Java, MySQL, and Oracle. Developed multiple database-driven and web-based
-                applications with structured backend design and responsive user interfaces.
+                I have developed multiple technical projects including enterprise network infrastructures,
+                inventory management systems, and database-driven web applications.
+                My technical interests include network design, backend development,
+                and system architecture.
 
-                Currently focused on building practical networking solutions and scalable software systems while
-                continuously improving skills in network engineering, backend development, and system design.
+                <br><br>
 
-            </div>
+                I enjoy solving real-world technical problems and continuously improving my
+                skills through practical projects and experimentation.
+
+                <br><br>
+
+                I am currently seeking internship opportunities in
+                <b>Networking or Software Development</b> where I can apply my technical skills
+                and gain industry experience.
+
+            </p>
 
         </div>
-
-
 
         <!-- SKILLS -->
 
@@ -1024,11 +1226,25 @@ SMALL MOBILE
 
                     <h3>Networking Technologies</h3>
 
+                    <div class="skillIcons">
+
+                        <span><i class="fa-solid fa-network-wired"></i> Cisco</span>
+
+                        <span><i class="fa-solid fa-diagram-project"></i> VLAN</span>
+
+                        <span><i class="fa-solid fa-server"></i> Routing</span>
+
+                        <span><i class="fa-solid fa-globe"></i> Subnetting</span>
+
+                        <span><i class="fa-solid fa-sitemap"></i> DHCP</span>
+
+                    </div>
+
 
                     <div class="skill">
                         <span>Routing & Switching</span>
                         <div class="bar">
-                            <div class="fill" data="80"></div>
+                            <div class="fill" data="75"></div>
                         </div>
                     </div>
 
@@ -1036,7 +1252,7 @@ SMALL MOBILE
                     <div class="skill">
                         <span>VLAN & Inter-VLAN Routing</span>
                         <div class="bar">
-                            <div class="fill" data="85"></div>
+                            <div class="fill" data="80"></div>
                         </div>
                     </div>
 
@@ -1060,7 +1276,7 @@ SMALL MOBILE
                     <div class="skill">
                         <span>DHCP Configuration</span>
                         <div class="bar">
-                            <div class="fill" data="78"></div>
+                            <div class="fill" data="75"></div>
                         </div>
                     </div>
 
@@ -1074,11 +1290,29 @@ SMALL MOBILE
 
                     <h3>Software Development</h3>
 
+                    <div class="skillIcons">
+
+                        <span><i class="fa-brands fa-java"></i> Java</span>
+
+                        <span><i class="fa-brands fa-node-js"></i> Node.js</span>
+
+                        <span><i class="fa-brands fa-react"></i> React</span>
+
+                        <span><i class="fa-brands fa-html5"></i> HTML</span>
+
+                        <span><i class="fa-brands fa-css3-alt"></i> CSS</span>
+
+                        <span><i class="fa-brands fa-js"></i> JavaScript</span>
+
+                        <span><i class="fa-solid fa-code"></i> REST API</span>
+
+                    </div>
+
 
                     <div class="skill">
                         <span>Java</span>
                         <div class="bar">
-                            <div class="fill" data="80"></div>
+                            <div class="fill" data="75"></div>
                         </div>
                     </div>
 
@@ -1094,7 +1328,7 @@ SMALL MOBILE
                     <div class="skill">
                         <span>React</span>
                         <div class="bar">
-                            <div class="fill" data="68"></div>
+                            <div class="fill" data="65"></div>
                         </div>
                     </div>
 
@@ -1102,15 +1336,15 @@ SMALL MOBILE
                     <div class="skill">
                         <span>HTML, CSS & JavaScript</span>
                         <div class="bar">
-                            <div class="fill" data="82"></div>
+                            <div class="fill" data="80"></div>
                         </div>
                     </div>
 
 
                     <div class="skill">
-                        <span>REST APIs</span>
+                        <span>REST API Development</span>
                         <div class="bar">
-                            <div class="fill" data="72"></div>
+                            <div class="fill" data="70"></div>
                         </div>
                     </div>
 
@@ -1124,11 +1358,25 @@ SMALL MOBILE
 
                     <h3>Database Technologies</h3>
 
+                    <div class="skillIcons">
+
+                        <span><i class="fa-solid fa-database"></i> MySQL</span>
+
+                        <span><i class="fa-solid fa-database"></i> Oracle</span>
+
+                        <span><i class="fa-solid fa-table"></i> SQL</span>
+
+                        <span><i class="fa-solid fa-server"></i> PL/SQL</span>
+
+                        <span><i class="fa-solid fa-diagram-project"></i> DB Design</span>
+
+                    </div>
+
 
                     <div class="skill">
                         <span>MySQL</span>
                         <div class="bar">
-                            <div class="fill" data="80"></div>
+                            <div class="fill" data="75"></div>
                         </div>
                     </div>
 
@@ -1136,7 +1384,7 @@ SMALL MOBILE
                     <div class="skill">
                         <span>Oracle Database</span>
                         <div class="bar">
-                            <div class="fill" data="78"></div>
+                            <div class="fill" data="75"></div>
                         </div>
                     </div>
 
@@ -1144,7 +1392,7 @@ SMALL MOBILE
                     <div class="skill">
                         <span>SQL Queries</span>
                         <div class="bar">
-                            <div class="fill" data="85"></div>
+                            <div class="fill" data="80"></div>
                         </div>
                     </div>
 
@@ -1152,7 +1400,7 @@ SMALL MOBILE
                     <div class="skill">
                         <span>PL/SQL</span>
                         <div class="bar">
-                            <div class="fill" data="72"></div>
+                            <div class="fill" data="70"></div>
                         </div>
                     </div>
 
@@ -1174,6 +1422,20 @@ SMALL MOBILE
 
                     <h3>Tools & Platforms</h3>
 
+                    <div class="skillIcons">
+
+                        <span><i class="fa-solid fa-network-wired"></i> Packet Tracer</span>
+
+                        <span><i class="fa-brands fa-github"></i> GitHub</span>
+
+                        <span><i class="fa-solid fa-code"></i> VS Code</span>
+
+                        <span><i class="fa-solid fa-database"></i> MySQL Workbench</span>
+
+                        <span><i class="fa-solid fa-terminal"></i> Oracle SQL Plus</span>
+
+                    </div>
+
 
                     <div class="skill">
                         <span>Cisco Packet Tracer</span>
@@ -1192,9 +1454,9 @@ SMALL MOBILE
 
 
                     <div class="skill">
-                        <span>VS Code</span>
+                        <span>Visual Studio Code</span>
                         <div class="bar">
-                            <div class="fill" data="88"></div>
+                            <div class="fill" data="85"></div>
                         </div>
                     </div>
 
@@ -1202,7 +1464,7 @@ SMALL MOBILE
                     <div class="skill">
                         <span>MySQL Workbench</span>
                         <div class="bar">
-                            <div class="fill" data="78"></div>
+                            <div class="fill" data="75"></div>
                         </div>
                     </div>
 
@@ -1210,7 +1472,7 @@ SMALL MOBILE
                     <div class="skill">
                         <span>Oracle SQL Plus</span>
                         <div class="bar">
-                            <div class="fill" data="80"></div>
+                            <div class="fill" data="75"></div>
                         </div>
                     </div>
 
@@ -1220,6 +1482,7 @@ SMALL MOBILE
             </div>
 
         </div>
+
 
         <!-- PROJECTS -->
 
@@ -1548,36 +1811,43 @@ SMALL MOBILE
         <div id="contact" class="section">
 
             <div class="sectionTitle">
-
                 Contact
-
             </div>
 
+            <div class="contactBox">
 
-            <div class="contact">
+                <div class="contactItem">
 
-                Email: yashsurve2019@gmail.com
+                    <b>Email</b><br>
+                    yashsurve2019@gmail.com
 
-                <br><br>
+                </div>
 
-                Phone: 8850706982
+                <div class="contactItem">
 
-                <br><br>
+                    <b>GitHub</b><br>
 
-                <button class="btnOutline" onclick="copyEmail()">
+                    <a href="https://github.com/YashSurve2006" target="_blank">
+                        github.com/YashSurve2006
+                    </a>
 
-                    Copy Email
+                </div>
+                <div class="contactItem">
 
-                </button>
+                    <b>LinkedIn</b><br>
+
+                    <a href="https://www.linkedin.com/in/yash-surve-535954288" target="_blank">
+
+                        linkedin.com/in/yash-surve
+
+                    </a>
+
+                </div>
 
             </div>
 
         </div>
-
-
     </div>
-
-
 
     <script>
 
