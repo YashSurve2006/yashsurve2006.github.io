@@ -3,1754 +3,1670 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Yash Surve | Network Engineer Portfolio</title>
+    <title>Yash Surve | Network Engineer Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
-<style>
-
-/* ===========================
+    <style>
+        /* ===========================
 ROOT VARIABLES
 =========================== */
 
-:root{
---bg:#020617;
---card:#0b1224;
---accent:#22c7ff;
---accent2:#6366f1;
---text:#e2e8f0;
---muted:#94a3b8;
-}
+        :root {
+            --bg: #020617;
+            --card: #0b1224;
+            --accent: #22c7ff;
+            --accent2: #6366f1;
+            --text: #e2e8f0;
+            --muted: #94a3b8;
+        }
 
 
-/* ===========================
+        /* ===========================
 GLOBAL
 =========================== */
 
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
-}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-body{
-font-family:Inter;
-background:var(--bg);
-color:var(--text);
-overflow-x:hidden;
-scroll-behavior:smooth;
-}
+        body {
+            font-family: Inter;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
 
-img{
-max-width:100%;
-display:block;
-}
+        img {
+            max-width: 100%;
+            display: block;
+        }
 
-canvas{
-position:fixed;
-top:0;
-left:0;
-z-index:-1;
-}
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
 
 
-/* ===========================
+        /* ===========================
 CONTAINER
 =========================== */
 
-.container{
-width:90%;
-max-width:1200px;
-margin:auto;
-padding:40px 0;
-}
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 40px 0;
+        }
 
 
-/* ===========================
+        /* ===========================
 NAVBAR
 =========================== */
 
-.navbar{
+        .navbar {
 
-display:flex;
-justify-content:space-between;
-align-items:center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
 
-position:sticky;
-top:0;
-z-index:1000;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
 
-background:rgba(2,6,23,.9);
-backdrop-filter:blur(10px);
+            background: rgba(2, 6, 23, .9);
+            backdrop-filter: blur(10px);
 
-padding:18px 0;
+            padding: 18px 0;
 
-border-bottom:1px solid #1e293b;
+            border-bottom: 1px solid #1e293b;
 
-}
+        }
 
-.name{
-font-size:30px;
-font-weight:700;
-}
+        .name {
+            font-size: 30px;
+            font-weight: 700;
+        }
 
-.role{
-color:var(--muted);
-font-size:14px;
-}
+        .role {
+            color: var(--muted);
+            font-size: 14px;
+        }
 
-.menuToggle{
-display:none;
-font-size:28px;
-cursor:pointer;
-}
+        .menuToggle {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+        }
 
-.navLinks{
-display:flex;
-gap:30px;
-}
+        .navLinks {
+            display: flex;
+            gap: 30px;
+        }
 
-.navLinks a{
-text-decoration:none;
-color:white;
-font-weight:600;
-transition:.3s;
-}
+        .navLinks a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            transition: .3s;
+        }
 
-.navLinks a:hover{
-color:var(--accent);
-}
+        .navLinks a:hover {
+            color: var(--accent);
+        }
 
 
-/* ===========================
+        /* ===========================
 HERO
 =========================== */
 
-.hero{
-margin:100px 0;
-text-align:center;
-}
+        .hero {
+            margin: 100px 0;
+            text-align: center;
+        }
 
-.hero h1{
+        .hero h1 {
 
-font-size:56px;
-font-family:Orbitron;
+            font-size: 56px;
+            font-family: Orbitron;
 
-background:linear-gradient(
-90deg,
-var(--accent),
-var(--accent2)
-);
+            background: linear-gradient(90deg,
+                    var(--accent),
+                    var(--accent2));
 
--webkit-background-clip:text;
-background-clip:text;
-color:transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
 
-}
+        }
 
-.hero h2{
-color:var(--muted);
-margin-top:10px;
-font-weight:400;
-}
+        .hero h2 {
+            color: var(--muted);
+            margin-top: 10px;
+            font-weight: 400;
+        }
 
-.hero p{
-max-width:750px;
-margin:20px auto;
-line-height:1.8;
-color:#a5b4fc;
-}
+        .hero p {
+            max-width: 750px;
+            margin: 20px auto;
+            line-height: 1.8;
+            color: #a5b4fc;
+        }
 
 
-/* ===========================
+        /* ===========================
 BUTTONS
 =========================== */
 
-.buttons{
-margin-top:30px;
-display:flex;
-gap:20px;
-justify-content:center;
-flex-wrap:wrap;
-}
+        .buttons {
+            margin-top: 30px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
 
-.btn{
-padding:12px 26px;
-border-radius:30px;
-text-decoration:none;
-color:white;
-background:linear-gradient(
-90deg,
-var(--accent),
-var(--accent2)
-);
-font-weight:600;
-transition:.3s;
-}
+        .btn {
+            padding: 12px 26px;
+            border-radius: 30px;
+            text-decoration: none;
+            color: white;
+            background: linear-gradient(90deg,
+                    var(--accent),
+                    var(--accent2));
+            font-weight: 600;
+            transition: .3s;
+        }
 
-.btn:hover{
-transform:translateY(-4px);
-box-shadow:0 10px 30px rgba(0,200,255,.5);
-}
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 200, 255, .5);
+        }
 
-.btnOutline{
+        .btnOutline {
 
-padding:12px 26px;
-border-radius:30px;
-border:1px solid var(--accent);
-color:var(--accent);
-background:transparent;
-font-weight:600;
-cursor:pointer;
-transition:.3s;
+            padding: 12px 26px;
+            border-radius: 30px;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            background: transparent;
+            font-weight: 600;
+            cursor: pointer;
+            transition: .3s;
 
-}
+        }
 
-.btnOutline:hover{
-background:linear-gradient(
-90deg,
-var(--accent),
-var(--accent2)
-);
-color:white;
-}
+        .btnOutline:hover {
+            background: linear-gradient(90deg,
+                    var(--accent),
+                    var(--accent2));
+            color: white;
+        }
 
 
-/* ===========================
+        /* ===========================
 STATS
 =========================== */
 
-.stats{
-display:flex;
-gap:50px;
-justify-content:center;
-margin-top:40px;
-flex-wrap:wrap;
-}
+        .stats {
+            display: flex;
+            gap: 50px;
+            justify-content: center;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
 
-.stat{
-font-size:30px;
-font-family:Orbitron;
-}
+        .stat {
+            font-size: 30px;
+            font-family: Orbitron;
+        }
 
 
-/* ===========================
+        /* ===========================
 SECTIONS
 =========================== */
 
-.section{
-margin:120px 0;
-}
+        .section {
+            margin: 120px 0;
+        }
 
-.sectionTitle{
-font-size:32px;
-margin-bottom:40px;
-font-family:Orbitron;
-color:var(--accent);
-}
+        .sectionTitle {
+            font-size: 32px;
+            margin-bottom: 40px;
+            font-family: Orbitron;
+            color: var(--accent);
+        }
 
 
-/* ===========================
+        /* ===========================
 ABOUT
 =========================== */
 
-.aboutBox{
-background:var(--card);
-padding:40px;
-border-radius:20px;
-border:1px solid #1e293b;
-line-height:1.9;
-}
+        .aboutBox {
+            background: var(--card);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #1e293b;
+            line-height: 1.9;
+        }
 
 
-/* ===========================
+        /* ===========================
 SKILLS
 =========================== */
 
-.skills{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
-}
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
 
-.skillCard{
-background:var(--card);
-padding:30px;
-border-radius:18px;
-border:1px solid #1e293b;
-}
+        .skillCard {
+            background: var(--card);
+            padding: 30px;
+            border-radius: 18px;
+            border: 1px solid #1e293b;
+        }
 
-.skill{
-margin-bottom:20px;
-}
+        .skill {
+            margin-bottom: 20px;
+        }
 
-.skill span{
-display:flex;
-justify-content:space-between;
-margin-bottom:6px;
-}
+        .skill span {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
 
-.bar{
-height:10px;
-background:#0f172a;
-border-radius:20px;
-overflow:hidden;
-}
+        .bar {
+            height: 10px;
+            background: #0f172a;
+            border-radius: 20px;
+            overflow: hidden;
+        }
 
-.fill{
-height:100%;
-width:0%;
-background:linear-gradient(
-90deg,
-var(--accent),
-var(--accent2)
-);
-transition:2s;
-}
+        .fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg,
+                    var(--accent),
+                    var(--accent2));
+            transition: 2s;
+        }
 
 
-/* ===========================
+        /* ===========================
 PROJECTS (PROFESSIONAL)
 Clean Layout + Long Text Support
 =========================== */
 
-/* Filter Buttons */
+        /* Filter Buttons */
 
-.filters{
-margin-bottom:40px;
-display:flex;
-flex-wrap:wrap;
-gap:10px;
-}
+        .filters {
+            margin-bottom: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
 
-.filters button{
+        .filters button {
 
-padding:8px 18px;
+            padding: 8px 18px;
 
-border-radius:30px;
+            border-radius: 30px;
 
-border:none;
+            border: none;
 
-cursor:pointer;
+            cursor: pointer;
 
-font-weight:500;
+            font-weight: 500;
 
-background:linear-gradient(
-90deg,
-var(--accent),
-var(--accent2)
-);
+            background: linear-gradient(90deg,
+                    var(--accent),
+                    var(--accent2));
 
-color:white;
+            color: white;
 
-transition:0.3s;
+            transition: 0.3s;
 
-}
+        }
 
-.filters button:hover{
+        .filters button:hover {
 
-transform:translateY(-2px);
+            transform: translateY(-2px);
 
-box-shadow:0 8px 20px rgba(0,200,255,.3);
+            box-shadow: 0 8px 20px rgba(0, 200, 255, .3);
 
-}
+        }
 
 
 
-/* Projects Grid */
+        /* Projects Grid */
 
-.projects{
+        .projects {
 
-display:grid;
+            display: grid;
 
-grid-template-columns:
-repeat(auto-fit,minmax(300px,1fr));
+            grid-template-columns:
+                repeat(auto-fit, minmax(300px, 1fr));
 
-gap:30px;
+            gap: 30px;
 
-align-items:start;
+            align-items: start;
 
-}
+        }
 
 
 
-/* Project Card */
+        /* Project Card */
 
-.project{
+        .project {
 
-background:var(--card);
+            background: var(--card);
 
-padding:30px;
+            padding: 30px;
 
-border-radius:20px;
+            border-radius: 20px;
 
-border:1px solid #1e293b;
+            border: 1px solid #1e293b;
 
-transition:0.3s;
+            transition: 0.3s;
 
-/* Important for long descriptions */
+            /* Important for long descriptions */
 
-display:flex;
+            display: flex;
 
-flex-direction:column;
+            flex-direction: column;
 
-height:100%;
+            height: 100%;
 
-}
+        }
 
 
 
-/* Title */
+        /* Title */
 
-.project h3{
+        .project h3 {
 
-margin-bottom:10px;
+            margin-bottom: 10px;
 
-font-size:20px;
+            font-size: 20px;
 
-}
+        }
 
 
 
-/* Description */
+        /* Description */
 
-.project p{
+        .project p {
 
-margin-top:10px;
+            margin-top: 10px;
 
-margin-bottom:20px;
+            margin-bottom: 20px;
 
-line-height:1.7;
+            line-height: 1.7;
 
-color:#a8b3d9;
+            color: #a8b3d9;
 
-}
+        }
 
 
 
-/* Repository Button */
+        /* Repository Button */
 
-.git{
+        .git {
 
-margin-top:auto;
+            margin-top: auto;
 
-display:inline-block;
+            display: inline-block;
 
-padding:10px 18px;
+            padding: 10px 18px;
 
-border-radius:30px;
+            border-radius: 30px;
 
-background:linear-gradient(
-90deg,
-var(--accent),
-var(--accent2)
-);
+            background: linear-gradient(90deg,
+                    var(--accent),
+                    var(--accent2));
 
-text-decoration:none;
+            text-decoration: none;
 
-color:white;
+            color: white;
 
-font-size:14px;
+            font-size: 14px;
 
-transition:0.3s;
+            transition: 0.3s;
 
-}
+        }
 
-.git:hover{
+        .git:hover {
 
-box-shadow:0 10px 25px rgba(0,200,255,.4);
+            box-shadow: 0 10px 25px rgba(0, 200, 255, .4);
 
-transform:translateY(-2px);
+            transform: translateY(-2px);
 
-}
+        }
 
 
 
-/* Hover Effect */
+        /* Hover Effect */
 
-.project:hover{
+        .project:hover {
 
-transform:translateY(-10px);
+            transform: translateY(-10px);
 
-box-shadow:0 25px 80px rgba(0,200,255,.25);
+            box-shadow: 0 25px 80px rgba(0, 200, 255, .25);
 
-}
+        }
 
 
 
-/* Tablet */
+        /* Tablet */
 
-@media (max-width:1000px){
+        @media (max-width:1000px) {
 
-.projects{
+            .projects {
 
-grid-template-columns:
-repeat(2,1fr);
+                grid-template-columns:
+                    repeat(2, 1fr);
 
-}
+            }
 
-}
+        }
 
 
 
-/* Mobile */
+        /* Mobile */
 
-@media (max-width:768px){
+        @media (max-width:768px) {
 
-.projects{
+            .projects {
 
-grid-template-columns:1fr;
+                grid-template-columns: 1fr;
 
-gap:25px;
+                gap: 25px;
 
-}
+            }
 
-.project{
+            .project {
 
-padding:22px;
+                padding: 22px;
 
-}
+            }
 
-.project p{
+            .project p {
 
-font-size:14px;
+                font-size: 14px;
 
-}
+            }
 
-}
-/* ===========================
-CERTIFICATIONS (PROFESSIONAL)
-Supports Images + PDF Buttons
+        }
+
+        /* ===========================
+CERTIFICATIONS (FINAL CLEAN VERSION)
+Professional Grid + Proper Images
 =========================== */
 
 
-/* Grid Layout */
+        /* GRID LAYOUT */
 
-.certGrid{
+        /* CERTIFICATE GRID - NATURAL ALIGNMENT */
 
-display:grid;
+        /* CERTIFICATE GRID - PERFECT ALIGNMENT */
 
-grid-template-columns:
-repeat(auto-fit,minmax(300px,1fr));
+        .certGrid {
 
-gap:30px;
+            display: grid;
 
-align-items:start;
+            grid-template-columns: repeat(2, 1fr);
 
-}
+            gap: 30px;
 
+            align-items: stretch;
 
+        }
 
-/* Certificate Card */
 
-.cert{
+        /* CERTIFICATE CARD */
 
-background:var(--card);
+        .cert {
 
-padding:28px;
+            background: var(--card);
 
-border-radius:18px;
+            padding: 26px;
 
-border:1px solid #1e293b;
+            border-radius: 18px;
 
-transition:0.3s;
+            border: 1px solid #1e293b;
 
-/* Important for proper layout */
+            transition: 0.3s;
 
-display:flex;
+            /* Important Fix */
 
-flex-direction:column;
+            display: flex;
 
-height:100%;
+            flex-direction: column;
 
-}
+            justify-content: space-between;
 
-/* ===========================
-CERT IMAGE ALIGNMENT FIX
-=========================== */
+            height: 100%;
 
-.cert{
+        }
 
-display:flex;
-flex-direction:column;
 
-}
+        /* HOVER */
 
+        .cert:hover {
 
+            transform: translateY(-6px);
 
-/* Description Area */
+            box-shadow: 0 25px 70px rgba(0, 200, 255, .25);
 
-.cert p{
-min-height:200px;
-}
+        }
 
-/* Certificate Image Box */
 
-.certImg{
+        /* HOVER EFFECT */
 
-width:100%;
-height:160px;
+        .cert:hover {
 
-/* Same image size */
+            transform: translateY(-8px);
 
-object-fit:cover;
+            box-shadow: 0 25px 70px rgba(0, 200, 255, .25);
 
-border-radius:12px;
+        }
 
-margin-top:10px;
-margin-bottom:15px;
 
-border:1px solid #22c7ff55;
 
-}
+        /* TITLE */
 
+        .cert h3 {
 
-/* Button Always Bottom */
+            margin-bottom: 10px;
 
-.certBtn{
+            color: var(--accent);
 
-margin-top:auto;
+            font-size: 20px;
 
-display:block;
+        }
 
-text-align:center;
 
-}
 
-/* Hover Effect */
+        /* DESCRIPTION */
 
-.cert:hover{
+        .cert p {
 
-transform:translateY(-8px);
+            margin-top: 10px;
 
-box-shadow:0 25px 70px rgba(0,200,255,.25);
+            margin-bottom: 15px;
 
-}
+            color: #a5b4fc;
 
+            line-height: 1.7;
 
+            /* Equal row alignment */
 
-/* Title */
+            flex-grow: 1;
 
-.cert h3{
+        }
 
-margin-bottom:10px;
 
-color:var(--accent);
 
-font-size:20px;
+        /* CERTIFICATE IMAGE */
 
-}
+        .certImg {
 
+            width: 100%;
 
+            max-height: 220px;
 
-/* Description */
+            object-fit: contain;
 
-.cert p{
+            border-radius: 12px;
 
-margin-top:10px;
+            margin-top: 12px;
 
-margin-bottom:15px;
+            margin-bottom: 12px;
 
-color:#a5b4fc;
+            background: white;
 
-line-height:1.7;
+            padding: 5px;
 
-}
+            border: 1px solid #22c7ff55;
 
+        }
 
 
-/* Certificate Image */
 
-.certImg{
+        /* BUTTON */
 
-width:100%;
+        .certBtn {
 
-border-radius:12px;
+            display: inline-block;
 
-margin-top:10px;
+            padding: 10px 20px;
 
-margin-bottom:15px;
+            border-radius: 25px;
 
-border:1px solid #22c7ff55;
+            background: linear-gradient(90deg,
+                    var(--accent),
+                    var(--accent2));
 
-}
+            color: white;
 
+            text-decoration: none;
 
+            font-size: 14px;
 
-/* PDF Button */
+            margin-top: 8px;
 
-.certBtn{
+        }
 
-margin-top:auto;
+        /* BUTTON HOVER */
 
-display:inline-block;
+        .certBtn:hover {
 
-text-align:center;
+            transform: translateY(-2px);
 
-padding:10px 18px;
+            box-shadow: 0 10px 25px rgba(0, 200, 255, .4);
 
-border-radius:25px;
+        }
 
-background:linear-gradient(
-90deg,
-var(--accent),
-var(--accent2)
-);
 
-color:white;
 
-text-decoration:none;
+        /* TABLET */
 
-font-size:14px;
+        @media (max-width:1000px) {
 
-transition:0.3s;
+            .certGrid {
 
-}
+                grid-template-columns: repeat(2, 1fr);
 
+            }
 
+        }
 
-/* Button Hover */
 
-.certBtn:hover{
 
-transform:translateY(-2px);
+        /* MOBILE */
 
-box-shadow:0 10px 25px rgba(0,200,255,.4);
+        @media (max-width:768px) {
 
-}
+            .certGrid {
 
+                grid-template-columns: 1fr;
 
+                gap: 25px;
 
-/* Tablet */
+            }
 
-@media (max-width:1000px){
+            .cert {
 
-.certGrid{
+                padding: 22px;
 
-grid-template-columns:
-repeat(2,1fr);
+            }
 
-}
+            .cert p {
 
-}
+                font-size: 14px;
 
+            }
 
+        }
 
-/* Mobile */
-
-@media (max-width:768px){
-
-.certGrid{
-
-grid-template-columns:1fr;
-
-gap:25px;
-
-}
-
-.cert{
-
-padding:22px;
-
-}
-
-.cert p{
-
-font-size:14px;
-
-}
-
-}
-/* ===========================
+        /* ===========================
 CONTACT
 =========================== */
 
-.contact{
-background:var(--card);
-padding:40px;
-border-radius:20px;
-border:1px solid #1e293b;
-line-height:2;
-}
+        .contact {
+            background: var(--card);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #1e293b;
+            line-height: 2;
+        }
 
 
-/* ===========================
+        /* ===========================
 RESPONSIVE TABLET
 =========================== */
 
-@media (max-width:1000px){
+        @media (max-width:1000px) {
 
-.hero h1{
-font-size:42px;
-}
+            .hero h1 {
+                font-size: 42px;
+            }
 
-}
+        }
 
 
-/* ===========================
+        /* ===========================
 RESPONSIVE MOBILE
 =========================== */
 
-@media (max-width:768px){
+        @media (max-width:768px) {
 
-.menuToggle{
-display:block;
-}
+            .menuToggle {
+                display: block;
+            }
 
-.navbar{
-padding:15px 0;
-}
+            .navbar {
+                padding: 15px 0;
+            }
 
-.navLinks{
+            .navLinks {
 
-display:none;
+                display: none;
 
-flex-direction:column;
+                flex-direction: column;
 
-position:absolute;
-top:70px;
-left:0;
+                position: absolute;
+                top: 70px;
+                left: 0;
 
-width:100%;
+                width: 100%;
 
-background:#020617;
+                background: #020617;
 
-padding:20px;
+                padding: 20px;
 
-gap:15px;
+                gap: 15px;
 
-}
+            }
 
-.navLinks.active{
-display:flex;
-}
+            .navLinks.active {
+                display: flex;
+            }
 
-.navLinks a{
-padding:12px 0;
-border-bottom:1px solid #1f2a44;
-}
-
-
-/* Hero */
-
-.hero{
-margin:60px 0;
-}
-
-.hero h1{
-font-size:32px;
-}
-
-.hero h2{
-font-size:20px;
-}
-
-.hero p{
-font-size:15px;
-}
+            .navLinks a {
+                padding: 12px 0;
+                border-bottom: 1px solid #1f2a44;
+            }
 
 
-/* Stats */
+            /* Hero */
 
-.stats{
-gap:25px;
-}
+            .hero {
+                margin: 60px 0;
+            }
 
-.stat{
-font-size:24px;
-}
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero h2 {
+                font-size: 20px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
 
 
-/* Sections */
+            /* Stats */
 
-.section{
-margin:80px 0;
-}
+            .stats {
+                gap: 25px;
+            }
 
-}
+            .stat {
+                font-size: 24px;
+            }
 
 
-/* ===========================
+            /* Sections */
+
+            .section {
+                margin: 80px 0;
+            }
+
+        }
+
+
+        /* ===========================
 SMALL MOBILE
 =========================== */
 
-@media (max-width:480px){
+        @media (max-width:480px) {
 
-.hero h1{
-font-size:26px;
-}
+            .hero h1 {
+                font-size: 26px;
+            }
 
-.hero h2{
-font-size:18px;
-}
+            .hero h2 {
+                font-size: 18px;
+            }
 
-.hero p{
-font-size:14px;
-}
+            .hero p {
+                font-size: 14px;
+            }
 
-.stat{
-font-size:20px;
-}
+            .stat {
+                font-size: 20px;
+            }
 
-}
-
-
-</style>
+        }
+    </style>
 
 </head>
 
 <body>
 
-<canvas id="network"></canvas>
+    <canvas id="network"></canvas>
 
-<div class="container">
+    <div class="container">
 
-<!-- NAVBAR -->
+        <!-- NAVBAR -->
 
-<div class="navbar">
+        <div class="navbar">
 
-<div>
+            <div>
 
-<div class="name">
-Yash Surve
-</div>
+                <div class="name">
+                    Yash Surve
+                </div>
 
-<div class="role">
-Network Engineer • Software Developer
-</div>
+                <div class="role">
+                    Network Engineer • Software Developer
+                </div>
 
-</div>
+            </div>
 
-<div class="menuToggle" onclick="toggleMenu()">
-☰
-</div>
+            <div class="menuToggle" onclick="toggleMenu()">
+                ☰
+            </div>
 
-<div class="navLinks" id="navLinks">
+            <div class="navLinks" id="navLinks">
 
-<a href="#about">About</a>
-<a href="#skills">Skills</a>
-<a href="#projects">Projects</a>
-<a href="#cert">Certifications</a>
-<a href="#contact">Contact</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#cert">Certifications</a>
+                <a href="#contact">Contact</a>
 
-</div>
+            </div>
 
-</div>
+        </div>
 
-<div class="hero">
+        <div class="hero">
 
-<h1>
+            <h1>
 
-Network Engineer Portfolio
+                Network Engineer Portfolio
 
-</h1>
+            </h1>
 
-<h2>
+            <h2>
 
-Cisco Networking • Software Development
+                Cisco Networking • Software Development
 
-</h2>
+            </h2>
 
-<p>
+            <p>
 
-Computer Science student with hands-on experience configuring Cisco routers and Cisco Catalyst 2960 switches.
+                Computer Science student with hands-on experience configuring Cisco routers and Cisco Catalyst 2960
+                switches.
 
-Experienced in VLAN networks, router-on-a-stick configuration, RIP routing and DHCP services.
+                Experienced in VLAN networks, router-on-a-stick configuration, RIP routing and DHCP services.
 
-Developed multiple full-stack applications using React, NodeJS, Java and Oracle.
+                Developed multiple full-stack applications using React, NodeJS, Java and Oracle.
 
-</p>
+            </p>
 
 
-<div class="buttons">
+            <div class="buttons">
 
-<a class="btn" href="resume.pdf" download>
+                <a class="btn" href="resume.pdf" download>
 
-Download Resume
+                    Download Resume
 
-</a>
+                </a>
 
-<a class="btnOutline" href="https://github.com/YashSurve2006">
+                <a class="btnOutline" href="https://github.com/YashSurve2006">
 
-GitHub Profile
+                    GitHub Profile
 
-</a>
+                </a>
 
-</div>
+            </div>
 
 
 
-<div class="stats">
+            <div class="stats">
 
-<div>
+                <div>
 
-<div class="stat" id="p1">0</div>
+                    <div class="stat" id="p1">0</div>
 
-Projects
+                    Projects
 
-</div>
+                </div>
 
 
-<div>
+                <div>
 
-<div class="stat" id="p2">0</div>
+                    <div class="stat" id="p2">0</div>
 
-Technologies
+                    Technologies
 
-</div>
+                </div>
 
 
-<div>
+                <div>
 
-<div class="stat" id="p3">0</div>
+                    <div class="stat" id="p3">0</div>
 
-Networks Built
+                    Networks Built
 
-</div>
+                </div>
 
-</div>
+            </div>
 
-</div>
+        </div>
 
 
 
-<!-- ABOUT -->
+        <!-- ABOUT -->
 
-<div id="about" class="section">
+        <div id="about" class="section">
 
-<div class="sectionTitle">
-Professional Profile
-</div>
+            <div class="sectionTitle">
+                Professional Profile
+            </div>
 
-<div class="aboutBox">
+            <div class="aboutBox">
 
-Aspiring Network Engineer and Software Developer with strong hands-on experience in designing and configuring enterprise network infrastructures using Cisco routers and Catalyst 2960 switches. Skilled in VLAN implementation, inter-VLAN routing using Router-on-a-Stick, dynamic routing protocols such as RIP v2, and DHCP network services with structured IP addressing and subnet planning.
+                Aspiring Network Engineer and Software Developer with strong hands-on experience in designing and
+                configuring enterprise network infrastructures using Cisco routers and Catalyst 2960 switches. Skilled
+                in VLAN implementation, inter-VLAN routing using Router-on-a-Stick, dynamic routing protocols such as
+                RIP v2, and DHCP network services with structured IP addressing and subnet planning.
 
-Experienced in configuring and troubleshooting real-world network topologies using Cisco Packet Tracer and practical laboratory setups. Strong understanding of network architecture, switching concepts, routing fundamentals, and secure network configuration.
+                Experienced in configuring and troubleshooting real-world network topologies using Cisco Packet Tracer
+                and practical laboratory setups. Strong understanding of network architecture, switching concepts,
+                routing fundamentals, and secure network configuration.
 
-Alongside networking expertise, experienced in full-stack software development using technologies such as React, Node.js, Java, MySQL, and Oracle. Developed multiple database-driven and web-based applications with structured backend design and responsive user interfaces.
+                Alongside networking expertise, experienced in full-stack software development using technologies such
+                as React, Node.js, Java, MySQL, and Oracle. Developed multiple database-driven and web-based
+                applications with structured backend design and responsive user interfaces.
 
-Currently focused on building practical networking solutions and scalable software systems while continuously improving skills in network engineering, backend development, and system design.
+                Currently focused on building practical networking solutions and scalable software systems while
+                continuously improving skills in network engineering, backend development, and system design.
 
-</div>
+            </div>
 
-</div>
+        </div>
 
 
 
-<!-- SKILLS -->
+        <!-- SKILLS -->
 
-<div id="skills" class="section">
+        <div id="skills" class="section">
 
-<div class="sectionTitle">
-Technical Skills
-</div>
+            <div class="sectionTitle">
+                Technical Skills
+            </div>
 
 
-<div class="skills">
+            <div class="skills">
 
 
-<!-- NETWORKING -->
+                <!-- NETWORKING -->
 
-<div class="skillCard">
+                <div class="skillCard">
 
-<h3>Networking Technologies</h3>
+                    <h3>Networking Technologies</h3>
 
 
-<div class="skill">
-<span>Routing & Switching</span>
-<div class="bar"><div class="fill" data="80"></div></div>
-</div>
+                    <div class="skill">
+                        <span>Routing & Switching</span>
+                        <div class="bar">
+                            <div class="fill" data="80"></div>
+                        </div>
+                    </div>
 
 
-<div class="skill">
-<span>VLAN & Inter-VLAN Routing</span>
-<div class="bar"><div class="fill" data="85"></div></div>
-</div>
+                    <div class="skill">
+                        <span>VLAN & Inter-VLAN Routing</span>
+                        <div class="bar">
+                            <div class="fill" data="85"></div>
+                        </div>
+                    </div>
 
 
-<div class="skill">
-<span>IP Addressing & Subnetting</span>
-<div class="bar"><div class="fill" data="75"></div></div>
-</div>
+                    <div class="skill">
+                        <span>IP Addressing & Subnetting</span>
+                        <div class="bar">
+                            <div class="fill" data="75"></div>
+                        </div>
+                    </div>
 
 
-<div class="skill">
-<span>Routing Protocols (RIP)</span>
-<div class="bar"><div class="fill" data="70"></div></div>
-</div>
+                    <div class="skill">
+                        <span>Routing Protocols (RIP)</span>
+                        <div class="bar">
+                            <div class="fill" data="70"></div>
+                        </div>
+                    </div>
 
 
-<div class="skill">
-<span>DHCP Configuration</span>
-<div class="bar"><div class="fill" data="78"></div></div>
-</div>
+                    <div class="skill">
+                        <span>DHCP Configuration</span>
+                        <div class="bar">
+                            <div class="fill" data="78"></div>
+                        </div>
+                    </div>
 
-</div>
+                </div>
 
 
 
-<!-- SOFTWARE DEVELOPMENT -->
+                <!-- SOFTWARE DEVELOPMENT -->
 
-<div class="skillCard">
+                <div class="skillCard">
 
-<h3>Software Development</h3>
+                    <h3>Software Development</h3>
 
 
-<div class="skill">
-<span>Java</span>
-<div class="bar"><div class="fill" data="80"></div></div>
-</div>
+                    <div class="skill">
+                        <span>Java</span>
+                        <div class="bar">
+                            <div class="fill" data="80"></div>
+                        </div>
+                    </div>
 
 
-<div class="skill">
-<span>Node.js</span>
-<div class="bar"><div class="fill" data="70"></div></div>
-</div>
+                    <div class="skill">
+                        <span>Node.js</span>
+                        <div class="bar">
+                            <div class="fill" data="70"></div>
+                        </div>
+                    </div>
 
 
-<div class="skill">
-<span>React</span>
-<div class="bar"><div class="fill" data="68"></div></div>
-</div>
+                    <div class="skill">
+                        <span>React</span>
+                        <div class="bar">
+                            <div class="fill" data="68"></div>
+                        </div>
+                    </div>
 
 
-<div class="skill">
-<span>HTML, CSS & JavaScript</span>
-<div class="bar"><div class="fill" data="82"></div></div>
-</div>
+                    <div class="skill">
+                        <span>HTML, CSS & JavaScript</span>
+                        <div class="bar">
+                            <div class="fill" data="82"></div>
+                        </div>
+                    </div>
 
 
-<div class="skill">
-<span>REST APIs</span>
-<div class="bar"><div class="fill" data="72"></div></div>
-</div>
+                    <div class="skill">
+                        <span>REST APIs</span>
+                        <div class="bar">
+                            <div class="fill" data="72"></div>
+                        </div>
+                    </div>
 
-</div>
+                </div>
 
 
 
-<!-- DATABASE -->
+                <!-- DATABASE -->
 
-<div class="skillCard">
+                <div class="skillCard">
 
-<h3>Database Technologies</h3>
+                    <h3>Database Technologies</h3>
 
 
-<div class="skill">
-<span>MySQL</span>
-<div class="bar"><div class="fill" data="80"></div></div>
-</div>
+                    <div class="skill">
+                        <span>MySQL</span>
+                        <div class="bar">
+                            <div class="fill" data="80"></div>
+                        </div>
+                    </div>
 
 
-<div class="skill">
-<span>Oracle Database</span>
-<div class="bar"><div class="fill" data="78"></div></div>
-</div>
+                    <div class="skill">
+                        <span>Oracle Database</span>
+                        <div class="bar">
+                            <div class="fill" data="78"></div>
+                        </div>
+                    </div>
 
 
-<div class="skill">
-<span>SQL Queries</span>
-<div class="bar"><div class="fill" data="85"></div></div>
-</div>
+                    <div class="skill">
+                        <span>SQL Queries</span>
+                        <div class="bar">
+                            <div class="fill" data="85"></div>
+                        </div>
+                    </div>
 
 
-<div class="skill">
-<span>PL/SQL</span>
-<div class="bar"><div class="fill" data="72"></div></div>
-</div>
+                    <div class="skill">
+                        <span>PL/SQL</span>
+                        <div class="bar">
+                            <div class="fill" data="72"></div>
+                        </div>
+                    </div>
 
 
-<div class="skill">
-<span>Database Design</span>
-<div class="bar"><div class="fill" data="75"></div></div>
-</div>
+                    <div class="skill">
+                        <span>Database Design</span>
+                        <div class="bar">
+                            <div class="fill" data="75"></div>
+                        </div>
+                    </div>
 
-</div>
+                </div>
 
 
 
-<!-- TOOLS & PLATFORMS -->
+                <!-- TOOLS & PLATFORMS -->
 
-<div class="skillCard">
+                <div class="skillCard">
 
-<h3>Tools & Platforms</h3>
+                    <h3>Tools & Platforms</h3>
 
 
-<div class="skill">
-<span>Cisco Packet Tracer</span>
-<div class="bar"><div class="fill" data="85"></div></div>
-</div>
+                    <div class="skill">
+                        <span>Cisco Packet Tracer</span>
+                        <div class="bar">
+                            <div class="fill" data="85"></div>
+                        </div>
+                    </div>
 
 
-<div class="skill">
-<span>Git & GitHub</span>
-<div class="bar"><div class="fill" data="75"></div></div>
-</div>
+                    <div class="skill">
+                        <span>Git & GitHub</span>
+                        <div class="bar">
+                            <div class="fill" data="75"></div>
+                        </div>
+                    </div>
 
 
-<div class="skill">
-<span>VS Code</span>
-<div class="bar"><div class="fill" data="88"></div></div>
-</div>
+                    <div class="skill">
+                        <span>VS Code</span>
+                        <div class="bar">
+                            <div class="fill" data="88"></div>
+                        </div>
+                    </div>
 
 
-<div class="skill">
-<span>MySQL Workbench</span>
-<div class="bar"><div class="fill" data="78"></div></div>
-</div>
+                    <div class="skill">
+                        <span>MySQL Workbench</span>
+                        <div class="bar">
+                            <div class="fill" data="78"></div>
+                        </div>
+                    </div>
 
 
-<div class="skill">
-<span>Oracle SQL Plus</span>
-<div class="bar"><div class="fill" data="80"></div></div>
-</div>
+                    <div class="skill">
+                        <span>Oracle SQL Plus</span>
+                        <div class="bar">
+                            <div class="fill" data="80"></div>
+                        </div>
+                    </div>
 
-</div>
+                </div>
 
 
-</div>
+            </div>
 
-</div>
+        </div>
 
+        <!-- PROJECTS -->
 
-<!-- PROJECTS -->
+        <div id="projects" class="section">
 
-<div id="projects" class="section">
+            <div class="sectionTitle">
+                Technical Projects
+            </div>
 
-<div class="sectionTitle">
-Engineering Projects
-</div>
 
+            <!-- FILTER BUTTONS -->
 
-<!-- FILTER BUTTONS -->
+            <div class="filters">
 
-<div class="filters">
+                <button onclick="filterProjects('all')">All</button>
 
-<button onclick="filterProjects('all')">All</button>
+                <button onclick="filterProjects('network')">Network</button>
 
-<button onclick="filterProjects('network')">Network</button>
+                <button onclick="filterProjects('fullstack')">Full Stack</button>
 
-<button onclick="filterProjects('fullstack')">Full Stack</button>
+                <button onclick="filterProjects('java')">Java</button>
 
-<button onclick="filterProjects('java')">Java</button>
+                <button onclick="filterProjects('database')">Database</button>
 
-<button onclick="filterProjects('database')">Database</button>
+                <button onclick="filterProjects('frontend')">Frontend</button>
 
-<button onclick="filterProjects('frontend')">Frontend</button>
+                <button onclick="filterProjects('data')">Data</button>
 
-<button onclick="filterProjects('data')">Data</button>
+            </div>
 
-</div>
 
+            <div class="projects">
 
 
-<div class="projects">
+                <!-- NETWORK -->
 
+                <div class="project" data="network">
 
+                    <h3>Enterprise Cisco Network Infrastructure</h3>
 
-<!-- NETWORK -->
+                    <p>
 
-<div class="project" data="network">
+                        Designed and configured an enterprise-level Cisco network using multiple routers and Catalyst
+                        2960 switches.
 
-<h3>Enterprise Cisco Network Infrastructure</h3>
+                        Implemented VLAN segmentation, inter-VLAN routing using Router-on-a-Stick, and RIP v2 dynamic
+                        routing.
 
-<p>
+                        Configured DHCP services and structured IP addressing with proper subnet planning.
 
-Designed and configured an enterprise-level Cisco network using multiple routers and Catalyst 2960 switches.
+                        Validated connectivity and routing behavior through systematic testing and troubleshooting.
 
-Implemented VLAN segmentation, inter-VLAN routing using Router-on-a-Stick, and RIP v2 dynamic routing.
+                    </p>
 
-Configured DHCP services and structured IP addressing with proper subnet planning.
+                    <a class="git" href="https://github.com/YashSurve2006/enterprise-cisco-network-infrastructure"
+                        target="_blank">
+                        View Repository →
+                    </a>
 
-Validated connectivity and routing behavior through systematic testing and troubleshooting.
+                </div>
 
-</p>
 
-<a class="git" href="#" target="_blank">
-View Repository →
-</a>
 
-</div>
+                <!-- INVENTORYX -->
 
+                <div class="project" data="fullstack">
 
+                    <h3>InventoryX Full Stack System</h3>
 
-<!-- INVENTORYX -->
+                    <p>
 
-<div class="project" data="fullstack">
+                        Developed a complete inventory management platform using React for the frontend and NodeJS with
+                        MySQL for the backend.
 
-<h3>InventoryX Full Stack System</h3>
+                        Implemented JWT authentication and role-based access control for secure operations.
 
-<p>
+                        Built modules for product tracking, order management, reporting, and dashboard analytics.
 
-Developed a complete inventory management platform using React for the frontend and NodeJS with MySQL for the backend.
+                        Designed a scalable backend architecture with structured database relationships.
 
-Implemented JWT authentication and role-based access control for secure operations.
+                    </p>
 
-Built modules for product tracking, order management, reporting, and dashboard analytics.
+                    <a class="git" href="https://github.com/YashSurve2006/Inventory-Management-Website" target="_blank">
+                        View Repository →
+                    </a>
 
-Designed a scalable backend architecture with structured database relationships.
+                </div>
 
-</p>
 
-<a class="git" href="https://github.com/YashSurve2006/Inventory-Management-Website" target="_blank">
-View Repository →
-</a>
 
-</div>
+                <!-- JAVA IMS -->
 
+                <div class="project" data="java">
 
+                    <h3>Java Inventory Management System</h3>
 
-<!-- RESULT PORTAL -->
+                    <p>
 
-<div class="project" data="database">
+                        Created a web-based inventory management application using JSP, Servlets, and MySQL.
 
-<h3>Student Result Portal (Oracle + NodeJS)</h3>
+                        Developed modules for product management, purchase tracking, and sales records.
 
-<p>
+                        Implemented structured MVC architecture with secure database connectivity.
 
-Built a database-driven student result management system using Oracle and PL/SQL.
+                        Designed an administrative dashboard for monitoring stock and transactions.
 
-Developed stored procedures, packages, and backend APIs for automated result processing.
+                    </p>
 
-Integrated NodeJS for dynamic result retrieval and record management.
+                    <a class="git" href="https://github.com/YashSurve2006/java-inventory-management-system"
+                        target="_blank">
+                        View Repository →
+                    </a>
 
-Ensured secure data handling and structured result computation logic.
+                </div>
 
-</p>
 
-<a class="git" href="#" target="_blank">
-View Repository →
-</a>
 
-</div>
+                <!-- PORTFOLIO -->
 
+                <div class="project" data="frontend">
 
+                    <h3>Advanced Engineering Portfolio Website</h3>
 
-<!-- INTERNSHIP -->
+                    <p>
 
-<div class="project" data="database">
+                        Designed and developed a fully responsive personal portfolio website.
 
-<h3>Internship Placement Portal</h3>
+                        Implemented animated UI components, interactive project filtering, and smooth transitions.
 
-<p>
+                        Structured sections for networking experience, software projects, and certifications.
 
-Designed a multi-module internship management system using Oracle and NodeJS.
+                        Built to showcase professional capabilities in both networking and software domains.
 
-Implemented separate authentication flows for students, companies, and administrators.
+                    </p>
 
-Developed application submission workflows and approval tracking mechanisms.
+                    <a class="git" href="https://github.com/YashSurve2006/yashsurve2006.github.io" target="_blank">
+                        View Repository →
+                    </a>
 
-Utilized PL/SQL procedures and triggers to manage internship records efficiently.
+                </div>
 
-</p>
 
-<a class="git" href="#" target="_blank">
-View Repository →
-</a>
 
-</div>
+                <!-- INTERNSHIP -->
 
+                <div class="project" data="database">
 
+                    <h3>Internship Placement Portal</h3>
 
-<!-- JAVA IMS -->
+                    <p>
 
-<div class="project" data="java">
+                        Designed a multi-module internship management system using Oracle and NodeJS.
 
-<h3>Java Inventory Management System</h3>
+                        Implemented separate authentication flows for students, companies, and administrators.
 
-<p>
+                        Developed application submission workflows and approval tracking mechanisms.
 
-Created a web-based inventory management application using JSP, Servlets, and MySQL.
+                        Utilized PL/SQL procedures and triggers to manage internship records efficiently.
 
-Developed modules for product management, purchase tracking, and sales records.
+                    </p>
 
-Implemented structured MVC architecture with secure database connectivity.
+                </div>
 
-Designed an administrative dashboard for monitoring stock and transactions.
 
-</p>
 
-<a class="git" href="#" target="_blank">
-View Repository →
-</a>
+                <!-- SRV -->
 
-</div>
+                <div class="project" data="frontend">
 
+                    <h3>SRV Technologies Corporate Website</h3>
 
+                    <p>
 
-<!-- DINEMATE -->
+                        Designed a professional corporate website with structured business sections and modern UI.
 
-<div class="project" data="frontend">
+                        Created dedicated pages for services, projects, and company information.
 
-<h3>DineMate Ecommerce Website</h3>
+                        Implemented smooth animations and responsive layouts for improved user experience.
 
-<p>
+                        Focused on clean branding, content hierarchy, and visual consistency.
 
-Developed a responsive ecommerce platform using HTML, CSS, and JavaScript.
+                    </p>
 
-Implemented dynamic product rendering, shopping cart functionality, and wishlist features.
+                </div>
 
-Designed a local storage based state management system for user interactions.
 
-Built a lightweight admin interface for product control and UI updates.
 
-</p>
+                <!-- DATA VISUALIZATION -->
 
-<a class="git" href="#" target="_blank">
-View Repository →
-</a>
+                <div class="project" data="data">
 
-</div>
+                    <h3>Movie Data Visualization Dashboard</h3>
 
+                    <p>
 
+                        Developed an interactive data dashboard using Python, Pandas, and Plotly.
 
-<!-- SRV -->
+                        Performed data preprocessing and built multiple visualization charts.
 
-<div class="project" data="frontend">
+                        Implemented filtering and comparative analysis across movie attributes.
 
-<h3>SRV Technologies Corporate Website</h3>
+                        Designed the dashboard for clarity, usability, and analytical insights.
 
-<p>
+                    </p>
 
-Designed a professional corporate website with structured business sections and modern UI.
+                </div>
 
-Created dedicated pages for services, projects, and company information.
 
-Implemented smooth animations and responsive layouts for improved user experience.
 
-Focused on clean branding, content hierarchy, and visual consistency.
+                <!-- EDA -->
 
-</p>
+                <div class="project" data="data">
 
-<a class="git" href="#" target="_blank">
-View Repository →
-</a>
+                    <h3>Movie Dataset Exploratory Data Analysis</h3>
 
-</div>
+                    <p>
 
+                        Conducted detailed exploratory data analysis on a structured movie dataset.
 
+                        Performed data cleaning, missing value handling, and statistical evaluation.
 
-<!-- DATA VISUALIZATION -->
+                        Generated visual insights using Matplotlib and Seaborn libraries.
 
-<div class="project" data="data">
+                        Extracted meaningful trends related to ratings, revenue, and genres.
 
-<h3>Movie Data Visualization Dashboard</h3>
+                    </p>
 
-<p>
+                </div>
 
-Developed an interactive data dashboard using Python, Pandas, and Plotly.
 
-Performed data preprocessing and built multiple visualization charts.
+            </div>
 
-Implemented filtering and comparative analysis across movie attributes.
+        </div>
+        <!-- CERTIFICATIONS -->
 
-Designed the dashboard for clarity, usability, and analytical insights.
+        <div id="cert" class="section">
 
-</p>
+            <div class="sectionTitle">
+                Certifications
+            </div>
 
-<a class="git" href="#" target="_blank">
-View Repository →
-</a>
+            <div class="certGrid">
 
-</div>
 
+                <!-- HARDWARE NETWORKING -->
 
+                <div class="cert">
 
-<!-- EDA -->
+                    <h3>Hardware & Networking Certification</h3>
 
-<div class="project" data="data">
+                    <p>
+                        Completed structured training in computer hardware and networking concepts.
+                        Configured Cisco routers and Catalyst 2960 switches with VLANs, routing protocols,
+                        IP addressing, and DHCP services. Hands-on labs focused on real network
+                        configuration and troubleshooting.
+                    </p>
 
-<h3>Movie Dataset Exploratory Data Analysis</h3>
+                    <img class="certImg" src="certificates/hardware and networking.jpg">
 
-<p>
+                    <a class="certBtn" href="certificates/hardware and networking.jpg" target="_blank">
+                        View Certificate
+                    </a>
 
-Conducted detailed exploratory data analysis on a structured movie dataset.
+                </div>
 
-Performed data cleaning, missing value handling, and statistical evaluation.
 
-Generated visual insights using Matplotlib and Seaborn libraries.
 
-Extracted meaningful trends related to ratings, revenue, and genres.
+                <!-- PHOTOSHOP -->
 
-</p>
+                <div class="cert">
 
-<a class="git" href="#" target="_blank">
-View Repository →
-</a>
+                    <h3>Adobe Photoshop Certification</h3>
 
-</div>
+                    <p>
+                        Completed training in Adobe Photoshop and digital design techniques.
+                        Worked with image editing, layer management, and color correction tools.
+                        Developed practical skills in professional graphic design.
+                    </p>
 
+                    <img class="certImg" src="certificates/Advance Certificate.jpg">
 
+                    <a class="certBtn" href="certificates/Advance Certificate.jpg" target="_blank">
+                        View Certificate
+                    </a>
 
-<!-- PORTFOLIO -->
+                </div>
 
-<div class="project" data="frontend">
 
-<h3>Advanced Engineering Portfolio Website</h3>
 
-<p>
+                <!-- AUTOCAD -->
 
-Designed and developed a fully responsive personal portfolio website.
+                <div class="cert">
 
-Implemented animated UI components, interactive project filtering, and smooth transitions.
+                    <h3>AutoCAD Certification</h3>
 
-Structured sections for networking experience, software projects, and certifications.
+                    <p>
+                        Completed professional AutoCAD training focused on engineering drawings and layout design.
+                        Created structured technical drawings and commercial floor plans using accurate
+                        measurements and annotation tools.
+                    </p>
 
-Built to showcase professional capabilities in both networking and software domains.
+                </div>
 
-</p>
 
-<a class="git" href="#" target="_blank">
-View Repository →
-</a>
 
-</div>
+                <!-- EXCEL -->
 
+                <div class="cert">
 
-</div>
+                    <h3>Advanced Microsoft Excel</h3>
 
-</div>
+                    <p>
+                        Completed advanced Excel training focused on data organization and analysis.
+                        Worked with formulas, charts, and structured reporting techniques to manage
+                        and analyze datasets efficiently.
+                    </p>
 
+                </div>
 
-<!-- CERTIFICATIONS -->
 
-<div id="cert" class="section">
+            </div>
 
-<div class="sectionTitle">
-Certifications
-</div>
+        </div>
+        <!-- CONTACT -->
 
-<div class="certGrid">
+        <div id="contact" class="section">
 
+            <div class="sectionTitle">
 
-<!-- NETWORKING -->
+                Contact
 
-<div class="cert">
+            </div>
 
-<h3>Hardware & Networking Certification</h3>
 
-<p>
-Completed structured training in computer hardware and networking concepts.
-Gained practical experience configuring Cisco routers and Catalyst 2960 switches.
-Worked with VLAN configuration, routing protocols, IP addressing and DHCP services.
-Hands-on laboratory sessions focused on real network configuration and troubleshooting.
-</p>
+            <div class="contact">
 
-<!-- Image Preview -->
+                Email: yashsurve2019@gmail.com
 
-<img class="certImg" src="certificates/network.jpg" alt="Networking Certificate">
+                <br><br>
 
-<!-- Download Button -->
+                Phone: 8850706982
 
-<a class="certBtn" href="certificates/network.pdf" target="_blank">
-View Certificate
-</a>
+                <br><br>
 
-</div>
+                <button class="btnOutline" onclick="copyEmail()">
 
+                    Copy Email
 
+                </button>
 
-<!-- AUTOCAD -->
+            </div>
 
-<div class="cert">
+        </div>
 
-<h3>AutoCAD Certification</h3>
 
-<p>
-Completed professional AutoCAD training focused on technical drawing and layout design.
-Created structured engineering drawings and commercial floor plans.
-Worked with accurate measurements, layers and annotation tools.
-Developed practical experience in professional drafting workflows.
-</p>
+    </div>
 
-<img class="certImg" src="certificates/autocad.jpg" alt="AutoCAD Certificate">
 
-<a class="certBtn" href="certificates/autocad.pdf" target="_blank">
-View Certificate
-</a>
 
-</div>
+    <script>
 
+        /* FILTER */
 
+        function filterProjects(type) {
 
-<!-- EXCEL -->
+            let projects = document.querySelectorAll(".project");
 
-<div class="cert">
+            projects.forEach(p => {
 
-<h3>Advanced Microsoft Excel</h3>
+                if (type === "all") {
+                    p.style.display = "block";
+                }
+                else if (p.getAttribute("data") === type) {
+                    p.style.display = "block";
+                }
+                else {
+                    p.style.display = "none";
+                }
 
-<p>
-Completed advanced Excel training focused on data organization and analysis.
-Worked with formulas, functions, charts and data processing tools.
-Used Excel for structured reporting and data management tasks.
-Developed strong spreadsheet and analytical skills.
-</p>
+            });
 
-<img class="certImg" src="certificates/excel.jpg" alt="Excel Certificate">
+        }
 
-<a class="certBtn" href="certificates/excel.pdf" target="_blank">
-View Certificate
-</a>
 
-</div>
+        /* SKILLS */
 
+        let skills = document.querySelectorAll(".fill");
 
+        window.addEventListener("scroll", () => {
 
-<!-- PHOTOSHOP -->
+            skills.forEach(s => {
 
-<div class="cert">
+                let rect = s.getBoundingClientRect();
 
-<h3>Adobe Photoshop Certification</h3>
+                if (rect.top < window.innerHeight) {
 
-<p>
-Completed training in Adobe Photoshop and digital design techniques.
-Worked with image editing, layer management and color correction tools.
-Created visual designs and professional graphics.
-Developed practical skills in digital image processing.
-</p>
+                    s.style.width = s.getAttribute("data") + "%";
 
-<img class="certImg" src="certificates/photoshop.jpg" alt="Photoshop Certificate">
+                }
 
-<a class="certBtn" href="certificates/photoshop.pdf" target="_blank">
-View Certificate
-</a>
+            });
 
-</div>
+        });
 
 
-</div>
+        /* COUNTERS */
 
-</div>
+        function counter(id, max) {
 
+            let c = 0;
 
-<!-- CONTACT -->
+            let el = document.getElementById(id);
 
-<div id="contact" class="section">
+            let i = setInterval(() => {
 
-<div class="sectionTitle">
+                c++;
 
-Contact
+                el.innerHTML = c;
 
-</div>
+                if (c == max)
+                    clearInterval(i);
 
+            }, 30);
 
-<div class="contact">
+        }
 
-Email: yashsurve2019@gmail.com
+        counter("p1", 12);
+        counter("p2", 18);
+        counter("p3", 6);
 
-<br><br>
 
-Phone: 8850706982
+        /* EMAIL */
 
-<br><br>
+        function copyEmail() {
 
-<button class="btnOutline" onclick="copyEmail()">
+            navigator.clipboard.writeText("yashsurve2019@gmail.com");
 
-Copy Email
+            alert("Email copied");
 
-</button>
+        }
+        function toggleMenu() {
 
-</div>
+            document.getElementById("navLinks").classList.toggle("active");
 
-</div>
+        }
 
-
-</div>
-
-
-
-<script>
-
-/* FILTER */
-
-function filterProjects(type){
-
-let projects = document.querySelectorAll(".project");
-
-projects.forEach(p=>{
-
-if(type==="all"){
-p.style.display="block";
-}
-else if(p.getAttribute("data")===type){
-p.style.display="block";
-}
-else{
-p.style.display="none";
-}
-
-});
-
-}
-
-
-/* SKILLS */
-
-let skills=document.querySelectorAll(".fill");
-
-window.addEventListener("scroll",()=>{
-
-skills.forEach(s=>{
-
-let rect=s.getBoundingClientRect();
-
-if(rect.top<window.innerHeight){
-
-s.style.width=s.getAttribute("data")+"%";
-
-}
-
-});
-
-});
-
-
-/* COUNTERS */
-
-function counter(id,max){
-
-let c=0;
-
-let el=document.getElementById(id);
-
-let i=setInterval(()=>{
-
-c++;
-
-el.innerHTML=c;
-
-if(c==max)
-clearInterval(i);
-
-},30);
-
-}
-
-counter("p1",12);
-counter("p2",18);
-counter("p3",6);
-
-
-/* EMAIL */
-
-function copyEmail(){
-
-navigator.clipboard.writeText("yashsurve2019@gmail.com");
-
-alert("Email copied");
-
-}
-function toggleMenu(){
-
-document.getElementById("navLinks").classList.toggle("active");
-
-}
-
-</script>
+    </script>
 
 </body>
 
