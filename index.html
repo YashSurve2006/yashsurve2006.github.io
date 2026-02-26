@@ -944,7 +944,7 @@ SMALL MOBILE
 
                 <div>
 
-                    <div class="stat" id="p1">8</div>
+                    <div class="stat" id="p1">0</div>
 
                     Projects
 
@@ -953,7 +953,7 @@ SMALL MOBILE
 
                 <div>
 
-                    <div class="stat" id="p2">15</div>
+                    <div class="stat" id="p2">0</div>
 
                     Technologies
 
@@ -962,7 +962,7 @@ SMALL MOBILE
 
                 <div>
 
-                    <div class="stat" id="p3">6</div>
+                    <div class="stat" id="p3">0</div>
 
                     Networks Built
 
@@ -1639,16 +1639,19 @@ SMALL MOBILE
 
                 el.innerHTML = c;
 
-                if (c == max)
+                if (c >= max)
                     clearInterval(i);
 
-            }, 30);
+            }, 40);
 
         }
 
-        counter("p1", 12);
-        counter("p2", 18);
-        counter("p3", 6);
+
+        /* FINAL PORTFOLIO VALUES */
+
+        counter("p1", 8);   // Projects
+        counter("p2", 15);  // Technologies
+        counter("p3", 3);   // Networks Built
 
 
         /* EMAIL */
