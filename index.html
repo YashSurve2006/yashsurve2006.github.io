@@ -284,12 +284,13 @@ SECTIONS (FINAL FIXED)
 Restores Proper Vertical Spacing
 =========================== */
 
-        .section {
+.section{
 
-            margin-top: 120px;
-            margin-bottom: 120px;
+margin-bottom:40px;
 
-        }
+padding-bottom:20px;
+
+}
 
         /* Section Titles */
 
@@ -1052,6 +1053,122 @@ SMALL MOBILE
             }
 
         }
+
+        /* ADVANCED FOOTER */
+
+.footer{
+
+margin-top:30px !important;
+
+padding-top:30px;
+
+}
+
+
+/* Grid Layout */
+
+.footer-grid{
+
+display:grid;
+
+grid-template-columns: 1fr 1fr 1fr;
+
+gap:60px;
+
+padding-bottom:30px;
+
+}
+
+
+/* Columns */
+
+.footer-col h2{
+
+font-size:22px;
+
+color:#a78bfa;
+
+margin-bottom:10px;
+
+}
+
+.footer-col h3{
+
+color:#00eaff;
+
+margin-bottom:10px;
+
+font-size:18px;
+
+}
+
+
+.footer-col p{
+
+color:#9ca3af;
+
+margin:6px 0;
+
+font-size:15px;
+
+}
+
+
+/* Links */
+
+.footer-col a{
+
+display:block;
+
+margin:6px 0;
+
+color:#9ca3af;
+
+text-decoration:none;
+
+transition:0.3s;
+
+font-size:15px;
+
+}
+
+
+.footer-col a:hover{
+
+color:#00eaff;
+
+padding-left:5px;
+
+}
+
+
+/* Bottom Line */
+
+.footer-bottom{
+
+border-top:1px solid rgba(0,255,255,0.1);
+
+padding:20px 0;
+
+text-align:center;
+
+color:#6b7280;
+
+font-size:14px;
+
+}
+
+/* FIX EMPTY SPACE AFTER CONTACT */
+
+#contact{
+
+padding-bottom:40px !important;
+
+margin-bottom:0 !important;
+
+min-height:auto !important;
+
+}
     </style>
 
 </head>
@@ -1941,6 +2058,58 @@ SMALL MOBILE
 
     </script>
 
+<!-- ADVANCED PORTFOLIO FOOTER -->
+
+<footer class="footer">
+
+<div class="container footer-grid">
+
+<div class="footer-col">
+
+<h2>Yash Amar Surve</h2>
+
+<p>Computer Science Student</p>
+
+<p>Network Engineer & Software Developer</p>
+
+</div>
+
+
+<div class="footer-col">
+
+<h3>Contact</h3>
+
+<p>yashsurve2019@gmail.com</p>
+
+<p>+91 8850706982</p>
+
+<p>Mumbai, India</p>
+
+</div>
+
+
+<div class="footer-col">
+
+<h3>Links</h3>
+
+<a href="https://github.com/YashSurve2006" target="_blank">GitHub</a>
+
+<a href="resume.pdf" target="_blank">Download Resume</a>
+
+<a href="#contact">Contact</a>
+
+</div>
+
+</div>
+
+
+<div class="footer-bottom">
+
+© 2026 Yash Surve | Portfolio
+
+</div>
+
+</footer>
 </body>
 
 </html>
