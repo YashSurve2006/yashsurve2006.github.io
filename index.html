@@ -1878,6 +1878,94 @@ font-size:13px;
 
 }
 
+/* MOBILE NAVBAR FIX */
+
+.logoBlock{
+display:flex;
+flex-direction:column;
+}
+
+
+/* Mobile Navbar */
+
+@media(max-width:768px){
+
+.navbar{
+
+flex-wrap:wrap;
+
+align-items:flex-start;
+
+}
+
+
+.name{
+
+font-size:22px;
+
+}
+
+
+.role{
+
+font-size:12px;
+
+margin-top:2px;
+
+}
+
+
+/* Hamburger Position */
+
+.menuToggle{
+
+display:block;
+
+position:absolute;
+
+right:20px;
+
+top:18px;
+
+}
+
+
+/* Mobile Menu */
+
+.navLinks{
+
+display:none;
+
+flex-direction:column;
+
+width:100%;
+
+margin-top:15px;
+
+background:#020617;
+
+padding:15px;
+
+border-top:1px solid #1e293b;
+
+}
+
+
+.navLinks.active{
+display:flex;
+}
+
+
+.navLinks a{
+
+padding:10px 0;
+
+border-bottom:1px solid #1f2a44;
+
+}
+
+}
+
 </style>
 
 
@@ -1891,36 +1979,41 @@ font-size:13px;
 
         <!-- NAVBAR -->
 
-        <div class="navbar">
+<div class="navbar">
 
-            <div>
+<div class="logoBlock">
 
-                <div class="name">
-                    Yash Surve
-                </div>
+<div class="name">
+Yash Surve
+</div>
 
-                <div class="role">
-                    Network Engineer • Software Developer
-                </div>
+<div class="role">
+Network Engineer • Software Developer
+</div>
 
-            </div>
+</div>
 
-            <div class="menuToggle" onclick="toggleMenu()">
-                ☰
-            </div>
 
-            <div class="navLinks" id="navLinks">
+<div class="menuToggle" onclick="toggleMenu()">
+☰
+</div>
 
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <a href="#cert">Certifications</a>
-                <a href="#contact">Contact</a>
 
-            </div>
+<div class="navLinks" id="navLinks">
 
-        </div>
+<a href="#about">About</a>
 
+<a href="#skills">Skills</a>
+
+<a href="#projects">Projects</a>
+
+<a href="#cert">Certifications</a>
+
+<a href="#contact">Contact</a>
+
+</div>
+
+</div>
         <div class="hero">
 
             <h1>
