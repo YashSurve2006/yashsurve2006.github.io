@@ -625,7 +625,6 @@
             border-radius: var(--radius-xl);
             padding: clamp(28px, 3.5vw, 40px);
             position: relative;
-            overflow: hidden;
         }
 
         .about-card::before {
@@ -1862,67 +1861,29 @@
             transition: width 0.08s linear;
         }
 
-        /* ── CUSTOM CURSOR (desktop/mouse only) ── */
-        @media (hover: hover) {
-            html { cursor: none !important; }
-            a, button, [onclick], label { cursor: none !important; }
-        }
-
-        .cursor-dot,
-        .cursor-ring {
-            position: fixed;
-            top: 0;
-            left: 0;
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            will-change: transform;
-        }
-
-        .cursor-dot {
-            width: 6px;
-            height: 6px;
-            background: var(--cyan);
-            box-shadow: 0 0 8px var(--cyan);
-        }
-
-        .cursor-ring {
-            width: 30px;
-            height: 30px;
-            border: 1.5px solid rgba(34, 199, 255, 0.4);
-            transition:
-                width 0.22s var(--ease),
-                height 0.22s var(--ease),
-                border-color 0.22s,
-                background 0.22s;
-        }
-
-        .cursor-ring.cursor-hover {
-            width: 52px;
-            height: 52px;
-            border-color: var(--cyan);
-            background: rgba(34, 199, 255, 0.06);
-        }
-
-        @media (hover: none) {
-            .cursor-dot,
-            .cursor-ring { display: none; }
-        }
-
         /* ── ANIMATED PORTRAIT FRAME (About section) ── */
+
         .portrait-frame {
             position: relative;
-            width: 110px;
-            height: 110px;
-            margin-bottom: 20px;
+            width: 130px;
+            height: 130px;
+            margin-bottom: 24px;
             flex-shrink: 0;
         }
 
         .portrait-ring-wrap {
-            width: 110px;
-            height: 110px;
+            position: relative;
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
             padding: 3px;
+        }
+
+        .portrait-ring-wrap::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
             background: conic-gradient(from 0deg, var(--cyan), var(--indigo), var(--violet), var(--cyan));
             animation: portrait-spin 4s linear infinite;
         }
@@ -1937,7 +1898,7 @@
             justify-content: center;
             overflow: hidden;
             position: relative;
-            animation: portrait-counter-spin 4s linear infinite;
+            z-index: 1;
         }
 
         .portrait-initials {
@@ -1982,10 +1943,6 @@
 
         @keyframes portrait-spin {
             to { transform: rotate(360deg); }
-        }
-
-        @keyframes portrait-counter-spin {
-            to { transform: rotate(-360deg); }
         }
 
         @keyframes portrait-orbit-anim {
@@ -2200,6 +2157,263 @@
             border-radius: inherit;
             pointer-events: none;
         }
+
+        /* ================================================================
+   HERO SPLIT LAYOUT
+================================================================ */
+
+        /* Two-column split row inside hero */
+        .hero-split-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: clamp(36px, 5vw, 80px);
+            width: 100%;
+            max-width: var(--max-w);
+            margin-bottom: 56px;
+        }
+
+        /* Left text column */
+        .hero-text-col {
+            flex: 1;
+            min-width: 0;
+            text-align: left;
+        }
+
+        /* Override inherited center-align from .hero */
+        .hero-text-col .hero-eyebrow,
+        .hero-text-col h1,
+        .hero-text-col .hero-sub {
+            text-align: left;
+        }
+
+        .hero-text-col .hero-desc {
+            text-align: left;
+            max-width: 520px;
+            margin-inline: 0;
+        }
+
+        .hero-text-col .hero-actions {
+            justify-content: flex-start;
+        }
+
+        /* Right portrait column */
+        .hero-portrait-col {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* Extra space for floating badges that extend outside the frame */
+            padding: 24px 48px;
+        }
+
+        /* ── LARGE HERO PORTRAIT FRAME ── */
+        .hero-portrait-frame {
+            position: relative;
+            width: clamp(220px, 24vw, 340px);
+            height: clamp(220px, 24vw, 340px);
+        }
+
+        /* Subtle glow shadow beneath portrait */
+        .hero-portrait-frame::before {
+            content: '';
+            position: absolute;
+            bottom: -24px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            height: 36px;
+            background: var(--cyan);
+            filter: blur(28px);
+            opacity: 0.18;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .hero-portrait-ring-wrap {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            padding: 4px;
+        }
+
+        .hero-portrait-ring-wrap::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, var(--cyan), var(--indigo), var(--violet), var(--cyan));
+            animation: portrait-spin 5s linear infinite;
+        }
+
+        .hero-portrait-content {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: var(--grad-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-portrait-initials {
+            font-family: var(--font-display);
+            font-size: clamp(48px, 6vw, 80px);
+            font-weight: 800;
+            color: #fff;
+            position: absolute;
+            z-index: 0;
+            user-select: none;
+        }
+
+        .hero-portrait-photo {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .hero-portrait-orbit {
+            position: absolute;
+            inset: -18px;
+            border-radius: 50%;
+            animation: portrait-orbit-anim 6s linear infinite;
+            pointer-events: none;
+        }
+
+        .hero-portrait-orbit-dot {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: var(--cyan);
+            box-shadow: 0 0 14px var(--cyan), 0 0 28px rgba(34,199,255,0.5);
+        }
+
+        /* Floating tech badges orbiting the portrait */
+        .hero-float-badge {
+            position: absolute;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 13px;
+            border-radius: var(--pill);
+            background: rgba(8, 16, 40, 0.88);
+            border: 1px solid var(--border-accent);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--text-2);
+            white-space: nowrap;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.06);
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .hero-float-badge i {
+            color: var(--cyan);
+            font-size: 11px;
+        }
+
+        /* Badge positions + staggered float animation */
+        .hero-float-1 {
+            top: 5%;
+            right: -32%;
+            animation: badge-float 3.2s ease-in-out infinite;
+        }
+
+        .hero-float-2 {
+            bottom: 16%;
+            right: -36%;
+            animation: badge-float 3.2s ease-in-out 0.9s infinite;
+        }
+
+        .hero-float-3 {
+            top: 24%;
+            left: -32%;
+            animation: badge-float 3.2s ease-in-out 1.6s infinite;
+        }
+
+        .hero-float-4 {
+            bottom: 5%;
+            left: -28%;
+            animation: badge-float 3.2s ease-in-out 2.3s infinite;
+        }
+
+        @keyframes badge-float {
+            0%, 100% { transform: translateY(0px); }
+            50%       { transform: translateY(-7px); }
+        }
+
+        /* ── RESPONSIVE: Hero split collapses on mobile ── */
+        @media (max-width: 900px) {
+            .hero-split-row {
+                flex-direction: column-reverse;
+                gap: 32px;
+                margin-bottom: 40px;
+            }
+
+            .hero-text-col,
+            .hero-text-col h1,
+            .hero-text-col .hero-eyebrow,
+            .hero-text-col .hero-sub,
+            .hero-text-col .hero-desc {
+                text-align: center;
+            }
+
+            .hero-text-col .hero-desc {
+                margin-inline: auto;
+            }
+
+            .hero-text-col .hero-actions {
+                justify-content: center;
+            }
+
+            .hero-portrait-col {
+                padding: 20px 36px;
+            }
+
+            .hero-portrait-frame {
+                width: clamp(180px, 48vw, 260px);
+                height: clamp(180px, 48vw, 260px);
+            }
+
+            .hero-float-1 { right: -20%; }
+            .hero-float-2 { right: -22%; }
+            .hero-float-3 { left: -20%; }
+            .hero-float-4 { left: -16%; }
+        }
+
+        @media (max-width: 576px) {
+            .hero-portrait-col { padding: 16px 24px; }
+
+            .hero-portrait-frame {
+                width: 200px;
+                height: 200px;
+            }
+
+            .hero-float-badge {
+                font-size: 10px;
+                padding: 5px 10px;
+            }
+
+            .hero-float-1 { right: -10%; top: 2%; }
+            .hero-float-2 { display: none; }
+            .hero-float-3 { left: -10%; top: 18%; }
+            .hero-float-4 { display: none; }
+        }
     </style>
 </head>
 
@@ -2207,10 +2421,6 @@
 
     <!-- SCROLL PROGRESS BAR -->
     <div id="scroll-progress"></div>
-
-    <!-- CUSTOM CURSOR -->
-    <div class="cursor-dot" id="cursorDot"></div>
-    <div class="cursor-ring" id="cursorRing"></div>
 
     <!-- AMBIENT ORBS -->
     <div class="orb orb-1"></div>
@@ -2249,25 +2459,65 @@
         <!-- ================================================================
      HERO
 ================================================================ -->
-        <section class="hero">
-            <div class="hero-eyebrow">Computer Science Student</div>
-            <h1>Network<br>Engineer</h1>
-            <p class="hero-sub">Networking · Cybersecurity · Software Engineering</p>
-            <p class="hero-desc">
-                Hands-on experience in Cisco networking, enterprise infrastructure design, and modern full-stack
-                development.
-                CCNA-level practical knowledge across routing, switching, VLANs, and subnetting — paired with
-                production-grade
-                web platforms built in React, Node.js, Java, MySQL, and Oracle.
-            </p>
-            <div class="hero-actions">
-                <a class="btn-primary" href="certificates/RESUME.pdf" target="_blank">
-                    <i class="fa-solid fa-download"></i> Download Resume
-                </a>
-                <a class="btn-ghost" href="https://github.com/YashSurve2006" target="_blank">
-                    <i class="fa-brands fa-github"></i> GitHub Profile
-                </a>
+        <section class="hero hero-has-portrait">
+            <div class="hero-split-row">
+
+                <!-- Left: text content -->
+                <div class="hero-text-col">
+                    <div class="hero-eyebrow">Computer Science Student</div>
+                    <h1>Network<br>Engineer</h1>
+                    <p class="hero-sub">Networking · Cybersecurity · Software Engineering</p>
+                    <p class="hero-desc">
+                        Hands-on experience in Cisco networking, enterprise infrastructure design, and modern full-stack
+                        development.
+                        CCNA-level practical knowledge across routing, switching, VLANs, and subnetting — paired with
+                        production-grade
+                        web platforms built in React, Node.js, Java, MySQL, and Oracle.
+                    </p>
+                    <div class="hero-actions">
+                        <a class="btn-primary" href="certificates/RESUME.pdf" target="_blank">
+                            <i class="fa-solid fa-download"></i> Download Resume
+                        </a>
+                        <a class="btn-ghost" href="https://github.com/YashSurve2006" target="_blank">
+                            <i class="fa-brands fa-github"></i> GitHub Profile
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: portrait with floating badges -->
+                <div class="hero-portrait-col">
+                    <div class="hero-portrait-frame">
+                        <div class="hero-portrait-ring-wrap">
+                            <div class="hero-portrait-content">
+                                <span class="hero-portrait-initials">YS</span>
+                                <img src="images/profile.jpg"
+                                     class="hero-portrait-photo"
+                                     alt="Yash Surve"
+                                     onerror="this.style.display='none'">
+                            </div>
+                        </div>
+                        <div class="hero-portrait-orbit">
+                            <span class="hero-portrait-orbit-dot"></span>
+                        </div>
+                        <!-- Floating skill badges -->
+                        <div class="hero-float-badge hero-float-1">
+                            <i class="fa-solid fa-network-wired"></i> CCNA Level
+                        </div>
+                        <div class="hero-float-badge hero-float-2">
+                            <i class="fa-solid fa-brain"></i> AI / ML
+                        </div>
+                        <div class="hero-float-badge hero-float-3">
+                            <i class="fa-brands fa-react"></i> Full Stack
+                        </div>
+                        <div class="hero-float-badge hero-float-4">
+                            <i class="fa-solid fa-shield-halved"></i> Fortinet
+                        </div>
+                    </div>
+                </div>
+
             </div>
+
+            <!-- Stats strip spans full width at bottom -->
             <div class="stats-strip">
                 <div class="stat-item">
                     <div class="stat-num" id="p1">0</div>
@@ -3097,35 +3347,6 @@
                 const pct = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
                 bar.style.width = Math.min(pct, 100) + '%';
             }, { passive: true });
-        })();
-
-        /* ── CUSTOM CURSOR ── */
-        (function () {
-            const dot = document.getElementById('cursorDot');
-            const ring = document.getElementById('cursorRing');
-            if (!dot || !ring) return;
-
-            let mx = 0, my = 0, rx = 0, ry = 0;
-
-            document.addEventListener('mousemove', (e) => {
-                mx = e.clientX;
-                my = e.clientY;
-                dot.style.transform = `translate(calc(${mx}px - 50%), calc(${my}px - 50%))`;
-            }, { passive: true });
-
-            /* Ring lags behind with easing */
-            (function animRing() {
-                rx += (mx - rx) * 0.1;
-                ry += (my - ry) * 0.1;
-                ring.style.transform = `translate(calc(${rx}px - 50%), calc(${ry}px - 50%))`;
-                requestAnimationFrame(animRing);
-            })();
-
-            /* Scale ring on interactive elements */
-            document.querySelectorAll('a, button, .project-card, .skill-card, .cert-card, .filter-btn, .highlight-item, .contact-link-item').forEach(el => {
-                el.addEventListener('mouseenter', () => ring.classList.add('cursor-hover'));
-                el.addEventListener('mouseleave', () => ring.classList.remove('cursor-hover'));
-            });
         })();
 
         /* ── CARD 3D TILT EFFECT ── */
