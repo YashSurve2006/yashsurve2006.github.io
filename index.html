@@ -1843,10 +1843,374 @@
                 transform: translateY(0);
             }
         }
+
+        /* ================================================================
+   PREMIUM ENHANCEMENTS — ADDITIVE ONLY (no existing rules modified)
+================================================================ */
+
+        /* ── SCROLL PROGRESS BAR ── */
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            width: 0%;
+            background: var(--grad-primary);
+            z-index: 10000;
+            box-shadow: 0 0 10px rgba(34, 199, 255, 0.55), 0 0 20px rgba(34, 199, 255, 0.25);
+            pointer-events: none;
+            transition: width 0.08s linear;
+        }
+
+        /* ── CUSTOM CURSOR (desktop/mouse only) ── */
+        @media (hover: hover) {
+            html { cursor: none !important; }
+            a, button, [onclick], label { cursor: none !important; }
+        }
+
+        .cursor-dot,
+        .cursor-ring {
+            position: fixed;
+            top: 0;
+            left: 0;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            will-change: transform;
+        }
+
+        .cursor-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--cyan);
+            box-shadow: 0 0 8px var(--cyan);
+        }
+
+        .cursor-ring {
+            width: 30px;
+            height: 30px;
+            border: 1.5px solid rgba(34, 199, 255, 0.4);
+            transition:
+                width 0.22s var(--ease),
+                height 0.22s var(--ease),
+                border-color 0.22s,
+                background 0.22s;
+        }
+
+        .cursor-ring.cursor-hover {
+            width: 52px;
+            height: 52px;
+            border-color: var(--cyan);
+            background: rgba(34, 199, 255, 0.06);
+        }
+
+        @media (hover: none) {
+            .cursor-dot,
+            .cursor-ring { display: none; }
+        }
+
+        /* ── ANIMATED PORTRAIT FRAME (About section) ── */
+        .portrait-frame {
+            position: relative;
+            width: 110px;
+            height: 110px;
+            margin-bottom: 20px;
+            flex-shrink: 0;
+        }
+
+        .portrait-ring-wrap {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            padding: 3px;
+            background: conic-gradient(from 0deg, var(--cyan), var(--indigo), var(--violet), var(--cyan));
+            animation: portrait-spin 4s linear infinite;
+        }
+
+        .portrait-content {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: var(--grad-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            animation: portrait-counter-spin 4s linear infinite;
+        }
+
+        .portrait-initials {
+            font-family: var(--font-display);
+            font-size: 28px;
+            font-weight: 800;
+            color: #fff;
+            position: absolute;
+            z-index: 0;
+            user-select: none;
+        }
+
+        .portrait-photo {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .portrait-orbit {
+            position: absolute;
+            inset: -14px;
+            border-radius: 50%;
+            animation: portrait-orbit-anim 5s linear infinite;
+            pointer-events: none;
+        }
+
+        .portrait-orbit-dot {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--cyan);
+            box-shadow: 0 0 10px var(--cyan), 0 0 22px rgba(34, 199, 255, 0.5);
+        }
+
+        @keyframes portrait-spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes portrait-counter-spin {
+            to { transform: rotate(-360deg); }
+        }
+
+        @keyframes portrait-orbit-anim {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 576px) {
+            .portrait-frame,
+            .portrait-ring-wrap {
+                width: 88px;
+                height: 88px;
+            }
+
+            .portrait-initials { font-size: 22px; }
+        }
+
+        /* ── CARD 3D TILT — GPU prep ── */
+        .project-card,
+        .skill-card,
+        .cert-card {
+            transform-style: preserve-3d;
+            will-change: transform;
+        }
+
+        /* ── PROJECT CARD FILTER — opacity transition ── */
+        .project-card {
+            transition:
+                border-color var(--dur) var(--ease),
+                box-shadow var(--dur) var(--ease),
+                transform var(--dur) var(--ease),
+                opacity 0.3s var(--ease);
+        }
+
+        /* ── AI/ML PROJECT CARD — SPECIAL VISUAL IDENTITY ── */
+        .project-card[data="ai"] {
+            background: linear-gradient(145deg, #0e1235 0%, #130d28 100%);
+            border-color: rgba(139, 92, 246, 0.25);
+        }
+
+        .project-card[data="ai"]::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--cyan), var(--violet), var(--indigo), var(--violet), var(--cyan));
+            background-size: 200% 100%;
+            animation: ai-border-flow 3s linear infinite;
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .project-card[data="ai"]::after {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(34, 199, 255, 0.04) 60%);
+        }
+
+        .project-card[data="ai"]:hover {
+            border-color: rgba(139, 92, 246, 0.55);
+            box-shadow: 0 30px 80px rgba(139, 92, 246, 0.18), 0 0 0 1px rgba(139, 92, 246, 0.3);
+        }
+
+        @keyframes ai-border-flow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+
+        /* AI badge pill */
+        .ai-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 3px 10px;
+            border-radius: var(--pill);
+            background: rgba(139, 92, 246, 0.12);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            font-family: var(--font-mono);
+            font-size: 9px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #a78bfa;
+            margin-bottom: 8px;
+            width: fit-content;
+            animation: ai-badge-pulse 3s ease-in-out infinite;
+        }
+
+        .ai-badge i { font-size: 9px; }
+
+        @keyframes ai-badge-pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(139, 92, 246, 0); }
+            50% { box-shadow: 0 0 14px rgba(139, 92, 246, 0.45); }
+        }
+
+        /* Tech tag row inside project cards */
+        .project-tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+
+        .project-tech-tag {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            padding: 2px 8px;
+            border-radius: var(--pill);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            color: var(--text-3);
+            transition: color var(--dur), border-color var(--dur);
+        }
+
+        .project-card[data="ai"] .project-tech-tag {
+            background: rgba(139, 92, 246, 0.06);
+            border-color: rgba(139, 92, 246, 0.2);
+            color: rgba(167, 139, 250, 0.75);
+        }
+
+        .project-card[data="ai"]:hover .project-tech-tag {
+            color: #a78bfa;
+            border-color: rgba(139, 92, 246, 0.4);
+        }
+
+        /* ── AMBIENT ORB DRIFT ── */
+        @keyframes orb-drift-1 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33%  { transform: translate(40px, -30px) scale(1.06); }
+            66%  { transform: translate(-20px, 22px) scale(0.96); }
+        }
+
+        @keyframes orb-drift-2 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33%  { transform: translate(-30px, 26px) scale(1.04); }
+            66%  { transform: translate(26px, -20px) scale(0.97); }
+        }
+
+        .orb-1 { animation: orb-drift-1 14s ease-in-out infinite; }
+        .orb-2 { animation: orb-drift-2 18s ease-in-out infinite; }
+
+        /* ── HERO TITLE SHIMMER ── */
+        .hero h1 {
+            background-size: 200% 100%;
+            animation: fadeUp 0.7s var(--ease) 0.2s both, hero-shimmer 6s ease-in-out 1.5s infinite;
+        }
+
+        @keyframes hero-shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50%       { background-position: 100% 50%; }
+        }
+
+        /* ── ACTIVE NAV LINK ── */
+        .nav-links a.nav-active {
+            color: var(--cyan);
+            background: rgba(34, 199, 255, 0.08);
+        }
+
+        /* ── SECTION DIVIDER ANIMATED SCAN LINE ── */
+        .section-divider {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-divider::after {
+            content: '';
+            position: absolute;
+            left: -20%;
+            top: 0;
+            height: 100%;
+            width: 20%;
+            background: linear-gradient(90deg, transparent, rgba(34, 199, 255, 0.55), transparent);
+            animation: divider-scan 5s ease-in-out infinite;
+        }
+
+        @keyframes divider-scan {
+            0%   { left: -20%; }
+            100% { left: 120%; }
+        }
+
+        /* ── CONTACT LINK ROW — ARROW INDICATOR ── */
+        .contact-link-item {
+            position: relative;
+        }
+
+        .contact-link-item::after {
+            content: '\2192';
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-3);
+            font-size: 14px;
+            transition: transform var(--dur) var(--ease), color var(--dur);
+        }
+
+        .contact-link-item:hover::after {
+            transform: translateY(-50%) translateX(4px);
+            color: var(--cyan);
+        }
+
+        /* ── FILTER BUTTON ACTIVE SHINE ── */
+        .filter-btn.active {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .filter-btn.active::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.14), transparent);
+            border-radius: inherit;
+            pointer-events: none;
+        }
     </style>
 </head>
 
 <body>
+
+    <!-- SCROLL PROGRESS BAR -->
+    <div id="scroll-progress"></div>
+
+    <!-- CUSTOM CURSOR -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
 
     <!-- AMBIENT ORBS -->
     <div class="orb orb-1"></div>
@@ -1934,7 +2298,21 @@
                 <div class="about-grid">
                     <div class="about-visual reveal reveal-delay-1">
                         <div class="about-card">
-                            <div class="about-avatar">YS</div>
+                            <!-- Premium animated portrait frame -->
+                            <div class="portrait-frame">
+                                <div class="portrait-ring-wrap">
+                                    <div class="portrait-content">
+                                        <span class="portrait-initials">YS</span>
+                                        <img src="images/profile.jpg"
+                                             class="portrait-photo"
+                                             alt="Yash Surve"
+                                             onerror="this.style.display='none'">
+                                    </div>
+                                </div>
+                                <div class="portrait-orbit">
+                                    <span class="portrait-orbit-dot"></span>
+                                </div>
+                            </div>
                             <div class="about-card-name">Yash Surve</div>
                             <div class="about-card-role">Network Engineer · Software Developer</div>
                             <div class="about-badges">
@@ -2231,6 +2609,7 @@
 
                 <div class="filters-row reveal">
                     <button class="filter-btn active" onclick="filterProjects('all', this)">All</button>
+                    <button class="filter-btn" onclick="filterProjects('ai', this)">AI/ML</button>
                     <button class="filter-btn" onclick="filterProjects('network', this)">Network</button>
                     <button class="filter-btn" onclick="filterProjects('fullstack', this)">Full Stack</button>
                     <button class="filter-btn" onclick="filterProjects('java', this)">Java</button>
@@ -2240,6 +2619,27 @@
                 </div>
 
                 <div class="projects-grid">
+
+                    <div class="project-card reveal" data="ai">
+                        <div class="ai-badge"><i class="fa-solid fa-brain"></i> AI Powered</div>
+                        <div class="project-type">AI/ML</div>
+                        <div class="project-title">AI HR Assistant</div>
+                        <p class="project-desc">Enterprise-grade AI-powered HR assistant for intelligent candidate screening, resume analysis with ATS scoring, smart job recommendations via TF-IDF, sentiment-driven employee feedback analytics, and end-to-end recruitment workflow automation.</p>
+                        <div class="project-tech-tags">
+                            <span class="project-tech-tag">Python</span>
+                            <span class="project-tech-tag">Flask</span>
+                            <span class="project-tech-tag">NLP</span>
+                            <span class="project-tech-tag">spaCy</span>
+                            <span class="project-tech-tag">VADER</span>
+                            <span class="project-tech-tag">TF-IDF</span>
+                            <span class="project-tech-tag">Vanilla JS</span>
+                            <span class="project-tech-tag">Chart.js</span>
+                        </div>
+                        <div class="project-links">
+                            <a class="project-link" href="https://github.com/YashSurve2006/AI-HR-Assistant"
+                                target="_blank"><i class="fa-brands fa-github"></i> View on GitHub</a>
+                        </div>
+                    </div>
 
                     <div class="project-card reveal" data="fullstack">
                         <div class="project-type">Full Stack</div>
@@ -2683,6 +3083,167 @@
 
             init();
             draw();
+        })();
+
+        /* ================================================================
+   PREMIUM ENHANCEMENTS JS — ADDITIVE ONLY
+================================================================ */
+
+        /* ── SCROLL PROGRESS BAR ── */
+        (function () {
+            const bar = document.getElementById('scroll-progress');
+            if (!bar) return;
+            window.addEventListener('scroll', () => {
+                const pct = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+                bar.style.width = Math.min(pct, 100) + '%';
+            }, { passive: true });
+        })();
+
+        /* ── CUSTOM CURSOR ── */
+        (function () {
+            const dot = document.getElementById('cursorDot');
+            const ring = document.getElementById('cursorRing');
+            if (!dot || !ring) return;
+
+            let mx = 0, my = 0, rx = 0, ry = 0;
+
+            document.addEventListener('mousemove', (e) => {
+                mx = e.clientX;
+                my = e.clientY;
+                dot.style.transform = `translate(calc(${mx}px - 50%), calc(${my}px - 50%))`;
+            }, { passive: true });
+
+            /* Ring lags behind with easing */
+            (function animRing() {
+                rx += (mx - rx) * 0.1;
+                ry += (my - ry) * 0.1;
+                ring.style.transform = `translate(calc(${rx}px - 50%), calc(${ry}px - 50%))`;
+                requestAnimationFrame(animRing);
+            })();
+
+            /* Scale ring on interactive elements */
+            document.querySelectorAll('a, button, .project-card, .skill-card, .cert-card, .filter-btn, .highlight-item, .contact-link-item').forEach(el => {
+                el.addEventListener('mouseenter', () => ring.classList.add('cursor-hover'));
+                el.addEventListener('mouseleave', () => ring.classList.remove('cursor-hover'));
+            });
+        })();
+
+        /* ── CARD 3D TILT EFFECT ── */
+        (function () {
+            document.querySelectorAll('.project-card, .skill-card, .cert-card').forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const r = card.getBoundingClientRect();
+                    const x = e.clientX - r.left;
+                    const y = e.clientY - r.top;
+                    const rotX = ((y - r.height / 2) / r.height) * -10;
+                    const rotY = ((x - r.width / 2) / r.width) * 10;
+                    /* Disable CSS transition during tracking for smooth follow */
+                    card.style.transition = 'box-shadow var(--dur) var(--ease), border-color var(--dur) var(--ease)';
+                    card.style.transform = `perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-8px)`;
+                });
+                card.addEventListener('mouseleave', () => {
+                    /* Restore CSS transition for spring-back */
+                    card.style.transition = '';
+                    card.style.transform = '';
+                });
+            });
+        })();
+
+        /* ── HERO PARALLAX LAYERS ── */
+        (function () {
+            const hero = document.querySelector('.hero');
+            if (!hero) return;
+            const layers = [
+                hero.querySelector('.hero-eyebrow'),
+                hero.querySelector('h1'),
+                hero.querySelector('.hero-sub'),
+                hero.querySelector('.hero-desc'),
+                hero.querySelector('.hero-actions'),
+                hero.querySelector('.stats-strip')
+            ].filter(Boolean);
+
+            hero.addEventListener('mousemove', (e) => {
+                const r = hero.getBoundingClientRect();
+                const mx = (e.clientX - r.left - r.width / 2) / r.width;
+                const my = (e.clientY - r.top - r.height / 2) / r.height;
+                layers.forEach((el, i) => {
+                    const depth = (i + 1) * 1.8;
+                    el.style.transition = 'transform 0.08s linear';
+                    el.style.transform = `translate(${mx * depth}px, ${my * depth}px)`;
+                });
+            }, { passive: true });
+
+            hero.addEventListener('mouseleave', () => {
+                layers.forEach(el => {
+                    el.style.transition = 'transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)';
+                    el.style.transform = '';
+                });
+            });
+        })();
+
+        /* ── MAGNETIC BUTTONS ── */
+        (function () {
+            document.querySelectorAll('.btn-primary, .btn-ghost').forEach(btn => {
+                btn.addEventListener('mousemove', (e) => {
+                    const r = btn.getBoundingClientRect();
+                    const x = (e.clientX - r.left - r.width / 2) * 0.28;
+                    const y = (e.clientY - r.top - r.height / 2) * 0.28;
+                    btn.style.transform = `translate(${x}px, ${y - 3}px)`;
+                });
+                btn.addEventListener('mouseleave', () => {
+                    btn.style.transform = '';
+                });
+            });
+        })();
+
+        /* ── ENHANCED PROJECT FILTER — fade-in animation ── */
+        window.filterProjects = function (type, btn) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            document.querySelectorAll('.project-card').forEach(card => {
+                const match = type === 'all' || card.getAttribute('data') === type;
+                if (!match) {
+                    card.style.display = 'none';
+                } else {
+                    const wasHidden = card.style.display === 'none';
+                    card.style.display = 'flex';
+                    if (wasHidden) {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(18px) scale(0.96)';
+                        requestAnimationFrame(() => requestAnimationFrame(() => {
+                            card.style.opacity = '';
+                            card.style.transform = '';
+                        }));
+                    }
+                }
+            });
+        };
+
+        /* ── ACTIVE NAV LINK TRACKER ── */
+        (function () {
+            const sections = document.querySelectorAll('section[id]');
+            const links = document.querySelectorAll('.nav-links a[href^="#"]');
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(s => {
+                    if (window.scrollY >= s.offsetTop - 140) current = s.id;
+                });
+                links.forEach(l => {
+                    l.classList.toggle('nav-active', l.getAttribute('href') === '#' + current);
+                });
+            }, { passive: true });
+        })();
+
+        /* ── ORB-3 MOUSE FOLLOW (subtle ambient) ── */
+        (function () {
+            const orb = document.querySelector('.orb-3');
+            if (!orb) return;
+            let tx = 0, ty = 0;
+            window.addEventListener('mousemove', (e) => {
+                tx = (e.clientX / window.innerWidth - 0.5) * 90;
+                ty = (e.clientY / window.innerHeight - 0.5) * 90;
+                orb.style.transform = `translateY(-50%) translate(${tx}px, ${ty}px)`;
+            }, { passive: true });
         })();
 
     </script>
