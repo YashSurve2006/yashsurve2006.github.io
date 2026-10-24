@@ -122,7 +122,7 @@ Professional multi-page corporate website with GSAP animations.
 | Platform | Link |
 |---|---|
 | 🌐 Portfolio | [yashsurve2006.github.io](https://yashsurve2006.github.io) |
-| 💼 LinkedIn | [linkedin.com/in/yash-surve-535954288](https://www.linkedin.com/in/yash-surve170306/) |
+| 💼 LinkedIn | [linkedin.com/in/yash-surve170306](https://www.linkedin.com/in/yash-surve170306/) |
 | 🐙 GitHub | [github.com/YashSurve2006](https://github.com/YashSurve2006) |
 | 📧 Email | yashsurve2019@gmail.com |
 
