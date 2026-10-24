@@ -6,7 +6,7 @@
 
 [![Live Site](https://img.shields.io/badge/🌐_Live_Site-yashsurve2006.github.io-22c7ff?style=for-the-badge&labelColor=0d1730)](https://yashsurve2006.github.io)
 [![GitHub](https://img.shields.io/badge/GitHub-YashSurve2006-181717?style=for-the-badge&logo=github)](https://github.com/YashSurve2006)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Yash_Surve-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/yash-surve-535954288)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Yash_Surve-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/yash-surve170306/)
 [![Email](https://img.shields.io/badge/Email-yashsurve2019@gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:yashsurve2019@gmail.com)
 
 </div>
@@ -122,7 +122,7 @@ Professional multi-page corporate website with GSAP animations.
 | Platform | Link |
 |---|---|
 | 🌐 Portfolio | [yashsurve2006.github.io](https://yashsurve2006.github.io) |
-| 💼 LinkedIn | [linkedin.com/in/yash-surve-535954288](https://www.linkedin.com/in/yash-surve-535954288) |
+| 💼 LinkedIn | [linkedin.com/in/yash-surve-535954288](https://www.linkedin.com/in/yash-surve170306/) |
 | 🐙 GitHub | [github.com/YashSurve2006](https://github.com/YashSurve2006) |
 | 📧 Email | yashsurve2019@gmail.com |
 
